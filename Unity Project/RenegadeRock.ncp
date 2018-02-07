@@ -1,0 +1,106 @@
+<Project>
+  <Name>RenegadeRock</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Character</Name>
+        <Access>Public</Access>
+        <Location left="703" top="644" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Move(Vector3 pos)</Member>
+        <Member type="Method">public void NewEvent()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameManager</Name>
+        <Access>Public</Access>
+        <Location left="297" top="92" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">float passedTime</Member>
+        <Member type="Method">public void KillPlayer()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CycleManager</Name>
+        <Access>Public</Access>
+        <Location left="116" top="178" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="621" top="416" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Move(Vector3 pos)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NotebookManager</Name>
+        <Access>Public</Access>
+        <Location left="1077" top="48" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NoteboardManager</Name>
+        <Access>Public</Access>
+        <Location left="1259" top="50" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ConversationManager</Name>
+        <Access>Public</Access>
+        <Location left="690" top="48" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Hunger</Name>
+        <Access>Public</Access>
+        <Location left="838" top="416" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Tiredness</Name>
+        <Access>Public</Access>
+        <Location left="1021" top="416" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Health</Name>
+        <Access>Public</Access>
+        <Location left="1196" top="416" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Quest</Name>
+        <Access>Public</Access>
+        <Location left="926" top="644" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Etc</Name>
+        <Access>Public</Access>
+        <Location left="1103" top="644" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+</Project>
