@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Action : ScriptableObject
 {
     public bool interruptable, saveChangesInPlayMode;
-    public abstract List<string> GetRequirements();
+    public abstract List<Jai.Requirement> GetRequirements();
 
     protected Jai ai;
 
@@ -13,6 +13,8 @@ public abstract class Action : ScriptableObject
         this.ai = ai;
     }
 
+    public abstract bool IsInRange();
+    public abstract Vector3 Pos();
     public abstract void Execute();
     public abstract void Cancel();
     public virtual void Complete()
@@ -26,12 +28,12 @@ public abstract class Action : ScriptableObject
 
 public abstract class NormalAction : Action
 {
-    public abstract List<string> GetRewards();
+    public abstract List<Jai.Requirement> GetRewards();
 
     public override void Complete()
     {
-        List<string> ret = GetRewards();
-        foreach (string s in ret)
+        List<Jai.Requirement> ret = GetRewards();
+        foreach (Jai.Requirement s in ret)
             if (!ai.filledRequirements.Contains(s))
                 ai.filledRequirements.Add(s);
         base.Complete();    
@@ -60,15 +62,15 @@ public abstract class RootAction : Action
 #region Simplifiers
 public abstract class SimpleNormalAction : NormalAction
 {
-    public List<string> requirements = new List<string>(),
-        rewards = new List<string>();
+    public List<Jai.Requirement> requirements = new List<Jai.Requirement>(),
+        rewards = new List<Jai.Requirement>();
 
-    public override List<string> GetRequirements()
+    public override List<Jai.Requirement> GetRequirements()
     {
         return requirements;
     }
 
-    public override List<string> GetRewards()
+    public override List<Jai.Requirement> GetRewards()
     {
         return rewards;
     }
@@ -76,9 +78,9 @@ public abstract class SimpleNormalAction : NormalAction
 
 public abstract class SimpleRootAction : RootAction
 {
-    public List<string> requirements = new List<string>();
+    public List<Jai.Requirement> requirements = new List<Jai.Requirement>();
 
-    public override List<string> GetRequirements()
+    public override List<Jai.Requirement> GetRequirements()
     {
         return requirements;
     }

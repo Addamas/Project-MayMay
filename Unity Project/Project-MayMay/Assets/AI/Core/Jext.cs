@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
@@ -18,6 +20,11 @@ namespace Jext
 {
     public static class Methods
     {
+        public static bool IsEven(int i)
+        {
+            return i % 2 == 0;
+        }
+
         #region Game Specific
 
         /// <summary>
@@ -305,6 +312,16 @@ namespace Jext
             return arr[arr.Length - 1];
         }
 
+        public static char First(this string s)
+        {
+            return s[0];
+        }
+
+        public static char Last(this string s)
+        {
+            return s[s.Length - 1];
+        }
+
         #endregion
 
         #region Get From List
@@ -419,6 +436,33 @@ namespace Jext
             path += ".xml";
             return path;
         }
+        #endregion
+
+        #region Custom Enum
+
+        public static Enum CreateEnumFromArrays(List<string> list)
+        {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            AssemblyName aName = new AssemblyName("Enum");
+            AssemblyBuilder ab = currentDomain.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
+            ModuleBuilder mb = ab.DefineDynamicModule(aName.Name);
+            EnumBuilder enumerator = mb.DefineEnum("Enum", TypeAttributes.Public, typeof(int));
+
+            int i = 0;
+            enumerator.DefineLiteral("None", i); //Here = enum{ None }
+
+            foreach (string names in list)
+            {
+                i++;
+                enumerator.DefineLiteral(names, i);
+            }
+
+            //Here = enum { None, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday }
+
+            Type finished = enumerator.CreateType();
+            return (Enum)Enum.ToObject(finished, 0);
+        }
+
         #endregion
     }
 }

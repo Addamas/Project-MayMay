@@ -21,8 +21,9 @@ public class Jai : MonoBehaviour {
     private int curValue;
     private float timeLeft, timeRequired;
 
+    public enum Requirement {example1, example2 }
     [HideInInspector]
-    public List<string> filledRequirements = new List<string>(); //for instance, hasShovel or hasSandwich
+    public List<Requirement> filledRequirements = new List<Requirement>(); //for instance, hasShovel or hasSandwich
     #endregion
 
     #region Default Methods
@@ -74,7 +75,7 @@ public class Jai : MonoBehaviour {
 
     //function specific variables, since this function will be called a lot I'm not putting these in the function itself (garbage collector)
     private List<CalcAction> open = new List<CalcAction>(), succeeded = new List<CalcAction>();
-    private List<string> openRequirements = new List<string>(), curRewards, curRequirements;
+    private List<Requirement> openRequirements = new List<Requirement>(), curRewards, curRequirements;
     private NormalAction normalAction;
     private CalcAction calcAction;
     private bool fit;
@@ -88,7 +89,7 @@ public class Jai : MonoBehaviour {
             if (rA.GetReturnValue() + curStat.GetValue() > criticalLevel) {
                 fit = true;
                 curRequirements = rA.GetRequirements();
-                foreach (string requirement in curRequirements)
+                foreach (Requirement requirement in curRequirements)
                     if(!filledRequirements.Contains(requirement))
                     {
                         fit = false;
@@ -108,7 +109,7 @@ public class Jai : MonoBehaviour {
 
             foreach (NormalAction action in actions) {
                 curRewards = action.GetRewards();
-                foreach(string reward in openRequirements)
+                foreach(Requirement reward in openRequirements)
                     if(curRewards.Contains(reward))
                     {
                         //setting variable references
@@ -119,7 +120,7 @@ public class Jai : MonoBehaviour {
                             fit = true;
                             curRequirements = action.GetRequirements();
 
-                            foreach (string required in curRequirements) //check if AI can execute
+                            foreach (Requirement required in curRequirements) //check if AI can execute
                                 if(!filledRequirements.Contains(required))
                                 {
                                     fit = false;
@@ -146,7 +147,12 @@ public class Jai : MonoBehaviour {
         curAction = succeeded.First().action;
 
         Debug.Log(curAction.name);
-        curAction.Execute();
+        ExecuteNext(curAction);
+    }
+
+    protected virtual void ExecuteNext(Action action)
+    {
+        action.Execute();
     }
 
     private struct CalcAction
