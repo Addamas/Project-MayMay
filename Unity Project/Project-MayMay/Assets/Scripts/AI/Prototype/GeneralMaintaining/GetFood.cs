@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Jext;
 
-[CreateAssetMenu(fileName = "GetWater", menuName = "Actions/GetWater", order = 1)]
-public class GetWater : GetInteractableX
+[CreateAssetMenu(fileName = "GetFood", menuName = "Actions/GetFood", order = 1)]
+public class GetFood : GetInteractableX
 {
     protected List<Well> wells;
 
@@ -16,7 +16,7 @@ public class GetWater : GetInteractableX
 
     public override void Execute()
     {
-        AI<Character>().ownedItems.Add(GetX<Well>().GetWater());
+        ai.ownedItems.Add(GetX<Well>().GetWater());
         Complete();
     }
 

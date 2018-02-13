@@ -14,9 +14,9 @@ public class Consume : SimpleRootAction
     public override void Execute()
     {
         Consumable consumable = GetConsumable();
-        consumable.Consume(AI<Character>());
+        consumable.Consume(ai);
         if (GetConsumables().Count == 0)
-            AI<Character>().filledRequirements.Remove(Jai.Requirement.hasFood);
+            ai.filledRequirements.Remove(Jai.Requirement.hasFood);
         Complete();
     }
 
@@ -51,6 +51,6 @@ public class Consume : SimpleRootAction
 
     private List<Consumable> GetConsumables()
     {
-        return AI<Character>().ownedItems.GetTypeFromListAsU<Item, Consumable>();
+        return ai.ownedItems.GetTypeFromListAsU<Item, Consumable>();
     }
 }

@@ -12,7 +12,7 @@ public class Shopkeeper : SimpleRootAction
     public override void Init(Jai ai, Stat stat)
     {
         base.Init(ai, stat);
-        shop = GetInteractableX.SPGetAllX<Shop>(AI<Character>())[0];
+        shop = GetInteractableX.SPGetAllX<Shop>(ai as Character)[0];
     }
 
     public override void Cancel()
@@ -37,7 +37,7 @@ public class Shopkeeper : SimpleRootAction
 
     public override bool IsInRange()
     {
-        return Dis() < AI<Character>().interactDistance;
+        return Dis() < ai.interactDistance;
     }
 
     public override Vector3 Pos()
@@ -62,7 +62,7 @@ public class ShopkeepAction : SimpleNormalAction
     public override void Init(Jai ai)
     {
         base.Init(ai);
-        shop = GetInteractableX.SPGetAllX<Shop>(AI<Character>())[0];
+        shop = GetInteractableX.SPGetAllX<Shop>(ai as Character)[0];
     }
 
     public override void Cancel()
@@ -71,16 +71,6 @@ public class ShopkeepAction : SimpleNormalAction
     }
 
     public override void Execute()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override float GetEstimatedTimeRequired()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override bool IsInRange()
     {
         throw new System.NotImplementedException();
     }

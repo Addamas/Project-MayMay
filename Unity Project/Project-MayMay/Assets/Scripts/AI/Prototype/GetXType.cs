@@ -15,16 +15,6 @@ public class GetXType : SimpleNormalAction
 
     }
 
-    public override float GetEstimatedTimeRequired()
-    {
-        return AI<Character>().agent.speed * Dis() * Time.deltaTime;
-    }
-
-    public override bool IsInRange()
-    {
-        return Dis() < AI<Character>().interactDistance;
-    }
-
     public override Vector3 Pos()
     {
         return GetX<MonoBehaviour>().transform.position;
@@ -44,7 +34,7 @@ public class GetItemX : GetXType
         List<T> ret = new List<T>();
         foreach (T t in xs)
             ret.Add(t);
-        ret.AddList(AI<Character>().ownedItems.GetTypeFromListAsU<Item, T>(), false);
+        ret.AddList(ai.ownedItems.GetTypeFromListAsU<Item, T>(), false);
         return ret;
     }
 
@@ -72,7 +62,7 @@ public class GetInteractableX : GetXType
         List<T> ret = new List<T>();
         foreach (T t in xs)
             ret.Add(t);
-        ret.AddList(AI<Character>().ownedInteractables.GetTypeFromListAsU<Interactable, T>(), false);
+        ret.AddList(ai.ownedInteractables.GetTypeFromListAsU<Interactable, T>(), false);
         return ret;
     }
 

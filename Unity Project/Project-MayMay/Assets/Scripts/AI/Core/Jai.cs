@@ -58,6 +58,7 @@ public class Jai : MonoBehaviour {
     }
     #endregion
 
+    [SerializeField]
     private float eventTriggerTime;
     private IEnumerator CheckForEvent()
     {

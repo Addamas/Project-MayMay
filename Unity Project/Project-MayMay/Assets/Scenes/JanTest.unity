@@ -2714,19 +2714,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criticalLevel: 10
   actions:
-  - {fileID: 11400000, guid: 76f1edd5b660f9441b226c47e32b9b05, type: 2}
   - {fileID: 11400000, guid: c9d2eaee3c5f78249a689bc5b9e02760, type: 2}
   stats:
   - {fileID: 11400000, guid: 376514eaa823d79459427718318a838a, type: 2}
   - {fileID: 11400000, guid: f664189adce263c4b978ab9c24aa2ffc, type: 2}
+  - {fileID: 11400000, guid: f769a499f76bae043b65faa5ce325e17, type: 2}
+  - {fileID: 11400000, guid: 76325dc8f83ca274c8f815964948c482, type: 2}
   curAction: {fileID: 0}
-  filledRequirements: 01000000
+  filledRequirements: 
+  eventTriggerTime: 5
   anim: {fileID: 0}
   agent: {fileID: 0}
   interactDistance: 2
-  ownedInteractables: []
-  ownedItems:
-  - {fileID: 114511343191570118, guid: 9d372031d7f0cba41b32ac994218f18e, type: 2}
+  ownedInteractables:
+  - {fileID: 1233829677}
+  - {fileID: 2013750605}
+  ownedItems: []
 --- !u!195 &775344049
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3631,7 +3634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54760d81ef70de4aba1fd4c09394fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 475
+  time: 0
   minuteLength: 1
 --- !u!4 &1150612456
 Transform:
@@ -3779,7 +3782,7 @@ GameObject:
   - component: {fileID: 1233829678}
   - component: {fileID: 1233829677}
   m_Layer: 0
-  m_Name: Door
+  m_Name: WC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3793,9 +3796,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1233829676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4532d931388024b8a738be60b67973, type: 3}
+  m_Script: {fileID: 11500000, guid: 15b66101028210a4e9a6fbc47714e97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!23 &1233829678
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6341,8 +6345,9 @@ GameObject:
   - component: {fileID: 2013750603}
   - component: {fileID: 2013750602}
   - component: {fileID: 2013750601}
+  - component: {fileID: 2013750605}
   m_Layer: 0
-  m_Name: Kitchen Sink
+  m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6415,6 +6420,18 @@ Transform:
   m_Father: {fileID: 1706842390}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013750605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2013750600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f706179d28f1ff48bb332c1579b8744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &2046788397
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,9 @@ public class Gamemanager : MonoBehaviour {
 
     public static Gamemanager instance;
     public static List<Interactable> publicInteractables = new List<Interactable>();
+    public static Jai[] ais;
 
-    public int time; //in minutes
+    public static int time; //in minutes
     [SerializeField]
     private float minuteLength = 1;
 
@@ -29,7 +30,7 @@ public class Gamemanager : MonoBehaviour {
 
     private void EnableAI()
     {
-        Jai[] ais = FindObjectsOfType(typeof(Jai)) as Jai[];
+        ais = FindObjectsOfType(typeof(Jai)) as Jai[];
         foreach (Jai ai in ais)
             ai.Activate();
     }

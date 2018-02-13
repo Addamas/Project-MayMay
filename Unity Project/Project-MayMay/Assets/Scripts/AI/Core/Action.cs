@@ -3,21 +3,20 @@ using UnityEngine;
 
 public abstract class Action : ScriptableObject
 {
-    protected Jai ai;
-    protected T AI<T>() where T : Jai
-    {
-        return ai as T;
-    }
+    protected Character ai;
 
     public bool interruptable, saveChangesInPlayMode;
     public abstract List<Jai.Requirement> GetRequirements();
 
     public virtual void Init(Jai ai)
     {
-        this.ai = ai;
+        this.ai = ai as Character;
     }
 
-    public abstract bool IsInRange();
+    public virtual bool IsInRange()
+    {
+        return Dis() < ai.interactDistance;
+    }
     public abstract Vector3 Pos();
     public virtual float Dis()
     {
@@ -31,7 +30,10 @@ public abstract class Action : ScriptableObject
         ai.NewEvent();
     }
 
-    public abstract float GetEstimatedTimeRequired();
+    public virtual float GetEstimatedTimeRequired()
+    {
+        return ai.agent.speed * Dis() * Time.deltaTime;
+    }
 
     protected int Uninportant
     {

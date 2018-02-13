@@ -3,11 +3,7 @@ using UnityEngine;
 
 public abstract class Stat : ScriptableObject {
 
-    protected Jai ai;
-    public T AI<T>() where T : Jai
-    {
-        return ai as T;
-    }
+    protected Character ai;
 
     public bool saveChangesInPlayMode;
     //stats can be very generic, so that's why it isn't just an int or a float
@@ -20,7 +16,7 @@ public abstract class Stat : ScriptableObject {
 
     public virtual void Init(Jai ai)
     {
-        this.ai = ai;
+        this.ai = ai as Character;
     }
 
     protected int Uninportant

@@ -4,7 +4,7 @@ using UnityEngine;
 using Jext;
 
 [CreateAssetMenu(fileName = "FillBucket", menuName = "Actions/FillBucket", order = 1)]
-public class FillBucket : GetWater
+public class FillBucket : GetFood
 {
     public override void Complete()
     {
