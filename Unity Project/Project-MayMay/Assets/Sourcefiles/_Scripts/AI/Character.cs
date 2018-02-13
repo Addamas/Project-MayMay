@@ -6,13 +6,19 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
 public class Character : Jai {
 
-    protected Animator anim;
-    protected NavMeshAgent agent;
+    [HideInInspector]
+    public Animator anim;
+    [HideInInspector]
+    public NavMeshAgent agent;
+    public float interactDistance = 1;
 
-    protected override void Awake()
+    public List<Interactable> ownedInteractables = new List<Interactable>();
+    public List<Item> ownedItems = new List<Item>();
+
+    public override void Activate()
     {
         SetupReferences();
-        base.Awake();
+        base.Activate();
     }
 
     protected virtual void SetupReferences()
@@ -31,7 +37,7 @@ public class Character : Jai {
 
     protected virtual IEnumerator Move(Action action)
     {
-        while (action.IsInRange())
+        while (!action.IsInRange())
         {
             agent.SetDestination(action.Pos());
             yield return null;

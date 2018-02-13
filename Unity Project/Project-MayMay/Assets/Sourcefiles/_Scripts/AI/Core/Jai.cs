@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Jext;
+using System.Collections;
 
 public class Jai : MonoBehaviour {
 
@@ -21,18 +22,20 @@ public class Jai : MonoBehaviour {
     private int curValue;
     private float timeLeft, timeRequired;
 
-    public enum Requirement {example1, example2 }
-    [HideInInspector]
+    public enum Requirement {hasFood, hasBucket, hasFilledBucket, openShop, closedShop }
     public List<Requirement> filledRequirements = new List<Requirement>(); //for instance, hasShovel or hasSandwich
     #endregion
 
     #region Default Methods
-    protected virtual void Awake()
+    public virtual void Activate()
     {
         //make copies so that you dont save changes in play mode
         for (int stat = 0; stat < stats.Count; stat++)
             if (!stats[stat].saveChangesInPlayMode)
+            {
                 stats[stat] = Instantiate(stats[stat]);
+                stats[stat].Init(this);
+            }
         for (int action = 0; action < actions.Length; action++)
             if (!actions[action].saveChangesInPlayMode)
                 actions[action] = Instantiate(actions[action]);
@@ -51,8 +54,19 @@ public class Jai : MonoBehaviour {
         //enable stats that rely on ticks, like a hunger meter that slowly depletes
         List<ITickable> tickables = stats.GetTypeFromListAsT<ITickable, Stat>();
         tickables.ForEach(x => StartCoroutine(x.Tick()));
+        StartCoroutine(CheckForEvent());
     }
     #endregion
+
+    private float eventTriggerTime;
+    private IEnumerator CheckForEvent()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(eventTriggerTime);
+            NewEvent();
+        }
+    }
 
     public void NewEvent()
     {
@@ -69,7 +83,7 @@ public class Jai : MonoBehaviour {
                 curAction.Cancel();
             else
                 return;
-
+        Debug.Log("Fix " + curStat.name);
         CalculatePath();
     }
 

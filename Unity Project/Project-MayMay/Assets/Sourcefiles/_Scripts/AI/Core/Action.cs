@@ -3,10 +3,14 @@ using UnityEngine;
 
 public abstract class Action : ScriptableObject
 {
+    protected Jai ai;
+    protected T AI<T>() where T : Jai
+    {
+        return ai as T;
+    }
+
     public bool interruptable, saveChangesInPlayMode;
     public abstract List<Jai.Requirement> GetRequirements();
-
-    protected Jai ai;
 
     public virtual void Init(Jai ai)
     {
@@ -15,6 +19,10 @@ public abstract class Action : ScriptableObject
 
     public abstract bool IsInRange();
     public abstract Vector3 Pos();
+    public virtual float Dis()
+    {
+        return Vector3.Distance(ai.transform.position, Pos());
+    }
     public abstract void Execute();
     public abstract void Cancel();
     public virtual void Complete()
@@ -24,6 +32,22 @@ public abstract class Action : ScriptableObject
     }
 
     public abstract float GetEstimatedTimeRequired();
+
+    protected int Uninportant
+    {
+        get
+        {
+            return 100;
+        }
+    }
+
+    protected int Important
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
 
 public abstract class NormalAction : Action
@@ -43,6 +67,10 @@ public abstract class NormalAction : Action
 public abstract class RootAction : Action
 {
     protected Stat stat;
+    protected T STAT<T>() where T : Stat
+    {
+        return stat as T;
+    }
 
     public abstract int GetReturnValue();
 

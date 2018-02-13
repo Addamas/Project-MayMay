@@ -326,12 +326,12 @@ namespace Jext
 
         #region Get From List
 
-        public static List<U> GetTypeFromListAsU<T, U>(this List<U> list) where T : class
+        public static List<U> GetTypeFromListAsU<T, U>(this List<T> list) where T : class where U : class, T
         {
             List<U> ret = new List<U>();
-            foreach (U t in list)
-                if (t as T != null)
-                    ret.Add(t);
+            foreach (T t in list)
+                if (t as U != null)
+                    ret.Add(t as U);
             return ret;
         }
 
