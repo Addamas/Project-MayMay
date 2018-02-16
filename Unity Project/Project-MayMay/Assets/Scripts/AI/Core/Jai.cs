@@ -55,6 +55,7 @@ public class Jai : MonoBehaviour {
         //enable stats that rely on ticks, like a hunger meter that slowly depletes
         List<ITickable> tickables = stats.GetTypeFromListAsT<ITickable, Stat>();
         tickables.ForEach(x => StartCoroutine(x.Tick()));
+        StartCoroutine(CheckForEvent());
     }
 
     public virtual void LateActivate()
@@ -63,14 +64,22 @@ public class Jai : MonoBehaviour {
     }
     #endregion
 
+<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Jai.cs
     [SerializeField]
+=======
+>>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Jai.cs
     private float eventTriggerTime;
     private IEnumerator CheckForEvent()
     {
         while (true)
         {
+<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Jai.cs
             NewEvent();
             yield return new WaitForSeconds(eventTriggerTime);
+=======
+            yield return new WaitForSeconds(eventTriggerTime);
+            NewEvent();
+>>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Jai.cs
         }
     }
 

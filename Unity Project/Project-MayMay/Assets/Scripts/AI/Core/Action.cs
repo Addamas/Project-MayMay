@@ -3,11 +3,20 @@ using UnityEngine;
 
 public abstract class Action : ScriptableObject
 {
+<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Action.cs
     protected Character ai;
+=======
+    protected Jai ai;
+    protected T AI<T>() where T : Jai
+    {
+        return ai as T;
+    }
+>>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Action.cs
 
     public bool interruptable, saveChangesInPlayMode;
     public abstract List<Jai.Requirement> GetRequirements();
 
+<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Action.cs
     public bool executableCheck;
     public bool Executable
     {
@@ -33,6 +42,8 @@ public abstract class Action : ScriptableObject
         Pos();
     }
 
+=======
+>>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Action.cs
     public virtual void Init(Jai ai)
     {
         this.ai = ai as Character;
@@ -62,6 +73,7 @@ public abstract class Action : ScriptableObject
         ai.NewEvent();
     }
 
+<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Action.cs
     public virtual float GetEstimatedTimeRequired()
     {
         try
@@ -73,6 +85,9 @@ public abstract class Action : ScriptableObject
             return Mathf.Infinity;
         }
     }
+=======
+    public abstract float GetEstimatedTimeRequired();
+>>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Action.cs
 
     protected int Uninportant
     {
