@@ -15,10 +15,35 @@ public class Character : Jai {
     public List<Interactable> ownedInteractables = new List<Interactable>();
     public List<Item> ownedItems = new List<Item>();
 
+    public List<Social.Other> associates = new List<Social.Other>();
+    [HideInInspector]
+    public List<Social> restSocials = new List<Social>();
+
+    public Social Social
+    {
+        get
+        {
+            foreach (Stat stat in stats)
+                if (stat as Social != null)
+                    return stat as Social;
+            return null;
+        }
+    }
+
     public override void Activate()
     {
         SetupReferences();
         base.Activate();
+    }
+
+    public override void LateActivate()
+    {
+        associates.ForEach(x => x.social = x.character.Social);
+        Gamemanager.socialables.ForEach(x => restSocials.Add(x));
+        foreach (Social.Other other in associates)
+            restSocials.Remove(other.social);
+        restSocials.Remove(Social);
+        base.LateActivate();
     }
 
     protected virtual void SetupReferences()

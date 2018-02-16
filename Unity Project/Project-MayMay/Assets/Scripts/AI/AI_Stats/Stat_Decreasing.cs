@@ -12,7 +12,7 @@ public class Stat_Decreasing : Stat_Normal, ITickable {
         while (value > 0)
         {
             yield return new WaitForSeconds(tickSpeed);
-            value--;
+            AddValue(-1);
             TickInterval();
         }
     }

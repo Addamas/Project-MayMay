@@ -3,7 +3,8 @@ using UnityEngine;
 
 public abstract class Stat : ScriptableObject {
 
-    protected Character ai;
+    [HideInInspector]
+    public Character ai;
 
     public bool saveChangesInPlayMode;
     //stats can be very generic, so that's why it isn't just an int or a float

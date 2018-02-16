@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interruptable: 0
   saveChangesInPlayMode: 0
+  executableCheck: 1
   requirements: 
   rewards: 00000000

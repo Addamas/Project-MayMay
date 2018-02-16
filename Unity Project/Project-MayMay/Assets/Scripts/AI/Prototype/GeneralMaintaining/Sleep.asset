@@ -13,6 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interruptable: 0
   saveChangesInPlayMode: 0
+  executableCheck: 1
   requirements: 
-  duration: 0
-  sleepPerSecond: 0

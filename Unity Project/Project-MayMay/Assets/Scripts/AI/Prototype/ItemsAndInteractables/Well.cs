@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Well : Interactable {
+public class Well : GrantConsumables {
 
     [SerializeField]
     private Water water;
 
-	public Water GetWater()
+    public override Consumable GetConsumable()
     {
         return water;
     }

@@ -20,7 +20,7 @@ public class GetXType : SimpleNormalAction
         return GetX<MonoBehaviour>().transform.position;
     }
 
-    protected virtual T GetX<T>() where T : MonoBehaviour
+    protected virtual T GetX<T>() where T : class
     {
         return null;
     }
@@ -28,26 +28,6 @@ public class GetXType : SimpleNormalAction
 
 public class GetItemX : GetXType
 {
-    protected List<T> GetAllX<T>() where T : Item
-    {
-        T[] xs = FindObjectsOfType(typeof(T)) as T[];
-        List<T> ret = new List<T>();
-        foreach (T t in xs)
-            ret.Add(t);
-        ret.AddList(ai.ownedItems.GetTypeFromListAsU<Item, T>(), false);
-        return ret;
-    }
-
-    public static List<T> SGetAllX<T>(Character character) where T : Item
-    {
-        T[] xs = FindObjectsOfType(typeof(T)) as T[];
-        List<T> ret = new List<T>();
-        foreach (T t in xs)
-            ret.Add(t);
-        ret.AddList(character.ownedItems.GetTypeFromListAsU<Item, T>(), false);
-        return ret;
-    }
-
     public static List<T> SPGetAllX<T>(Character character) where T : Item
     {
         return character.ownedItems.GetTypeFromListAsU<Item, T>();
@@ -71,7 +51,8 @@ public class GetInteractableX : GetXType
         T[] xs = FindObjectsOfType(typeof(T)) as T[];
         List<T> ret = new List<T>();
         foreach (T t in xs)
-            ret.Add(t);
+            if(!t.HasOwner)
+                ret.Add(t);
         ret.AddList(character.ownedInteractables.GetTypeFromListAsU<Interactable, T>(), false);
         return ret;
     }

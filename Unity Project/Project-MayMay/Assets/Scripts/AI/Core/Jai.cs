@@ -19,7 +19,8 @@ public class Jai : MonoBehaviour {
     [HideInInspector] 
     public Action curAction;
     private Stat curStat;
-    private int curValue;
+    [HideInInspector]
+    public int curValue;
     private float timeLeft, timeRequired;
 
     public enum Requirement {hasFood, hasBucket, hasFilledBucket, openShop, closedShop }
@@ -54,6 +55,10 @@ public class Jai : MonoBehaviour {
         //enable stats that rely on ticks, like a hunger meter that slowly depletes
         List<ITickable> tickables = stats.GetTypeFromListAsT<ITickable, Stat>();
         tickables.ForEach(x => StartCoroutine(x.Tick()));
+    }
+
+    public virtual void LateActivate()
+    {
         StartCoroutine(CheckForEvent());
     }
     #endregion
@@ -64,8 +69,8 @@ public class Jai : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(eventTriggerTime);
             NewEvent();
+            yield return new WaitForSeconds(eventTriggerTime);
         }
     }
 
@@ -101,21 +106,22 @@ public class Jai : MonoBehaviour {
         open.Clear();
 
         foreach (RootAction rA in curStat.boosters) //rootactions lead directly to the AI's wishes
-            if (rA.GetReturnValue() + curStat.GetValue() > criticalLevel) {
-                fit = true;
-                curRequirements = rA.GetRequirements();
-                foreach (Requirement requirement in curRequirements)
-                    if(!filledRequirements.Contains(requirement))
-                    {
-                        fit = false;
-                        break;
-                    }
-                calcAction = new CalcAction(rA, rA.GetEstimatedTimeRequired());
-                if (fit)
-                    succeeded.Add(calcAction);
-                else
-                    open.Add(calcAction);
-            }
+            if(rA.Executable)
+                if (rA.GetReturnValue() + curStat.GetValue() > criticalLevel) {
+                    fit = true;
+                    curRequirements = rA.GetRequirements();
+                    foreach (Requirement requirement in curRequirements)
+                        if(!filledRequirements.Contains(requirement))
+                        {
+                            fit = false;
+                            break;
+                        }
+                    calcAction = new CalcAction(rA, rA.GetEstimatedTimeRequired());
+                    if (fit)
+                        succeeded.Add(calcAction);
+                    else
+                        open.Add(calcAction);
+                }
 
         while(open.Count > 0) //from here the AI will check what actions are necessary to be able to execute said rootactions 
         {
@@ -155,19 +161,26 @@ public class Jai : MonoBehaviour {
             open.RemoveAt(0);
         }
 
-        if (succeeded.Count == 0)
-            return;
+        succeeded.RemoveAll(x => !x.action.Executable);
 
+        if (succeeded.Count == 0)
+        {
+            Debug.Log("No suitable action has been found");
+            return;
+        }
+        
         succeeded = succeeded.SuperSort(CActionSorter); //sort on the shortest path
         curAction = succeeded.First().action;
 
-        Debug.Log(curAction.name);
+        
         ExecuteNext(curAction);
     }
 
     protected virtual void ExecuteNext(Action action)
     {
-        action.Execute();
+        Debug.Log(curAction.name + " " + action.Executable);
+        if (action.Executable)
+            action.Execute();
     }
 
     private struct CalcAction

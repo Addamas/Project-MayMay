@@ -6,17 +6,17 @@ using Jext;
 [CreateAssetMenu(fileName = "GetFood", menuName = "Actions/GetFood", order = 1)]
 public class GetFood : GetInteractableX
 {
-    protected List<Well> wells;
+    protected List<GrantConsumables> locations;
 
     public override void Init(Jai ai)
     {
         base.Init(ai);
-        wells = GetAllX<Well>();
+        locations = SGetAllX<GrantConsumables>(ai as Character);
     }
 
     public override void Execute()
     {
-        ai.ownedItems.Add(GetX<Well>().GetWater());
+        ai.ownedItems.Add(GetX<GrantConsumables>().GetConsumable());
         Complete();
     }
 
@@ -27,6 +27,6 @@ public class GetFood : GetInteractableX
 
     protected override T GetX<T>()
     {
-        return wells[0] as T;
+        return locations[0] as T;
     }
 }

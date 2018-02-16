@@ -6,6 +6,7 @@ public class Gamemanager : MonoBehaviour {
 
     public static Gamemanager instance;
     public static List<Interactable> publicInteractables = new List<Interactable>();
+    public static List<Social> socialables = new List<Social>();
     public static Jai[] ais;
 
     public static int time; //in minutes
@@ -32,7 +33,18 @@ public class Gamemanager : MonoBehaviour {
     {
         ais = FindObjectsOfType(typeof(Jai)) as Jai[];
         foreach (Jai ai in ais)
+        {
             ai.Activate();
+            foreach (Stat stat in ai.stats)
+                if (stat as Social != null)
+                {
+                    socialables.Add(stat as Social);
+                    break;
+                }
+        }
+
+        foreach (Jai ai in ais)
+            ai.LateActivate();
     }
 
     public void ContinueFlow()

@@ -8,6 +8,31 @@ public abstract class Action : ScriptableObject
     public bool interruptable, saveChangesInPlayMode;
     public abstract List<Jai.Requirement> GetRequirements();
 
+    public bool executableCheck;
+    public bool Executable
+    {
+        get
+        {
+            if (!executableCheck)
+                return true;
+            try
+            {
+                ExecutableCheck();
+                return true;
+            }
+            catch
+            {
+                Debug.Log(name + " cannot be executed");
+                return false;
+            }
+        }
+    }
+
+    protected virtual void ExecutableCheck()
+    {
+        Pos();
+    }
+
     public virtual void Init(Jai ai)
     {
         this.ai = ai as Character;
@@ -15,7 +40,14 @@ public abstract class Action : ScriptableObject
 
     public virtual bool IsInRange()
     {
-        return Dis() < ai.interactDistance;
+        try
+        {
+            return Dis() < ai.interactDistance;
+        }
+        catch
+        {
+            return false;
+        }
     }
     public abstract Vector3 Pos();
     public virtual float Dis()
@@ -32,7 +64,14 @@ public abstract class Action : ScriptableObject
 
     public virtual float GetEstimatedTimeRequired()
     {
-        return ai.agent.speed * Dis() * Time.deltaTime;
+        try
+        {
+            return  Dis() / ai.agent.speed;
+        }
+        catch
+        {
+            return Mathf.Infinity;
+        }
     }
 
     protected int Uninportant
