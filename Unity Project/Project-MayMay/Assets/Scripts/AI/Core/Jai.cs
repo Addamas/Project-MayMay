@@ -85,7 +85,7 @@ public class Jai : MonoBehaviour {
         curValue = curStat.GetValue();
 
         if (curAction != null)
-            if (curValue < criticalLevel || curAction.interruptable) //when, for instance, the AI is dying from hunger
+            if (curValue < criticalLevel) //when, for instance, the AI is dying from hunger
                 curAction.Cancel();
             else
                 return;
@@ -191,6 +191,8 @@ public class Jai : MonoBehaviour {
         Methods.Debug(curAction.name + " " + action.Executable);
         if (action.Executable)
             action.Execute();
+        else
+            curAction = null;
     }
 
     private struct CalcAction

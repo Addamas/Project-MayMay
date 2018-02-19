@@ -6,7 +6,7 @@ public abstract class Action : ScriptableObject
 {
     protected Character ai;
 
-    public bool interruptable, saveChangesInPlayMode;
+    public bool saveChangesInPlayMode;
     public abstract List<Jai.Requirement> GetRequirements();
 
     public bool executableCheck;

@@ -23,10 +23,36 @@ public class ConFast : Converse
             if (lastPos == conversationPartner.Pos)
                 stationaryTime += Time.deltaTime;
             else
+            {
+                lastPos = conversationPartner.Pos;
                 stationaryTime = 0;
+            }
+
+            ai.Move(lastPos);
+
             yield return null;
         }
+
         Complete();
+    }
+
+    public override void Complete()
+    {
+        Reward();
+        base.Complete();
+    }
+
+    public override void Cancel()
+    {
+        Reward();
+        stationaryTime = 0;
+        base.Cancel();
+    }
+
+    private void Reward()
+    {
+        conversationPartner.social.AddValueFromCharacter(Social);
+        stat.AddValue(conversationPartner.affinity);
     }
 
     public override Vector3 Pos()

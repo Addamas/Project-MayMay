@@ -29,8 +29,7 @@ public abstract class Converse : SimpleRootAction
 
     public override void Execute()
     {
-        if(execute != null)
-            execute = ai.StartCoroutine(_Execute());
+        execute = ai.StartCoroutine(_Execute());
     }
 
     protected Coroutine execute;

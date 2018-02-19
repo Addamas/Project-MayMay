@@ -55,6 +55,14 @@ public class Social : Hunger {
         val = Mathf.Clamp(val, ai.criticalLevel, 100);
     }
 
+    public void AddValueFromCharacter(Social social)
+    {
+        foreach (Other other in ai.associates)
+            if (other.social == social)
+                AddValue(other.affinity);
+        AddValue(defaultAffinity);
+    }
+
     private bool InRangeSocialable(Social other)
     {
         return Vector3.Distance(other.ai.transform.position, ai.transform.position) < interactDistance;

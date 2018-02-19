@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minuteLength: 1
-  debug: 1
+  debug: 0
 --- !u!4 &1150612456
 Transform:
   m_ObjectHideFlags: 0

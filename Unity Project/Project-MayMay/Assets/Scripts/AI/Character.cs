@@ -65,10 +65,21 @@ public class Character : Jai {
     private Coroutine move;
     protected virtual IEnumerator Move(Action action)
     {
-        agent.SetDestination(action.Pos());
-        while (!action.IsInRange())
+        while(action.Executable)
+        {
+            if (action.IsInRange())
+                break;
+            agent.SetDestination(action.Pos());
             yield return null;
+        }
         if (action.Executable)
             base.ExecuteNext(action);
+        else
+            curAction = null;
+    }
+
+    public void Move(Vector3 pos)
+    {
+        agent.SetDestination(pos);
     }
 }
