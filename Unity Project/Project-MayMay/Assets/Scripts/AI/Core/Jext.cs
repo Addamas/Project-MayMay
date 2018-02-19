@@ -27,6 +27,13 @@ namespace Jext
 
         #region Game Specific
 
+        public static bool debug = true;
+        public static void Debug(object message)
+        {
+            if(debug)
+                UnityEngine.Debug.Log(message);
+        }
+
         /// <summary>
         /// Uses the Tahn Function.
         /// </summary>
@@ -398,7 +405,7 @@ namespace Jext
         {
             if (!File.Exists(path))
             {
-                Debug.LogError("No Save Data has been found!");
+                UnityEngine.Debug.LogError("No Save Data has been found!");
                 return null;
             }
             XmlSerializer serializer = new XmlSerializer(typeof(T));

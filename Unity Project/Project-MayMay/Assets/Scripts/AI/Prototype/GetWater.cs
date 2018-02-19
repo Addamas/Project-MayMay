@@ -16,7 +16,7 @@ public class GetWater : GetInteractableX
 
     public override void Execute()
     {
-        AI<Character>().ownedItems.Add(GetX<Well>().GetWater());
+        ai.ownedItems.Add(GetX<Well>().GetConsumable());
         Complete();
     }
 

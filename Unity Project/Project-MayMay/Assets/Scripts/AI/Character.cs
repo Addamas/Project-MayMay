@@ -54,19 +54,21 @@ public class Character : Jai {
 
     protected override void ExecuteNext(Action action)
     {
+        if(move != null)
+            StopCoroutine(move);
         if (action.IsInRange())
             base.ExecuteNext(action);
         else
-            StartCoroutine(Move(action));
+            move = StartCoroutine(Move(action));
     }
 
+    private Coroutine move;
     protected virtual IEnumerator Move(Action action)
     {
+        agent.SetDestination(action.Pos());
         while (!action.IsInRange())
-        {
-            agent.SetDestination(action.Pos());
             yield return null;
-        }
-        base.ExecuteNext(action);
+        if (action.Executable)
+            base.ExecuteNext(action);
     }
 }

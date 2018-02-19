@@ -10,7 +10,6 @@ public class Social : Hunger {
     public int defaultAffinity;
     [SerializeField]
     private float interactDistance;
-    
 
     [Serializable]
     public class Other
@@ -19,6 +18,14 @@ public class Social : Hunger {
         public int affinity;
         [HideInInspector]
         public Social social;
+
+        public Vector3 Pos
+        {
+            get
+            {
+                return character.transform.position;
+            }
+        }
     }
 
     public override void Init(Jai ai)

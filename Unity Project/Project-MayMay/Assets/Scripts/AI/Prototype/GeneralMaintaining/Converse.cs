@@ -15,17 +15,25 @@ public abstract class Converse : SimpleRootAction
         }
     }
 
+    protected override void ExecutableCheck()
+    {
+        Social.GetSocialPartner();
+        base.ExecutableCheck();
+    }
+
     public override void Cancel()
     {
-        ai.StopCoroutine(execute);
+        if (execute != null)
+            ai.StopCoroutine(execute);
     }
 
     public override void Execute()
     {
-        execute = ai.StartCoroutine(_Execute());
+        if(execute != null)
+            execute = ai.StartCoroutine(_Execute());
     }
 
-    private Coroutine execute;
+    protected Coroutine execute;
     protected abstract IEnumerator _Execute();
 
     public override void Complete()
@@ -47,7 +55,14 @@ public abstract class Converse : SimpleRootAction
     protected int GetValue()
     {
         if (conversationPartner == null)
-            return Social.GetSocialPartner().affinity;
+            try
+            {
+                return Social.GetSocialPartner().affinity;
+            }
+            catch
+            {
+                return 0;
+            }
         return conversationPartner.affinity;
     }
 }

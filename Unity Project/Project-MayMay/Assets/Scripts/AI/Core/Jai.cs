@@ -64,22 +64,14 @@ public class Jai : MonoBehaviour {
     }
     #endregion
 
-<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Jai.cs
     [SerializeField]
-=======
->>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Jai.cs
     private float eventTriggerTime;
     private IEnumerator CheckForEvent()
     {
         while (true)
         {
-<<<<<<< HEAD:Unity Project/Project-MayMay/Assets/Scripts/AI/Core/Jai.cs
             NewEvent();
             yield return new WaitForSeconds(eventTriggerTime);
-=======
-            yield return new WaitForSeconds(eventTriggerTime);
-            NewEvent();
->>>>>>> 242e4cf73c44ac2fad1f9f47262ffc06f6ff1182:Unity Project/Project-MayMay/Assets/Sourcefiles/_Scripts/AI/Core/Jai.cs
         }
     }
 
@@ -88,18 +80,27 @@ public class Jai : MonoBehaviour {
         //choose which action to take based on the lowest value
         stats = stats.SuperSort(StatSorter);
 
-        //setting up shortcuts
+        //needed for check after this
         curStat = stats.First();
         curValue = curStat.GetValue();
-        timeLeft = curStat.TimeLeftUntilEmpty();
 
         if (curAction != null)
             if (curValue < criticalLevel || curAction.interruptable) //when, for instance, the AI is dying from hunger
                 curAction.Cancel();
             else
                 return;
-        Debug.Log("Fix " + curStat.name);
-        CalculatePath();
+        
+        foreach(Stat stat in stats)
+        {
+            //setting up shortcuts
+            curStat = stat;
+            curValue = curStat.GetValue();
+            timeLeft = curStat.TimeLeftUntilEmpty();
+
+            Methods.Debug("Fix " + curStat.name);
+            if (CalculatePath())
+                return;
+        }
     }
 
     //function specific variables, since this function will be called a lot I'm not putting these in the function itself (garbage collector)
@@ -108,7 +109,7 @@ public class Jai : MonoBehaviour {
     private NormalAction normalAction;
     private CalcAction calcAction;
     private bool fit;
-    public void CalculatePath()
+    public bool CalculatePath()
     {
         //reset lists
         succeeded.Clear();
@@ -174,20 +175,20 @@ public class Jai : MonoBehaviour {
 
         if (succeeded.Count == 0)
         {
-            Debug.Log("No suitable action has been found");
-            return;
+            Methods.Debug("No suitable action has been found");
+            return false;
         }
         
         succeeded = succeeded.SuperSort(CActionSorter); //sort on the shortest path
         curAction = succeeded.First().action;
-
         
         ExecuteNext(curAction);
+        return true;
     }
 
     protected virtual void ExecuteNext(Action action)
     {
-        Debug.Log(curAction.name + " " + action.Executable);
+        Methods.Debug(curAction.name + " " + action.Executable);
         if (action.Executable)
             action.Execute();
     }
