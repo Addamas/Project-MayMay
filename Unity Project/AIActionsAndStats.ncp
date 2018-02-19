@@ -1,0 +1,121 @@
+<Project>
+  <Name>Untitled</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Structure">
+        <Name>Health</Name>
+        <Access>Public</Access>
+        <Location left="146" top="43" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void TryGetHelp()</Member>
+        <Member type="Method">public void FixSelf()</Member>
+        <Member type="Method">public void UsePotion()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Hunger</Name>
+        <Access>Public</Access>
+        <Location left="333" top="42" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Consume()</Member>
+        <Member type="Method">public void EatX()</Member>
+        <Member type="Method">public void DrinkX()</Member>
+        <Member type="Method">public void GetFood()</Member>
+        <Member type="Method">public void BuyFood()</Member>
+        <Member type="Method">public void StealFood()</Member>
+        <Member type="Method">public void MakeFood()</Member>
+        <Member type="Method">public void HuntFood()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Social</Name>
+        <Access>Public</Access>
+        <Location left="529" top="43" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Protect()</Member>
+        <Member type="Method">public void Avenge()</Member>
+        <Member type="Method">public void Support()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>SenseOfJustice</Name>
+        <Access>Public</Access>
+        <Location left="725" top="43" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Report()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Quest</Name>
+        <Access>Public</Access>
+        <Location left="917" top="43" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void HaveDinner()</Member>
+        <Member type="Method">public void Police()</Member>
+        <Member type="Method">public void Thief()</Member>
+        <Member type="Method">public void Cook()</Member>
+        <Member type="Method">public void Farmer()</Member>
+        <Member type="Method">public void Shopkeeper()</Member>
+        <Member type="Method">public void Waiter()</Member>
+        <Member type="Method">public void Sleep()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>OtherActions</Name>
+        <Access>Public</Access>
+        <Location left="147" top="276" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void UseItem()</Member>
+        <Member type="Method">public void GetX()</Member>
+        <Member type="Method">public void BuyX()</Member>
+        <Member type="Method">public void StealX()</Member>
+        <Member type="Method">public void MakeX()</Member>
+        <Member type="Method">public void HuntX()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Cook</Name>
+        <Access>Public</Access>
+        <Location left="424" top="340" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void CookX()</Member>
+        <Member type="Method">public void CheckOrders()</Member>
+        <Member type="Method">public void GiveFoodToWaiter()</Member>
+        <Member type="Method">public void GoToJob()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Waiter</Name>
+        <Access>Public</Access>
+        <Location left="427" top="567" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void TryGetOrders()</Member>
+        <Member type="Method">public void ServeFood()</Member>
+        <Member type="Method">public void GoToJob()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Shopkeeper</Name>
+        <Access>Public</Access>
+        <Location left="601" top="342" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void TryHelpCustomers()</Member>
+        <Member type="Method">public void GoToJob()</Member>
+        <Member type="Method">public void CloseShop()</Member>
+        <Member type="Method">public void OpenShop()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>Number1</Name>
+        <Access>Public</Access>
+        <Location left="1098" top="44" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Pee()</Member>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+</Project>
