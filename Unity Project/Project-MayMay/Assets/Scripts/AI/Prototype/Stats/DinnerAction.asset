@@ -8,11 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2947226278844434b8b32c50c8c3bf56, type: 3}
-  m_Name: GetWater
+  m_Script: {fileID: 11500000, guid: 0cc71a73c8a20b04995ffb3ae43df0f1, type: 3}
+  m_Name: DinnerAction
   m_EditorClassIdentifier: 
-  interruptable: 0
   saveChangesInPlayMode: 0
   executableCheck: 1
   requirements: 
-  rewards: 00000000
+  searchForMissing: 1

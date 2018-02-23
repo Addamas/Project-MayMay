@@ -30,9 +30,17 @@ public class Quest : Stat
     public bool IsTime()
     {
         float curTime = Gamemanager.time;
-        foreach(Moment moment in moments)
-            if (curTime > moment.start && curTime < moment.end)
-                return true;
+        foreach (Moment moment in moments)
+            if (moment.start < moment.end)
+            {
+                if (curTime >= moment.start && curTime <= moment.end)
+                    return true;
+            }
+            else //the midnight issue
+                if ((curTime >= moment.start && curTime <= Gamemanager.DayDuration) || //before midnight
+                curTime >= 0 && curTime <= moment.end) //after midnight
+                    return true;
+
         return false;
     }
 
@@ -48,8 +56,9 @@ public class Quest : Stat
     public float GetDuration()
     {
         Moment moment = GetMoment();
-        float ret = moment.end - moment.start, ret2 = moment.end - Gamemanager.time;
-        return ret < ret2 ? ret : ret2;
+        float ret = moment.start < moment.end ? moment.end - moment.start : 
+            Gamemanager.DayDuration - moment.start + moment.end;
+        return ret;
     }
 
     public override void SetValue(int val)

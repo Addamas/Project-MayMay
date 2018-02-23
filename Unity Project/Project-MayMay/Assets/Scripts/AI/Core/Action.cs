@@ -22,7 +22,7 @@ public abstract class Action : ScriptableObject
             }
             catch
             {
-                Debug.Log(name + " cannot be executed");
+                //Debug.Log(name + " cannot be executed");
                 return false;
             }
         }

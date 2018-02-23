@@ -27,6 +27,9 @@ public class Character : Jai {
         public Character character;
         public List<Conversation> conversations = new List<Conversation>(); //someone can say multiple things before switching to the other person
 
+        //quest/action stuff
+        public bool dinnerable;
+
         public Vector3 Pos
         {
             get
@@ -54,14 +57,14 @@ public class Character : Jai {
             return other.Duration - Duration;
         }
 
-        private int Duration
+        public int Duration
         {
             get
             {
                 int ret = 0;
                 foreach (ConversationPart cP in data)
                     foreach (string s in cP.data)
-                        ret++;
+                        ret += s.Length;
                 return ret;
             }
         }
@@ -96,6 +99,7 @@ public class Character : Jai {
         foreach (Other other in associates)
             restSocials.Remove(other.character);
         restSocials.Remove(this);
+
         base.LateActivate();
     }
 
@@ -119,19 +123,10 @@ public class Character : Jai {
     private Coroutine move; //make this a variable return seconds for optimization
     protected virtual IEnumerator Move(Action action)
     {
-        /*
         while(action.Executable)
         {
-            Debug.Log("Moving");
             if (action.IsInRange())
                 break;
-            agent.SetDestination(action.Pos());
-            yield return null;
-        }
-        */
-
-        while (!action.IsInRange())
-        {
             agent.SetDestination(action.Pos());
             yield return null;
         }

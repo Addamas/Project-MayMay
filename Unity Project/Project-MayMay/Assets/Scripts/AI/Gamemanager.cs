@@ -11,9 +11,18 @@ public class Gamemanager : MonoBehaviour {
     public static List<Social> socialables = new List<Social>();
     public static Jai[] ais;
 
+    [SerializeField]
+    private int dayDuration = 1440;
+    public static int DayDuration
+    {
+        get
+        {
+            return DayDuration;
+        }
+    }
     public static int time; //in minutes
     [SerializeField]
-    private float minuteLength = 1, timePerSentence;
+    private float minuteLength = 1;
 
     private void Awake()
     {
@@ -70,7 +79,7 @@ public class Gamemanager : MonoBehaviour {
             if (pauseFlow)
                 yield return null;
             time++;
-            if (time >= 1440)
+            if (time >= dayDuration)
                 time = 0;
             yield return new WaitForSeconds(minuteLength);
         }

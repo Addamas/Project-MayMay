@@ -8,13 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5ed9ee675dc874fa3e0583fcd43537, type: 3}
-  m_Name: Social
+  m_Script: {fileID: 11500000, guid: 28a2e6e80b022604d9ec0aa71d2a891a, type: 3}
+  m_Name: Dinner
   m_EditorClassIdentifier: 
   ai: {fileID: 0}
   saveChangesInPlayMode: 0
   boosters:
-  - {fileID: 11400000, guid: 2e2dbb5618768a647b4d008459b2ea54, type: 2}
-  value: 40
-  tickSpeed: 2
-  interactDistance: 2
+  - {fileID: 11400000, guid: 1d79f3db99706234daef99a588e26acd, type: 2}
+  moments:
+  - start: 0
+    end: 100

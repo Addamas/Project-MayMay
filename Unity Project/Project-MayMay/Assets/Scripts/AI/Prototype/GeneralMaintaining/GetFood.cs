@@ -27,6 +27,7 @@ public class GetFood : GetInteractableX
 
     protected override T GetX<T>()
     {
+        locations.SortByClosest(ai.transform.position);
         return locations[0] as T;
     }
 }

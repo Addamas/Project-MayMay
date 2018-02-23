@@ -36,12 +36,16 @@ public class Social : Hunger {
 
     public Character.Other GetAssociate()
     {
+        return GetAssociates().RandomItem();
+    }
+
+    public List<Character.Other> GetAssociates()
+    {
         List<Character.Other> socialPartners = new List<Character.Other>();
 
         ai.associates.ForEach(x => socialPartners.Add(x));
         socialPartners.RemoveAll(x => !InRangeSocialable(x.character.Social));
-
-        return socialPartners.RandomItem();
+        return socialPartners;
     }
 
     public Social GetRandom()

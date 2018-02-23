@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Jext;
 
 public abstract class Converse : SimpleRootAction
 {
     [SerializeField]
-    protected float duration;
+    protected float timePerChar = 0.1f;
     protected Social social;
 
     public override void Init(Jai ai, Stat stat)
@@ -34,16 +35,50 @@ public abstract class Converse : SimpleRootAction
         return !social.Conversing;
     }
 
+    protected Coroutine conversing;
+    protected virtual IEnumerator Conversing()
+    {
+        //choose conversation
+        Character.Conversation conversation;
+        try
+        {
+            conversation = social.conversationPartner.conversations.RandomItem();
+        }
+        catch
+        {
+            conversation = ai.defaultConversation;
+        }
+
+        //execute conversation
+        //temp
+        bool self = true;
+        foreach(Character.ConversationPart part in conversation.data)
+        {
+            foreach(string sentence in part.data)
+            {
+                Debug.Log((self ? ai.name : social.conversationPartner.character.name) + ": " + sentence);
+                yield return new WaitForSeconds(sentence.Length * timePerChar);
+            }
+            self = !self;
+        }
+
+        Complete();
+    }
+
     public override void Cancel()
     {
         social.conversationPartner = null;
         if (execute != null)
             ai.StopCoroutine(execute);
+        if (conversing != null)
+            ai.StopCoroutine(conversing);
     }
 
     public override void Execute()
     {
+        social.SetConversationPartner();
         execute = ai.StartCoroutine(_Execute());
+        conversing = ai.StartCoroutine(Conversing());
     }
 
     protected Coroutine execute;
@@ -51,8 +86,17 @@ public abstract class Converse : SimpleRootAction
 
     public override void Complete()
     {
+        if (execute != null)
+            ai.StopCoroutine(execute);
+        RewardOther();
+        social.conversationPartner.Social.conversationPartner = null;
         social.conversationPartner = null;
         base.Complete();
+    }
+
+    protected virtual void RewardOther()
+    {
+        social.conversationPartner.Social.AddValue(Uninportant);
     }
 
     public override Vector3 Pos()
@@ -94,7 +138,7 @@ public abstract class Converse : SimpleRootAction
     public override float GetEstimatedTimeRequired()
     {
         float ret = base.GetEstimatedTimeRequired();
-        //add for each sentence x time
+        ret += ai.defaultConversation.Duration * timePerChar;
         return ret;
     }
 }

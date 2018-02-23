@@ -12,17 +12,11 @@ public class ConFast : Converse
     private float stationaryTime;
     protected override IEnumerator _Execute()
     {
-        Debug.Log("Socialize");
-        
         stationaryTime = 0;
-        social.SetConversationPartner();
-        
-        float remaining = duration;
         Vector3 lastPos = social.conversationPartner.Pos;
-
-        while (remaining > 0) //TIJDENS deze loop vernakt het, het is niet de newevent, het lopen
+        
+        while (true)
         {
-            remaining -= Time.deltaTime;
             if (lastPos == social.conversationPartner.Pos)
                 stationaryTime += Time.deltaTime;
             else
@@ -34,16 +28,10 @@ public class ConFast : Converse
             ai.Move(lastPos);
             yield return null;
         }
-
-        Complete();
     }
 
     public override void Complete()
     {
-        Debug.Log(social.conversationPartner);
-        RewardOther();
-        social.conversationPartner.Social.conversationPartner = null;
-        social.conversationPartner = null;
         base.Complete();
     }
 
@@ -57,11 +45,6 @@ public class ConFast : Converse
         stationaryTime = 0;
         social.conversationPartner = null;
         base.Cancel();
-    }
-
-    private void RewardOther()
-    {
-        social.conversationPartner.Social.AddValue(Uninportant);
     }
 
     public override Vector3 Pos()

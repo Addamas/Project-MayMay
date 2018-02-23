@@ -106,7 +106,7 @@ public class Jai : MonoBehaviour {
             curValue = curStat.GetValue();
             timeLeft = curStat.TimeLeftUntilEmpty();
 
-            Debug.Log("Fix " + curStat.name);
+            //Debug.Log("Fix " + curStat.name);
             if (CalculatePath())
                 yield break;
         }
@@ -184,7 +184,7 @@ public class Jai : MonoBehaviour {
 
         if (succeeded.Count == 0)
         {
-            Debug.Log("No suitable action has been found");
+            //Debug.Log("No suitable action has been found");
             return false;
         }
         
