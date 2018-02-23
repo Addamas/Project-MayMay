@@ -6,23 +6,37 @@ public abstract class Converse : SimpleRootAction
 {
     [SerializeField]
     protected float duration;
-    protected Social.Other conversationPartner;
-    protected Social Social
+    protected Social social;
+
+    public override void Init(Jai ai, Stat stat)
     {
-        get
-        {
-            return STAT<Social>();
-        }
+        base.Init(ai, stat);
+        social = STAT<Social>();
     }
 
-    protected override void ExecutableCheck()
+    protected override bool ExecutableCheck()
     {
-        Social.GetSocialPartner();
-        base.ExecutableCheck();
+        Social other;
+        try
+        {
+            other = social.GetAssociate().Social;
+        }
+        catch
+        {
+            other = social.GetRandom();
+        }
+
+        if (other.Conversing)
+            return false;
+        if (!base.ExecutableCheck())
+            return false;
+
+        return !social.Conversing;
     }
 
     public override void Cancel()
     {
+        social.conversationPartner = null;
         if (execute != null)
             ai.StopCoroutine(execute);
     }
@@ -37,31 +51,50 @@ public abstract class Converse : SimpleRootAction
 
     public override void Complete()
     {
+        social.conversationPartner = null;
         base.Complete();
-        conversationPartner = null;
-    }
-
-    public override int GetReturnValue()
-    {
-        return GetValue();
     }
 
     public override Vector3 Pos()
     {
-        return Social.GetSocialPartner().character.transform.position;
+        if(social.conversationPartner == null)
+            try
+            {
+                return social.GetAssociate().Pos;
+            }
+            catch
+            {
+                return social.GetRandom().Pos;
+            }
+        return social.conversationPartner.Pos;
     }
 
     protected int GetValue()
     {
-        if (conversationPartner == null)
+        if (social.conversationPartner == null)
             try
             {
-                return Social.GetSocialPartner().affinity;
+                social.GetAssociate();
             }
             catch
             {
-                return 0;
+                try
+                {
+                    social.GetRandom();
+                }
+                catch
+                {
+                    return 0;
+                }
             }
-        return conversationPartner.affinity;
+
+        return Uninportant;
+    }
+
+    public override float GetEstimatedTimeRequired()
+    {
+        float ret = base.GetEstimatedTimeRequired();
+        //add for each sentence x time
+        return ret;
     }
 }

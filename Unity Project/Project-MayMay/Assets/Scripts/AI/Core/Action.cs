@@ -18,20 +18,20 @@ public abstract class Action : ScriptableObject
                 return true;
             try
             {
-                ExecutableCheck();
-                return true;
+                return ExecutableCheck();
             }
             catch
             {
-                Methods.Debug(name + " cannot be executed");
+                Debug.Log(name + " cannot be executed");
                 return false;
             }
         }
     }
 
-    protected virtual void ExecutableCheck()
+    protected virtual bool ExecutableCheck()
     {
         Pos();
+        return true;
     }
 
     public virtual void Init(Jai ai)

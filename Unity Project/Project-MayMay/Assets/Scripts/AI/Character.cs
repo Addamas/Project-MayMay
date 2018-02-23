@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 [RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
 public class Character : Jai {
@@ -15,9 +16,62 @@ public class Character : Jai {
     public List<Interactable> ownedInteractables = new List<Interactable>();
     public List<Item> ownedItems = new List<Item>();
 
-    public List<Social.Other> associates = new List<Social.Other>();
+    public List<Other> associates = new List<Other>();
     [HideInInspector]
-    public List<Social> restSocials = new List<Social>();
+    public List<Character> restSocials = new List<Character>();
+    public Conversation defaultConversation;
+
+    [Serializable]
+    public class Other
+    {
+        public Character character;
+        public List<Conversation> conversations = new List<Conversation>(); //someone can say multiple things before switching to the other person
+
+        public Vector3 Pos
+        {
+            get
+            {
+                return character.transform.position;
+            }
+        }
+
+        public Social Social
+        {
+            get
+            {
+                return character.Social;
+            }
+        }
+    }
+
+    [Serializable]
+    public class Conversation : IComparable<Conversation>
+    {
+        public ConversationPart[] data;
+
+        public int CompareTo(Conversation other)
+        {
+            return other.Duration - Duration;
+        }
+
+        private int Duration
+        {
+            get
+            {
+                int ret = 0;
+                foreach (ConversationPart cP in data)
+                    foreach (string s in cP.data)
+                        ret++;
+                return ret;
+            }
+        }
+    }
+
+    [Serializable]
+    public class ConversationPart
+    {
+        public string[] data;
+    }
 
     public Social Social
     {
@@ -38,11 +92,10 @@ public class Character : Jai {
 
     public override void LateActivate()
     {
-        associates.ForEach(x => x.social = x.character.Social);
-        Gamemanager.socialables.ForEach(x => restSocials.Add(x));
-        foreach (Social.Other other in associates)
-            restSocials.Remove(other.social);
-        restSocials.Remove(Social);
+        Gamemanager.socialables.ForEach(x => restSocials.Add(x.ai));
+        foreach (Other other in associates)
+            restSocials.Remove(other.character);
+        restSocials.Remove(this);
         base.LateActivate();
     }
 
@@ -54,6 +107,7 @@ public class Character : Jai {
 
     protected override void ExecuteNext(Action action)
     {
+        //Debug.Log(action.name);
         if(move != null)
             StopCoroutine(move);
         if (action.IsInRange())
@@ -62,20 +116,27 @@ public class Character : Jai {
             move = StartCoroutine(Move(action));
     }
 
-    private Coroutine move;
+    private Coroutine move; //make this a variable return seconds for optimization
     protected virtual IEnumerator Move(Action action)
     {
+        /*
         while(action.Executable)
         {
+            Debug.Log("Moving");
             if (action.IsInRange())
                 break;
             agent.SetDestination(action.Pos());
             yield return null;
         }
-        if (action.Executable)
-            base.ExecuteNext(action);
-        else
-            curAction = null;
+        */
+
+        while (!action.IsInRange())
+        {
+            agent.SetDestination(action.Pos());
+            yield return null;
+        }
+
+        base.ExecuteNext(action);
     }
 
     public void Move(Vector3 pos)

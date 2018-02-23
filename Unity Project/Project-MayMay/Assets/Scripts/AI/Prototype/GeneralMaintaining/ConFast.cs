@@ -8,28 +8,30 @@ public class ConFast : Converse
 {
     [SerializeField]
     private float interactDisModifierWhenResting, idleTimeUntilRest;
-    private float stationaryTime;
 
+    private float stationaryTime;
     protected override IEnumerator _Execute()
     {
+        Debug.Log("Socialize");
+        
         stationaryTime = 0;
-        conversationPartner = Social.GetSocialPartner();
-
+        social.SetConversationPartner();
+        
         float remaining = duration;
-        Vector3 lastPos = conversationPartner.Pos;
-        while (remaining > 0)
+        Vector3 lastPos = social.conversationPartner.Pos;
+
+        while (remaining > 0) //TIJDENS deze loop vernakt het, het is niet de newevent, het lopen
         {
             remaining -= Time.deltaTime;
-            if (lastPos == conversationPartner.Pos)
+            if (lastPos == social.conversationPartner.Pos)
                 stationaryTime += Time.deltaTime;
             else
             {
-                lastPos = conversationPartner.Pos;
+                lastPos = social.conversationPartner.Pos;
                 stationaryTime = 0;
             }
 
             ai.Move(lastPos);
-
             yield return null;
         }
 
@@ -38,21 +40,28 @@ public class ConFast : Converse
 
     public override void Complete()
     {
-        Reward();
+        Debug.Log(social.conversationPartner);
+        RewardOther();
+        social.conversationPartner.Social.conversationPartner = null;
+        social.conversationPartner = null;
         base.Complete();
+    }
+
+    public override int GetReturnValue()
+    {
+        return Uninportant;
     }
 
     public override void Cancel()
     {
-        Reward();
         stationaryTime = 0;
+        social.conversationPartner = null;
         base.Cancel();
     }
 
-    private void Reward()
+    private void RewardOther()
     {
-        conversationPartner.social.AddValueFromCharacter(Social);
-        stat.AddValue(conversationPartner.affinity);
+        social.conversationPartner.Social.AddValue(Uninportant);
     }
 
     public override Vector3 Pos()

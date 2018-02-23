@@ -15,7 +15,9 @@ MonoBehaviour:
   saveChangesInPlayMode: 0
   boosters:
   - {fileID: 11400000, guid: 2e2dbb5618768a647b4d008459b2ea54, type: 2}
-  value: 100
+  value: 40
   tickSpeed: 2
-  defaultAffinity: 70
-  interactDistance: 5
+  interactDistance: 20
+  conversationPartner:
+    character: {fileID: 0}
+    conversations: []

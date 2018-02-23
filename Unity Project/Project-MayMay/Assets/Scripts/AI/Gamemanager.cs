@@ -13,13 +13,10 @@ public class Gamemanager : MonoBehaviour {
 
     public static int time; //in minutes
     [SerializeField]
-    private float minuteLength = 1;
-    [SerializeField]
-    private bool debug;
+    private float minuteLength = 1, timePerSentence;
 
     private void Awake()
     {
-        Methods.debug = debug;
         instance = this;
         FindInteractables();
         ContinueFlow();

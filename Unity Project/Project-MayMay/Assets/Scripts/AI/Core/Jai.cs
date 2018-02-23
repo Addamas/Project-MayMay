@@ -77,6 +77,14 @@ public class Jai : MonoBehaviour {
 
     public void NewEvent()
     {
+        if (newEvent != null)
+            StopCoroutine(newEvent);
+        newEvent = StartCoroutine(_NewEvent());
+    }
+
+    private Coroutine newEvent;
+    private IEnumerator _NewEvent()
+    {
         //choose which action to take based on the lowest value
         stats = stats.SuperSort(StatSorter);
 
@@ -88,18 +96,19 @@ public class Jai : MonoBehaviour {
             if (curValue < criticalLevel) //when, for instance, the AI is dying from hunger
                 curAction.Cancel();
             else
-                return;
-        
-        foreach(Stat stat in stats)
+                yield break;
+
+        foreach (Stat stat in stats)
         {
+            yield return null;
             //setting up shortcuts
             curStat = stat;
             curValue = curStat.GetValue();
             timeLeft = curStat.TimeLeftUntilEmpty();
 
-            Methods.Debug("Fix " + curStat.name);
+            Debug.Log("Fix " + curStat.name);
             if (CalculatePath())
-                return;
+                yield break;
         }
     }
 
@@ -175,7 +184,7 @@ public class Jai : MonoBehaviour {
 
         if (succeeded.Count == 0)
         {
-            Methods.Debug("No suitable action has been found");
+            Debug.Log("No suitable action has been found");
             return false;
         }
         
@@ -188,7 +197,6 @@ public class Jai : MonoBehaviour {
 
     protected virtual void ExecuteNext(Action action)
     {
-        Methods.Debug(curAction.name + " " + action.Executable);
         if (action.Executable)
             action.Execute();
         else
