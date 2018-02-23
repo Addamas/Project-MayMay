@@ -4650,7 +4650,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minuteLength: 1
+<<<<<<< HEAD
   timePerSentence: 0
+=======
+  debug: 1
+>>>>>>> 41e3c90623e6977c531a3075da5ffd908f3aee1a
 --- !u!4 &1150612456
 Transform:
   m_ObjectHideFlags: 0
