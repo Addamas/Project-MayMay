@@ -8,11 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113ffd15c11a85a4f9152a20e26f1d9a, type: 3}
-  m_Name: Boredom
+  m_Script: {fileID: 11500000, guid: 2947226278844434b8b32c50c8c3bf56, type: 3}
+  m_Name: GetWater
   m_EditorClassIdentifier: 
-  ai: {fileID: 0}
+  interruptable: 0
   saveChangesInPlayMode: 0
-  boosters:
-  - {fileID: 11400000, guid: fc65643994dfab64db34ec4354d1cfe8, type: 2}
-  treshold: 85
+  executableCheck: 1
+  requirements: 
+  rewards: 00000000
