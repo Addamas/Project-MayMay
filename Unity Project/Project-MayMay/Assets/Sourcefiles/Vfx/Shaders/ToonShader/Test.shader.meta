@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a54363b2cf7e12f45b1ad065d61a1dca
-folderAsset: yes
-timeCreated: 1517926965
+guid: afe5b11347db5534e8356b06aa480c9b
+timeCreated: 1519306313
 licenseType: Free
-DefaultImporter:
+ShaderImporter:
   externalObjects: {}
+  defaultTextures: []
   userData: 
   assetBundleName: 
   assetBundleVariant: 
