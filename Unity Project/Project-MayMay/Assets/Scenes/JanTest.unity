@@ -728,15 +728,23 @@ Prefab:
       propertyPath: m_Name
       value: unitychan (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: memoryUpdateFrequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: memory.memorySize
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &221455863 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
-    type: 2}
-  m_PrefabInternal: {fileID: 221455862}
-  m_Script: {fileID: 11500000, guid: 7ece70a9edccca74ca8741134f914f6a, type: 3}
 --- !u!1 &241565765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,6 +2920,11 @@ Prefab:
       propertyPath: stats.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: ownedInteractables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalPosition.x
       value: -31.424164
@@ -2962,13 +2975,33 @@ Prefab:
         type: 2}
       propertyPath: associates.Array.data[0].character
       value: 
-      objectReference: {fileID: 221455863}
+      objectReference: {fileID: 2143463488}
     - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
         type: 2}
       propertyPath: stats.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: 21c61ff6db54b194c90ccc5f80b9943c,
         type: 2}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: ownedInteractables.Array.data[2]
+      value: 
+      objectReference: {fileID: 1545801077}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: associates.Array.data[0].dinnerable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: memoryUpdateFrequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: memory.memorySize
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
   m_IsPrefabParent: 0
@@ -7555,6 +7588,16 @@ Prefab:
       propertyPath: ownedInteractables.Array.data[1]
       value: 
       objectReference: {fileID: 1115054342}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: memoryUpdateFrequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+        type: 2}
+      propertyPath: memory.memorySize
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -7585,3 +7628,9 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2143463488 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114879647378257524, guid: 412b92d4feeb9c548bfa98f62c4d1022,
+    type: 2}
+  m_PrefabInternal: {fileID: 2143463482}
+  m_Script: {fileID: 11500000, guid: 7ece70a9edccca74ca8741134f914f6a, type: 3}

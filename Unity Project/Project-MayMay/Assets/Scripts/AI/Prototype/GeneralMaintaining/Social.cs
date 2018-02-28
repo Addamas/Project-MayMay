@@ -50,13 +50,26 @@ public class Social : Hunger {
 
     public Social GetRandom()
     {
+        return GetRandoms().RandomItem();
+    }
+
+    public List<Social> GetRandoms()
+    {
         List<Social> restSocialPartners = new List<Social>();
 
         foreach (Character other in ai.restSocials)
             if (InRangeSocialable(other.Social))
                 restSocialPartners.Add(other.Social);
 
-        return restSocialPartners.RandomItem();
+        return restSocialPartners;
+    }
+
+    public List<Social> GetAll()
+    {
+        List<Character.Other> associates = GetAssociates();
+        List<Social> all = GetRandoms();
+        associates.ForEach(x => all.Add(x.Social));
+        return all;
     }
 
     public void SetConversationPartner()

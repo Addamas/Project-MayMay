@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using Jext;
 
 [RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
 public class Character : Jai {
@@ -20,6 +21,63 @@ public class Character : Jai {
     [HideInInspector]
     public List<Character> restSocials = new List<Character>();
     public Conversation defaultConversation;
+    [SerializeField]
+    private int memoryUpdateFrequency;
+    public Memory memory;
+
+    #region Memory
+
+    [Serializable]
+    public class Memory
+    {
+        private List<MemorySlot> memories = new List<MemorySlot>();
+        public List<MemorySlot> Memories
+        {
+            get
+            {
+                return memories;
+            }
+            set
+            {
+                memories = value;
+                if(memories.Count > memorySize)
+                {
+                    memories.Sort();
+                    int l = memories.Count - memorySize;
+                    for (int i = 0; i < l; i++)
+                        memories.Remove(memories.Last());
+                }
+            }
+        }
+        public int memorySize;
+    }
+
+    [Serializable]
+    public class MemorySlot : IComparable<MemorySlot>
+    {
+        public Character character;
+        public int start, end;
+        public bool ended;
+
+        public MemorySlot(int start, Character character)
+        {
+            this.start = start;
+            this.character = character;
+        }
+
+        public int CompareTo(MemorySlot other)
+        {
+            if (ended && !other.ended)
+                return 1;
+            if (!ended && other.ended)
+                return -1;
+            return other.end - end;
+        }
+    }
+
+    #endregion
+
+    #region Social
 
     [Serializable]
     public class Other
@@ -87,6 +145,8 @@ public class Character : Jai {
         }
     }
 
+    #endregion
+
     public override void Activate()
     {
         SetupReferences();
@@ -101,6 +161,8 @@ public class Character : Jai {
         restSocials.Remove(this);
 
         base.LateActivate();
+
+        memoryUpdate = StartCoroutine(MemoryUpdate());
     }
 
     protected virtual void SetupReferences()
@@ -120,6 +182,8 @@ public class Character : Jai {
             move = StartCoroutine(Move(action));
     }
 
+    #region Constants
+
     private Coroutine move; //make this a variable return seconds for optimization
     protected virtual IEnumerator Move(Action action)
     {
@@ -133,6 +197,36 @@ public class Character : Jai {
 
         base.ExecuteNext(action);
     }
+
+    private Coroutine memoryUpdate;
+    private IEnumerator MemoryUpdate()
+    {
+        List<Social> socials;
+        Social social;
+        while(true){
+            socials = Social.GetAll();
+
+            //check if memories are still valid
+            foreach (MemorySlot slot in memory.Memories)
+            {
+                social = slot.character.Social;
+                if (!socials.Contains(social))
+                {
+                    slot.end = Gamemanager.time;
+                    slot.ended = true;
+                }
+                else
+                    socials.Remove(social);
+            }
+
+            //add memories
+            socials.ForEach(x => memory.Memories.Add(new MemorySlot(Gamemanager.time, x.ai)));
+
+            yield return new WaitForSeconds(memoryUpdateFrequency);
+        }
+    }
+
+    #endregion
 
     public void Move(Vector3 pos)
     {
