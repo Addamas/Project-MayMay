@@ -11,19 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4da659ab455a847983a9c779c38053, type: 3}
   m_Name: ConFast
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  interruptable: 1
-  saveChangesInPlayMode: 0
-  executableCheck: 1
-  requirements: 
-  duration: 10
-  interactDisModifierWhenResting: 0
-  idleTimeUntilRest: 0
-=======
   saveChangesInPlayMode: 0
   executableCheck: 1
   requirements: 
   duration: 8
   interactDisModifierWhenResting: 2
   idleTimeUntilRest: 2
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d

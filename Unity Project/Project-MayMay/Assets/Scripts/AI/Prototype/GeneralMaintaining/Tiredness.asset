@@ -11,22 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a2e6e80b022604d9ec0aa71d2a891a, type: 3}
   m_Name: Tiredness
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
   ai: {fileID: 0}
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
   saveChangesInPlayMode: 0
   boosters:
   - {fileID: 11400000, guid: a423dbbd59e4dc540bb2d1e2b69288cb, type: 2}
   moments:
-<<<<<<< HEAD
-  - start: 0
-    end: 10
-  - start: 30
-    end: 40
-=======
   - start: 200
     end: 240
   - start: 450
     end: 500
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d

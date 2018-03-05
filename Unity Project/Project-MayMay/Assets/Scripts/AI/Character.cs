@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-<<<<<<< HEAD
-=======
 using System;
 using Jext;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
 
 [RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
 public class Character : Jai {
@@ -20,11 +17,6 @@ public class Character : Jai {
     public List<Interactable> ownedInteractables = new List<Interactable>();
     public List<Item> ownedItems = new List<Item>();
 
-<<<<<<< HEAD
-    public List<Social.Other> associates = new List<Social.Other>();
-    [HideInInspector]
-    public List<Social> restSocials = new List<Social>();
-=======
     public List<Other> associates = new List<Other>();
     [HideInInspector]
     public List<Character> restSocials = new List<Character>();
@@ -141,7 +133,6 @@ public class Character : Jai {
     {
         public string[] data;
     }
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
 
     public Social Social
     {
@@ -154,11 +145,8 @@ public class Character : Jai {
         }
     }
 
-<<<<<<< HEAD
-=======
     #endregion
 
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     public override void Activate()
     {
         SetupReferences();
@@ -167,14 +155,6 @@ public class Character : Jai {
 
     public override void LateActivate()
     {
-<<<<<<< HEAD
-        associates.ForEach(x => x.social = x.character.Social);
-        Gamemanager.socialables.ForEach(x => restSocials.Add(x));
-        foreach (Social.Other other in associates)
-            restSocials.Remove(other.social);
-        restSocials.Remove(Social);
-        base.LateActivate();
-=======
         Gamemanager.socialables.ForEach(x => restSocials.Add(x.ai));
         foreach (Other other in associates)
             restSocials.Remove(other.character);
@@ -183,7 +163,6 @@ public class Character : Jai {
         base.LateActivate();
 
         memoryUpdate = StartCoroutine(MemoryUpdate());
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     protected virtual void SetupReferences()
@@ -194,10 +173,7 @@ public class Character : Jai {
 
     protected override void ExecuteNext(Action action)
     {
-<<<<<<< HEAD
-=======
         //Debug.Log(action.name);
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         if(move != null)
             StopCoroutine(move);
         if (action.IsInRange())
@@ -206,16 +182,6 @@ public class Character : Jai {
             move = StartCoroutine(Move(action));
     }
 
-<<<<<<< HEAD
-    private Coroutine move;
-    protected virtual IEnumerator Move(Action action)
-    {
-        agent.SetDestination(action.Pos());
-        while (!action.IsInRange())
-            yield return null;
-        if (action.Executable)
-            base.ExecuteNext(action);
-=======
     #region Constants
 
     private Coroutine move; //make this a variable return seconds for optimization
@@ -265,6 +231,5 @@ public class Character : Jai {
     public void Move(Vector3 pos)
     {
         agent.SetDestination(pos);
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 }

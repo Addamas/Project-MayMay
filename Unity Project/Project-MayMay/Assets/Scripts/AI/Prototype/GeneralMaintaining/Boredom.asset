@@ -11,15 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113ffd15c11a85a4f9152a20e26f1d9a, type: 3}
   m_Name: Boredom
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  saveChangesInPlayMode: 0
-  boosters:
-  - {fileID: 11400000, guid: fc65643994dfab64db34ec4354d1cfe8, type: 2}
-  treshold: 99
-=======
   ai: {fileID: 0}
   saveChangesInPlayMode: 0
   boosters:
   - {fileID: 11400000, guid: fc65643994dfab64db34ec4354d1cfe8, type: 2}
   treshold: 85
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d

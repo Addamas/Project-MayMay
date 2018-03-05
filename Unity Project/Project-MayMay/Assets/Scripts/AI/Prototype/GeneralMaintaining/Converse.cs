@@ -1,30 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-=======
 using Jext;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
 
 public abstract class Converse : SimpleRootAction
 {
     [SerializeField]
-<<<<<<< HEAD
-    protected float duration;
-    protected Social.Other conversationPartner;
-    protected Social Social
-    {
-        get
-        {
-            return STAT<Social>();
-        }
-    }
-
-    protected override void ExecutableCheck()
-    {
-        Social.GetSocialPartner();
-        base.ExecutableCheck();
-=======
     protected float timePerChar = 0.1f;
     protected Social social;
 
@@ -82,33 +63,22 @@ public abstract class Converse : SimpleRootAction
         }
 
         Complete();
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     public override void Cancel()
     {
-<<<<<<< HEAD
-        if (execute != null)
-            ai.StopCoroutine(execute);
-=======
         social.conversationPartner = null;
         if (execute != null)
             ai.StopCoroutine(execute);
         if (conversing != null)
             ai.StopCoroutine(conversing);
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     public override void Execute()
     {
-<<<<<<< HEAD
-        if(execute != null)
-            execute = ai.StartCoroutine(_Execute());
-=======
         social.SetConversationPartner();
         execute = ai.StartCoroutine(_Execute());
         conversing = ai.StartCoroutine(Conversing());
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     protected Coroutine execute;
@@ -116,15 +86,6 @@ public abstract class Converse : SimpleRootAction
 
     public override void Complete()
     {
-<<<<<<< HEAD
-        base.Complete();
-        conversationPartner = null;
-    }
-
-    public override int GetReturnValue()
-    {
-        return GetValue();
-=======
         if (execute != null)
             ai.StopCoroutine(execute);
         RewardOther();
@@ -136,14 +97,10 @@ public abstract class Converse : SimpleRootAction
     protected virtual void RewardOther()
     {
         social.conversationPartner.Social.AddValue(Uninportant);
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     public override Vector3 Pos()
     {
-<<<<<<< HEAD
-        return Social.GetSocialPartner().character.transform.position;
-=======
         if(social.conversationPartner == null)
             try
             {
@@ -154,23 +111,10 @@ public abstract class Converse : SimpleRootAction
                 return social.GetRandom().Pos;
             }
         return social.conversationPartner.Pos;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     protected int GetValue()
     {
-<<<<<<< HEAD
-        if (conversationPartner == null)
-            try
-            {
-                return Social.GetSocialPartner().affinity;
-            }
-            catch
-            {
-                return 0;
-            }
-        return conversationPartner.affinity;
-=======
         if (social.conversationPartner == null)
             try
             {
@@ -196,6 +140,5 @@ public abstract class Converse : SimpleRootAction
         float ret = base.GetEstimatedTimeRequired();
         ret += ai.defaultConversation.Duration * timePerChar;
         return ret;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 }

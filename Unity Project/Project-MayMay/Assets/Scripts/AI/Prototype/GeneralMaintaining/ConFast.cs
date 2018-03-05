@@ -8,27 +8,6 @@ public class ConFast : Converse
 {
     [SerializeField]
     private float interactDisModifierWhenResting, idleTimeUntilRest;
-<<<<<<< HEAD
-    private float stationaryTime;
-
-    protected override IEnumerator _Execute()
-    {
-        stationaryTime = 0;
-        conversationPartner = Social.GetSocialPartner();
-
-        float remaining = duration;
-        Vector3 lastPos = conversationPartner.Pos;
-        while (remaining > 0)
-        {
-            remaining -= Time.deltaTime;
-            if (lastPos == conversationPartner.Pos)
-                stationaryTime += Time.deltaTime;
-            else
-                stationaryTime = 0;
-            yield return null;
-        }
-        Complete();
-=======
 
     private float stationaryTime;
     protected override IEnumerator _Execute()
@@ -66,7 +45,6 @@ public class ConFast : Converse
         stationaryTime = 0;
         social.conversationPartner = null;
         base.Cancel();
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     public override Vector3 Pos()

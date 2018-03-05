@@ -6,11 +6,7 @@ public abstract class Action : ScriptableObject
 {
     protected Character ai;
 
-<<<<<<< HEAD
-    public bool interruptable, saveChangesInPlayMode;
-=======
     public bool saveChangesInPlayMode;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     public abstract List<Jai.Requirement> GetRequirements();
 
     public bool executableCheck;
@@ -22,35 +18,20 @@ public abstract class Action : ScriptableObject
                 return true;
             try
             {
-<<<<<<< HEAD
-                ExecutableCheck();
-                return true;
-            }
-            catch
-            {
-                Methods.Debug(name + " cannot be executed");
-=======
                 return ExecutableCheck();
             }
             catch
             {
                 //Debug.Log(name + " cannot be executed");
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
                 return false;
             }
         }
     }
 
-<<<<<<< HEAD
-    protected virtual void ExecutableCheck()
-    {
-        Pos();
-=======
     protected virtual bool ExecutableCheck()
     {
         Pos();
         return true;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     public virtual void Init(Jai ai)

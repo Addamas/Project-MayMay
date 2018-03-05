@@ -77,8 +77,6 @@ public class Jai : MonoBehaviour {
 
     public void NewEvent()
     {
-<<<<<<< HEAD
-=======
         if (newEvent != null)
             StopCoroutine(newEvent);
         newEvent = StartCoroutine(_NewEvent());
@@ -87,7 +85,6 @@ public class Jai : MonoBehaviour {
     private Coroutine newEvent;
     private IEnumerator _NewEvent()
     {
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         //choose which action to take based on the lowest value
         stats = stats.SuperSort(StatSorter);
 
@@ -96,15 +93,6 @@ public class Jai : MonoBehaviour {
         curValue = curStat.GetValue();
 
         if (curAction != null)
-<<<<<<< HEAD
-            if (curValue < criticalLevel || curAction.interruptable) //when, for instance, the AI is dying from hunger
-                curAction.Cancel();
-            else
-                return;
-        
-        foreach(Stat stat in stats)
-        {
-=======
             if (curValue < criticalLevel) //when, for instance, the AI is dying from hunger
                 curAction.Cancel();
             else
@@ -113,21 +101,14 @@ public class Jai : MonoBehaviour {
         foreach (Stat stat in stats)
         {
             yield return null;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
             //setting up shortcuts
             curStat = stat;
             curValue = curStat.GetValue();
             timeLeft = curStat.TimeLeftUntilEmpty();
 
-<<<<<<< HEAD
-            Methods.Debug("Fix " + curStat.name);
-            if (CalculatePath())
-                return;
-=======
             //Debug.Log("Fix " + curStat.name);
             if (CalculatePath())
                 yield break;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         }
     }
 
@@ -203,11 +184,7 @@ public class Jai : MonoBehaviour {
 
         if (succeeded.Count == 0)
         {
-<<<<<<< HEAD
-            Methods.Debug("No suitable action has been found");
-=======
             //Debug.Log("No suitable action has been found");
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
             return false;
         }
         
@@ -220,16 +197,10 @@ public class Jai : MonoBehaviour {
 
     protected virtual void ExecuteNext(Action action)
     {
-<<<<<<< HEAD
-        Methods.Debug(curAction.name + " " + action.Executable);
-        if (action.Executable)
-            action.Execute();
-=======
         if (action.Executable)
             action.Execute();
         else
             curAction = null;
->>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
     }
 
     private struct CalcAction
