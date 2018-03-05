@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 134002801}
   - component: {fileID: 134002800}
   - component: {fileID: 134002799}
+  - component: {fileID: 134002803}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -691,6 +692,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134002803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 134002798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 294c640aa3531e24496ba60c84f704d5, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1001 &136498598
 Prefab:
   m_ObjectHideFlags: 0
@@ -4448,7 +4465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4775580961077976, guid: 99e1793b9e262c842bba8d28986dec26, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.55
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 4775580961077976, guid: 99e1793b9e262c842bba8d28986dec26, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7648,7 +7665,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b84c2517b1d1ead4193efdca3e925882, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -116.545
+      value: -116.522
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b84c2517b1d1ead4193efdca3e925882, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7656,7 +7673,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b84c2517b1d1ead4193efdca3e925882, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 139.242
+      value: 138.905
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b84c2517b1d1ead4193efdca3e925882, type: 3}
       propertyPath: m_LocalRotation.x
