@@ -27,6 +27,7 @@ namespace Jext
 
         #region Game Specific
 
+<<<<<<< HEAD
         public static bool debug = true;
         public static void Debug(object message)
         {
@@ -34,6 +35,8 @@ namespace Jext
                 UnityEngine.Debug.Log(message);
         }
 
+=======
+>>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         /// <summary>
         /// Uses the Tahn Function.
         /// </summary>
@@ -289,6 +292,19 @@ namespace Jext
             return sortableArr.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToArray();
         }
 
+<<<<<<< HEAD
+=======
+        public static List<Vector3> SortByClosest(this List<Vector3> sortableList, Vector3 pos)
+        {
+            return sortableList.OrderBy(t => -Vector3.Distance(t, pos)).ToList();
+        }
+
+        public static Vector3[] SortByClosest(this Vector3[] sortableArr, Vector3 pos)
+        {
+            return sortableArr.OrderBy(t => -Vector3.Distance(t, pos)).ToArray();
+        }
+
+>>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         public static T GetClosest<T>(this List<T> sortableList, Vector3 pos) where T : MonoBehaviour
         {
             return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList()[0];
@@ -299,6 +315,19 @@ namespace Jext
             return sortableArr.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList()[0];
         }
 
+<<<<<<< HEAD
+=======
+        public static Vector3 GetClosest(this List<Vector3> sortableList, Vector3 pos)
+        {
+            return sortableList.SortByClosest(pos)[0];
+        }
+
+        public static Vector3 GetClosest(this Vector3[] sortableList, Vector3 pos)
+        {
+            return sortableList.SortByClosest(pos)[0];
+        }
+
+>>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         public static T First<T>(this List<T> list)
         {
             return list[0];

@@ -11,6 +11,7 @@ public class Gamemanager : MonoBehaviour {
     public static List<Social> socialables = new List<Social>();
     public static Jai[] ais;
 
+<<<<<<< HEAD
     public static int time; //in minutes
     [SerializeField]
     private float minuteLength = 1;
@@ -20,6 +21,23 @@ public class Gamemanager : MonoBehaviour {
     private void Awake()
     {
         Methods.debug = debug;
+=======
+    [SerializeField]
+    private int dayDuration = 1440;
+    public static int DayDuration
+    {
+        get
+        {
+            return DayDuration;
+        }
+    }
+    public static int time; //in minutes
+    [SerializeField]
+    private float minuteLength = 1;
+
+    private void Awake()
+    {
+>>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
         instance = this;
         FindInteractables();
         ContinueFlow();
@@ -73,7 +91,11 @@ public class Gamemanager : MonoBehaviour {
             if (pauseFlow)
                 yield return null;
             time++;
+<<<<<<< HEAD
             if (time >= 1440)
+=======
+            if (time >= dayDuration)
+>>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
                 time = 0;
             yield return new WaitForSeconds(minuteLength);
         }

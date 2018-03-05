@@ -15,7 +15,13 @@ MonoBehaviour:
   saveChangesInPlayMode: 0
   boosters:
   - {fileID: 11400000, guid: 2e2dbb5618768a647b4d008459b2ea54, type: 2}
+<<<<<<< HEAD
   value: 100
   tickSpeed: 4
   defaultAffinity: 70
   interactDistance: 5
+=======
+  value: 40
+  tickSpeed: 2
+  interactDistance: 2
+>>>>>>> f940348b70633fa0f0d03e0b7299d6ceaf7f1e5d
