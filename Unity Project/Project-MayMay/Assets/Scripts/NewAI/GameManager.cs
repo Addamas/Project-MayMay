@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     [NonSerialized]
     public static List<Character> characters = new List<Character>();
+    [NonSerialized]
+    public static List<Area> districts = new List<Area>();
 
     private void Awake()
     {
@@ -16,9 +18,22 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start () {
-        FindCharacters();
-        characters.ForEach(x => x.NewEvent());
+
+        StartCoroutine(Init());
 	}
+
+    private IEnumerator Init()
+    {
+        FindCharacters();
+        foreach (Character character in characters)
+        {
+            character.memory.Init();
+            yield return null;
+        }
+
+        TimeManager.instance.StartFlow();
+        characters.ForEach(x => x.NewEvent());
+    }
 
     private void FindCharacters()
     {

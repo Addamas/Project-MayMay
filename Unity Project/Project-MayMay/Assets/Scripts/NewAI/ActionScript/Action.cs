@@ -20,6 +20,10 @@ public abstract class Action : Extension
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
+    #region Small Checks
+    public bool special;
+    #endregion
+
     #region Executable Check
     public virtual bool IsExecutable()
     {

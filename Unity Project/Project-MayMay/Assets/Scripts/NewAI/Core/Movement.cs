@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Movement : MonoBehaviour {
-
+public class Movement : CharacterExtension
+{
     [NonSerialized]
     public NavMeshAgent agent;
 

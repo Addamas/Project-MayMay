@@ -4,8 +4,8 @@ using UnityEngine;
 using Jext;
 
 /*
+    TODAY:
     Social
-    Conversation
     Memory
 
     Quest
@@ -14,7 +14,6 @@ using Jext;
     converse
 
     bored actions, sit, converse, play, idk
-
     gotobed
     report
     investigate
@@ -59,6 +58,14 @@ public class Character : GHOPE {
             if (stat.name == name)
                 return stat;
         return null;
+    }
+
+    public Area GetArea()
+    {
+        List<Area> districts = new List<Area>();
+        GameManager.districts.ForEach(x => districts.Add(x));
+        districts.SortByClosest(Pos);
+        return districts.First().GetClosestInDistrict(Pos);
     }
 
     #endregion

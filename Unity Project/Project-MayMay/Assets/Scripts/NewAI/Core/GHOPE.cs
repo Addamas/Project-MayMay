@@ -5,11 +5,15 @@ using UnityEngine;
 using UnityEngine.AI;
 using Jext;
 
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Memory), typeof(Movement), typeof(Senses))]
 public abstract class GHOPE : MonoBehaviour {
 
     [NonSerialized]
     public Movement movement;
+    [NonSerialized]
+    public Memory memory;
+    [NonSerialized]
+    public Senses senses;
 
     public List<NormalAction> actions = new List<NormalAction>();
     public List<Stat> stats = new List<Stat>();
@@ -43,6 +47,8 @@ public abstract class GHOPE : MonoBehaviour {
     private void SetShortcuts()
     {
         movement = GetComponent<Movement>();
+        memory = GetComponent<Memory>();
+        senses = GetComponent<Senses>();
 
         #region Clone Scriptable Objects
         Methods.MakeCloneSOList(ref actions);
@@ -181,7 +187,8 @@ public class Extension : ScriptableObject
         }
     }
 
-    protected Character ai;
+    [NonSerialized]
+    public Character ai;
 
     public virtual void Init(GHOPE ai)
     {

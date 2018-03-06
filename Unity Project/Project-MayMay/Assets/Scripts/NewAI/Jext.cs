@@ -267,6 +267,11 @@ namespace Jext
             return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList();
         }
 
+        public static List<Transform> SortByClosest(this List<Transform> sortableList, Vector3 pos)
+        {
+            return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList();
+        }
+
         public static List<T> SortByClosest<T>(this List<T> sortableList, Vector3 pos) where T : MonoBehaviour
         {
             return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList();
@@ -345,6 +350,33 @@ namespace Jext
         #endregion
 
         #region Get From List
+
+        public static List<T> GetComponentsInDirectChildren<T>(this Transform trans) where T : MonoBehaviour
+        {
+            List<T> ret = new List<T>();
+            T t;
+            foreach (Transform transform in trans)
+            {
+                t = transform.GetComponent(typeof(T)) as T;
+                if (t != null)
+                    ret.Add(t);
+            }
+            return ret;
+        }
+
+        public static List<Transform> GetDirectChildren(this Transform trans)
+        {
+            List<Transform> ret = new List<Transform>();
+            foreach (Transform transform in trans)
+                ret.Add(transform);
+            return ret;
+        }
+
+        public static List<Transform> GetAllChildren(this Transform trans)
+        {
+            Transform[] ret = trans.GetComponentsInChildren<Transform>();
+            return ret.ToList();
+        }
 
         public static List<U> GetTypeFromListAsU<T, U>(this List<T> list) where T : class where U : class, T
         {
