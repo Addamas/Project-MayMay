@@ -10,8 +10,9 @@ public class Movement : CharacterExtension
     [NonSerialized]
     public NavMeshAgent agent;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         agent = GetComponent<NavMeshAgent>();
     }
     
@@ -47,5 +48,10 @@ public class Movement : CharacterExtension
     {
         if (follow != null)
             StopCoroutine(follow);
+    }
+
+    public override void Init()
+    {
+        
     }
 }

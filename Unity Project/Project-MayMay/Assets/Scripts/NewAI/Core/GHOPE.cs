@@ -33,6 +33,13 @@ public abstract class GHOPE : MonoBehaviour {
     }
     #endregion
 
+    public void Init()
+    {
+        movement.Init();
+        memory.Init();
+        senses.Init();
+    }
+
     protected virtual void Awake()
     {
         SetShortcuts();

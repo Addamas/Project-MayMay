@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Jext;
 
 public class Memory : CharacterExtension
 {
@@ -13,6 +14,20 @@ public class Memory : CharacterExtension
     private int memorySlots;
 
     //own past agenda
+    private List<MemorySlot> performedActions = new List<MemorySlot>();
+    public List<MemorySlot> PerformedActions
+    {
+        get
+        {
+            return performedActions;
+        }
+        set
+        {
+            performedActions = value;
+            for (int i = 0; i < performedActions.Count - memorySlots; i++)
+                performedActions.Remove(performedActions.Last());
+        }
+    }
 
     [Serializable]
 	public class Other : IComparable<Other>
@@ -22,6 +37,8 @@ public class Memory : CharacterExtension
         public int affinity;
         [NonSerialized]
         public int lastSpotted;
+        public Area lastSpottedArea;
+        public List<Area> knownAreas = new List<Area>(); //where you can usually find him
 
         public Other(Character character, int affinity)
         {
@@ -65,18 +82,54 @@ public class Memory : CharacterExtension
 
         public void AddMemory(Action action, int limit, int time)
         {
-            if (action.special)
-                specialMemories.Add(new MemorySlot(action, TimeManager.time));
+            if (action.IsExecuting())
+            {
+                bool fit = true;
+
+                if (memories.Count > 0)
+                    if (action == memories.Last().action)
+                        fit = false;
+                if (specialMemories.Count > 0)
+                    if (action == specialMemories.Last().action)
+                        fit = false;
+
+                if(fit)
+                    if (action.special)
+                    {
+                        specialMemories.Add(new MemorySlot(action, TimeManager.time));
+                        for (int i = 0; i < specialMemories.Count - limit; i++)
+                            specialMemories.Remove(specialMemories.Last());
+                    }
+                    else
+                    {
+                        memories.Add(new MemorySlot(action, TimeManager.time));
+                        for (int i = 0; i < memories.Count - limit; i++)
+                            memories.Remove(memories.Last());
+                    }
+            }
+
+            Area area = action.ai.GetArea();
+            if (!knownAreas.Contains(area))
+                knownAreas.Add(area);
+
             lastSpotted = time;
+            lastSpottedArea = area;
         }
     }
 
+    #region Add Memory
     public void AddMemory(Other other, Action action)
     {
         other.AddMemory(action, memorySlots, TimeManager.time);
     }
 
-    public class MemorySlot : IComparable<MemorySlot>
+    public void AddMemory(Action action)
+    {
+        PerformedActions.Add(new MemorySlot(action, TimeManager.time));
+    }
+    #endregion
+
+    public class MemorySlot
     {
         public Action action;
         public Area area;
@@ -88,14 +141,9 @@ public class Memory : CharacterExtension
             area = action.ai.GetArea();
             this.time = time;
         }
-
-        public int CompareTo(MemorySlot other)
-        {
-            return other.time - time;
-        }
     }
 
-    public void Init()
+    public override void Init()
     {
         List<Other> addable = new List<Other>();
         bool fit;

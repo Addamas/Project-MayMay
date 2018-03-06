@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
         FindCharacters();
         foreach (Character character in characters)
         {
-            character.memory.Init();
+            character.Init();
             yield return null;
         }
 

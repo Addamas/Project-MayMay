@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterExtension : MonoBehaviour {
+public abstract class CharacterExtension : MonoBehaviour {
 
     protected Character character;
 
@@ -10,4 +10,6 @@ public class CharacterExtension : MonoBehaviour {
     {
         character = GetComponent<Character>();
     }
+
+    public abstract void Init();
 }

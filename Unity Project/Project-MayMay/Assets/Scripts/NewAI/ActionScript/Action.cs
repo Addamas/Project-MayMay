@@ -21,6 +21,10 @@ public abstract class Action : Extension
     #endregion
 
     #region Small Checks
+    public virtual bool IsExecuting()
+    {
+        return false;
+    }
     public bool special;
     #endregion
 
@@ -108,16 +112,30 @@ public abstract class NormalAction : Action
 public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
 {
     protected Coroutine lifeTime;
+    private bool executing;
+
+    public override bool IsExecuting()
+    {
+        return executing;
+    }
 
     public override void Execute()
     {
+        executing = true;
         lifeTime = ai.StartCoroutine(LifeTime());
         base.Execute();
     }
 
     public override void Cancel()
     {
+        executing = false;
         ai.StopCoroutine(lifeTime);
+    }
+
+    public override void Complete()
+    {
+        executing = false;
+        base.Complete();
     }
 
     public abstract IEnumerator LifeTime();
