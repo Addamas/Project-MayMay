@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: SenseObject
   m_EditorClassIdentifier: 
   frequency: 2
-  spotDistance: 10
+  spotDistance: 5

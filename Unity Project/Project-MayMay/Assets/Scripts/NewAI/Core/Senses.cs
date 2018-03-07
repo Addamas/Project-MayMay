@@ -15,7 +15,15 @@ public class Senses : CharacterExtension
 
     public List<Character> GetSurrounding()
     {
-        return new List<Character>();
+        List<Character> characters = new List<Character>();
+        GameManager.characters.ForEach(x => characters.Add(x));
+        characters.Remove(character);
+
+        characters.RemoveAll(x => Vector3.Distance(character.Pos, x.Pos) > settings.spotDistance);
+
+        //normally check if hearable / seeable
+
+        return characters;
     }
 
     //repeat intern call
@@ -27,5 +35,16 @@ public class Senses : CharacterExtension
             surrounding.ForEach(x => memory.AddMemory(memory.GetInfoCharacter(x), x.curAction));
             yield return new WaitForSeconds(settings.frequency);
         }
+    }
+
+    public bool TrySpot(Character character)
+    {
+        List<Character> surrounding = GetSurrounding();
+        if (surrounding.Contains(character))
+        {
+            memory.AddMemory(memory.GetInfoCharacter(character), character.curAction);
+            return true;
+        }
+        return false;
     }
 }

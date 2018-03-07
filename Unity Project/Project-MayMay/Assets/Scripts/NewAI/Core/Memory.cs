@@ -80,8 +80,17 @@ public class Memory : CharacterExtension
             }
         }
 
+        public void ResetMemory()
+        {
+            memories = new List<MemorySlot>();
+            specialMemories = new List<MemorySlot>();
+        }
+
         public void AddMemory(Action action, int limit, int time)
         {
+            if (action == null)
+                return;
+
             if (action.IsExecuting())
             {
                 bool fit = true;
@@ -96,13 +105,13 @@ public class Memory : CharacterExtension
                 if(fit)
                     if (action.special)
                     {
-                        specialMemories.Add(new MemorySlot(action, TimeManager.time));
+                        SpecialMemories.Add(new MemorySlot(action, TimeManager.time));
                         for (int i = 0; i < specialMemories.Count - limit; i++)
                             specialMemories.Remove(specialMemories.Last());
                     }
                     else
                     {
-                        memories.Add(new MemorySlot(action, TimeManager.time));
+                        Memories.Add(new MemorySlot(action, TimeManager.time));
                         for (int i = 0; i < memories.Count - limit; i++)
                             memories.Remove(memories.Last());
                     }
@@ -163,6 +172,7 @@ public class Memory : CharacterExtension
         }
 
         addable.ForEach(x => relatives.Add(x));
+        relatives.ForEach(x => x.ResetMemory());
     }
 
     public Other GetInfoCharacter(Character character)

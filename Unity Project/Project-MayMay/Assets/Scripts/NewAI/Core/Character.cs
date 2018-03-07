@@ -62,7 +62,8 @@ public class Character : GHOPE {
     {
         List<Area> districts = new List<Area>();
         GameManager.districts.ForEach(x => districts.Add(x));
-        districts.SortByClosest(Pos);
+
+        districts = districts.SortByClosest(Pos);
         return districts.First().GetClosestInDistrict(Pos);
     }
 
