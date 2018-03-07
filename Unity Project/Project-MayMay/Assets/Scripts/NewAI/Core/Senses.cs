@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Senses : CharacterExtension
 {
-    [SerializeField]
-    private float frequency, spotDistance;
+    public SenseObject settings;
     private Memory memory;
 
     public override void Init()
@@ -26,7 +25,7 @@ public class Senses : CharacterExtension
         {
             List<Character> surrounding = GetSurrounding();
             surrounding.ForEach(x => memory.AddMemory(memory.GetInfoCharacter(x), x.curAction));
-            yield return new WaitForSeconds(frequency);
+            yield return new WaitForSeconds(settings.frequency);
         }
     }
 }

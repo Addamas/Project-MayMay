@@ -46,7 +46,7 @@ public abstract class Action : Extension
     #region Distance
     public virtual bool InRange()
     {
-        return Dis() < ai.interactDistance;
+        return Dis() < ai.settings.interactDistance;
     }
 
     public virtual float Dis()

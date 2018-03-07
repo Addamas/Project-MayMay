@@ -27,8 +27,6 @@ using Jext;
 
 public class Character : GHOPE {
 
-    public float interactDistance;
-
     #region Get Functions
 
     public T GetAction<T>() where T : Action

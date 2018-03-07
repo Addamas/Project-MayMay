@@ -18,7 +18,7 @@ public abstract class GHOPE : MonoBehaviour {
     public List<NormalAction> actions = new List<NormalAction>();
     public List<Stat> stats = new List<Stat>();
 
-    public int critVal = 10;
+    public CharacterObject settings;
 
     [NonSerialized]
     public Action curAction;
@@ -67,6 +67,7 @@ public abstract class GHOPE : MonoBehaviour {
 
     public void Complete()
     {
+        memory.AddMemory(curAction);
         curAction = null;
         NewEvent();
     }
@@ -75,7 +76,7 @@ public abstract class GHOPE : MonoBehaviour {
     {
         get
         {
-            return curAction != null && stats.First().GetValue() > critVal;
+            return curAction != null && stats.First().GetValue() > settings.critVal;
         }
     }
 

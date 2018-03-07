@@ -379,6 +379,7 @@ MonoBehaviour:
   relatives:
   - character: {fileID: 1365713225}
     affinity: 60
+    lastSpottedArea: {fileID: 0}
     knownAreas:
     - {fileID: 220241147}
   defaultAffinity: 0
@@ -394,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b01ca833b7078458de1fbfe22c4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
 --- !u!1 &443211251
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b01ca833b7078458de1fbfe22c4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
 --- !u!114 &1343325796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,9 +1038,11 @@ MonoBehaviour:
   relatives:
   - character: {fileID: 1343325797}
     affinity: 2
+    lastSpottedArea: {fileID: 0}
     knownAreas: []
   - character: {fileID: 357556861}
     affinity: 100
+    lastSpottedArea: {fileID: 0}
     knownAreas: []
   defaultAffinity: 50
   memorySlots: 20
@@ -1052,6 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b01ca833b7078458de1fbfe22c4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
 --- !u!114 &1365713224
 MonoBehaviour:
   m_ObjectHideFlags: 0
