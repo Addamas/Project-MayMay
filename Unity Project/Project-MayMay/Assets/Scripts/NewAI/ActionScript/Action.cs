@@ -7,6 +7,7 @@ public abstract class Action : Extension
 {
     #region Core Functions
     public abstract void Execute();
+
     public abstract void Cancel();
     public virtual void Complete()
     {
@@ -21,11 +22,19 @@ public abstract class Action : Extension
     #endregion
 
     #region Small Checks
+    public bool special;
+
     public virtual bool IsExecuting()
     {
         return false;
     }
-    public bool special;
+
+    protected List<Character> Spotting()
+    {
+        List<Character> surrounding = ai.senses.GetSurrounding();
+        surrounding.RemoveAll(x => !x.senses.TrySpot(ai));
+        return surrounding;
+    }
     #endregion
 
     #region Executable Check
@@ -46,7 +55,7 @@ public abstract class Action : Extension
     #region Distance
     public virtual bool InRange()
     {
-        return Dis() < ai.interactDistance;
+        return Dis() < ai.settings.interactDistance;
     }
 
     public virtual float Dis()

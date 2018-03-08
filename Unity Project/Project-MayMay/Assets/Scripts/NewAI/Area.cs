@@ -50,7 +50,8 @@ public class Area : MonoBehaviour {
         if (transform.childCount == 0)
             return this;
         Area[] ret = GetComponentsInChildren<Area>();
-        ret.SortByClosest(pos);
+
+        ret = ret.SortByClosest(pos);
         return ret.First();
     }
 }

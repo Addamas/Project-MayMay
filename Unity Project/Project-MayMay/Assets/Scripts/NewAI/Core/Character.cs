@@ -27,8 +27,6 @@ using Jext;
 
 public class Character : GHOPE {
 
-    public float interactDistance;
-
     #region Get Functions
 
     public T GetAction<T>() where T : Action
@@ -64,7 +62,8 @@ public class Character : GHOPE {
     {
         List<Area> districts = new List<Area>();
         GameManager.districts.ForEach(x => districts.Add(x));
-        districts.SortByClosest(Pos);
+
+        districts = districts.SortByClosest(Pos);
         return districts.First().GetClosestInDistrict(Pos);
     }
 

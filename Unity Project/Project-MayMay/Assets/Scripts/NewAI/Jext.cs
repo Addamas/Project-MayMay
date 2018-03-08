@@ -264,47 +264,47 @@ namespace Jext
 
         public static List<GameObject> SortByClosest(this List<GameObject> sortableList, Vector3 pos)
         {
-            return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList();
+            return sortableList.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToList();
         }
 
         public static List<Transform> SortByClosest(this List<Transform> sortableList, Vector3 pos)
         {
-            return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList();
+            return sortableList.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToList();
         }
 
         public static List<T> SortByClosest<T>(this List<T> sortableList, Vector3 pos) where T : MonoBehaviour
         {
-            return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList();
+            return sortableList.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToList();
         }
 
         public static GameObject[] SortByClosest(this GameObject[] sortableArr, Vector3 pos)
         {
-            return sortableArr.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToArray();
+            return sortableArr.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToArray();
         }
 
         public static T[] SortByClosest<T>(this T[] sortableArr, Vector3 pos) where T : MonoBehaviour
         {
-            return sortableArr.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToArray();
+            return sortableArr.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToArray();
         }
 
         public static List<Vector3> SortByClosest(this List<Vector3> sortableList, Vector3 pos)
         {
-            return sortableList.OrderBy(t => -Vector3.Distance(t, pos)).ToList();
+            return sortableList.OrderBy(t => Vector3.Distance(t, pos)).ToList();
         }
 
         public static Vector3[] SortByClosest(this Vector3[] sortableArr, Vector3 pos)
         {
-            return sortableArr.OrderBy(t => -Vector3.Distance(t, pos)).ToArray();
+            return sortableArr.OrderBy(t => Vector3.Distance(t, pos)).ToArray();
         }
 
         public static T GetClosest<T>(this List<T> sortableList, Vector3 pos) where T : MonoBehaviour
         {
-            return sortableList.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList()[0];
+            return sortableList.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToList()[0];
         }
 
         public static T GetClosest<T>(this T[] sortableArr, Vector3 pos) where T : MonoBehaviour
         {
-            return sortableArr.OrderBy(t => -Vector3.Distance(t.transform.position, pos)).ToList()[0];
+            return sortableArr.OrderBy(t => Vector3.Distance(t.transform.position, pos)).ToList()[0];
         }
 
         public static Vector3 GetClosest(this List<Vector3> sortableList, Vector3 pos)
