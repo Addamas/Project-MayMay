@@ -11,4 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04c479ee3d2afa47be6dd21057034e4, type: 3}
   m_Name: Consume
   m_EditorClassIdentifier: 
-  peepeeStatName: Peepee
+  special: 0
+  breakable: 0
+  peepee: {fileID: 11400000, guid: 39ba3391f6a6051408806ac4f6050f87, type: 2}

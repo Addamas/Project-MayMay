@@ -261,6 +261,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
   - {fileID: 11400000, guid: d53148c7860e09d418fe28119706c473, type: 2}
+  - {fileID: 11400000, guid: e5753be4883131246a68cc32672ca7d5, type: 2}
   settings: {fileID: 11400000, guid: 598fb7ab8ced11345a3fef2afb7e89f7, type: 2}
   inventory:
   - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
@@ -381,6 +382,7 @@ MonoBehaviour:
     lastSpottedArea: {fileID: 0}
     knownAreas:
     - {fileID: 220241147}
+    conversations: []
   defaultAffinity: 0
   memorySlots: 20
 --- !u!114 &357556869
@@ -907,6 +909,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
   - {fileID: 11400000, guid: d53148c7860e09d418fe28119706c473, type: 2}
+  - {fileID: 11400000, guid: e5753be4883131246a68cc32672ca7d5, type: 2}
   settings: {fileID: 11400000, guid: 598fb7ab8ced11345a3fef2afb7e89f7, type: 2}
   inventory:
   - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
@@ -1038,10 +1041,15 @@ MonoBehaviour:
     affinity: 2
     lastSpottedArea: {fileID: 0}
     knownAreas: []
+    conversations: []
   - character: {fileID: 357556861}
     affinity: 100
     lastSpottedArea: {fileID: 0}
     knownAreas: []
+    conversations:
+    - parts:
+      - parts:
+        - I like birds.
   defaultAffinity: 50
   memorySlots: 20
 --- !u!114 &1365713223
@@ -1083,6 +1091,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
   - {fileID: 11400000, guid: d53148c7860e09d418fe28119706c473, type: 2}
+  - {fileID: 11400000, guid: e5753be4883131246a68cc32672ca7d5, type: 2}
   settings: {fileID: 11400000, guid: 598fb7ab8ced11345a3fef2afb7e89f7, type: 2}
   inventory:
   - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}

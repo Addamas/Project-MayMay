@@ -11,4 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe69b9165dfba84481968e83025f7b0, type: 3}
   m_Name: Yawn
   m_EditorClassIdentifier: 
+  special: 0
+  socializeType: 2
   duration: 1

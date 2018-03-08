@@ -13,13 +13,12 @@ public class Senses : CharacterExtension
         StartCoroutine(CheckSurrounding());
     }
 
-    public List<Character> GetSurrounding()
+    public List<Memory.Other> GetSurrounding()
     {
-        List<Character> characters = new List<Character>();
-        GameManager.characters.ForEach(x => characters.Add(x));
-        characters.Remove(character);
+        List<Memory.Other> characters = new List<Memory.Other>();
+        character.memory.relatives.ForEach(x => characters.Add(x));
 
-        characters.RemoveAll(x => Vector3.Distance(character.Pos, x.Pos) > settings.spotDistance);
+        characters.RemoveAll(x => Vector3.Distance(character.Pos, x.character.Pos) > settings.spotDistance);
 
         //normally check if hearable / seeable
 
@@ -31,16 +30,17 @@ public class Senses : CharacterExtension
     {
         while(true)
         {
-            List<Character> surrounding = GetSurrounding();
-            surrounding.ForEach(x => memory.AddMemory(memory.GetInfoCharacter(x), x.curAction));
+            List<Memory.Other> surrounding = GetSurrounding();
+            surrounding.ForEach(x => memory.AddMemory(x, x.character.curAction));
             yield return new WaitForSeconds(settings.frequency);
         }
     }
 
     public bool TrySpot(Character character)
     {
-        List<Character> surrounding = GetSurrounding();
-        if (surrounding.Contains(character))
+        List<Memory.Other> surrounding = GetSurrounding();
+        Memory.Other _character = memory.GetInfoCharacter(character);
+        if (surrounding.Contains(_character))
         {
             memory.AddMemory(memory.GetInfoCharacter(character), character.curAction);
             return true;

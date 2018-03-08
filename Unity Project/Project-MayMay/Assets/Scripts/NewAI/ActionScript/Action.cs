@@ -8,7 +8,10 @@ public abstract class Action : Extension
     #region Core Functions
     public abstract void Execute();
 
-    public abstract void Cancel();
+    public virtual void Cancel()
+    {
+        ai.curAction = null;
+    }
     public virtual void Complete()
     {
         Debug.Log(name);
@@ -22,17 +25,17 @@ public abstract class Action : Extension
     #endregion
 
     #region Small Checks
-    public bool special;
+    public bool special, breakable;
 
     public virtual bool IsExecuting()
     {
         return false;
     }
 
-    protected List<Character> Spotting()
+    protected List<Memory.Other> Spotting()
     {
-        List<Character> surrounding = ai.senses.GetSurrounding();
-        surrounding.RemoveAll(x => !x.senses.TrySpot(ai));
+        List<Memory.Other> surrounding = ai.senses.GetSurrounding();
+        surrounding.RemoveAll(x => !x.character.senses.TrySpot(ai));
         return surrounding;
     }
     #endregion
@@ -138,7 +141,9 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
     public override void Cancel()
     {
         executing = false;
-        ai.StopCoroutine(lifeTime);
+        if(lifeTime != null)
+            ai.StopCoroutine(lifeTime);
+        base.Cancel();
     }
 
     public override void Complete()
@@ -162,6 +167,7 @@ public abstract class NormalActionMulFrameable : NormalAction, IMultipleFramable
     public override void Cancel()
     {
         ai.StopCoroutine(lifeTime);
+        base.Cancel();
     }
 
     public abstract IEnumerator LifeTime();

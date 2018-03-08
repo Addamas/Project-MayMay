@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Jext;
+using System;
 
 /*
     TODAY:
@@ -44,7 +45,7 @@ public class Character : GHOPE {
     public T GetStat<T>() where T : Stat
     {
         foreach (Stat stat in stats)
-            if (stat.GetType() is T)
+            if (stat is T)
                 return stat as T;
         return null;
     }
@@ -67,6 +68,24 @@ public class Character : GHOPE {
         return districts.First().GetClosestInDistrict(Pos);
     }
 
+    #endregion
+
+    #region Checks
+    public bool Socializable
+    {
+        get
+        {
+            try
+            {
+                GetStat<Social>();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
     #endregion
 
     #region Inventory & Available Interactables
@@ -101,7 +120,6 @@ public class Character : GHOPE {
     #endregion
 
     #region Override Functions
-    
     protected override void Execute()
     {
         execute = StartCoroutine(_Execute());
@@ -136,4 +154,11 @@ public class Character : GHOPE {
         movement.Stop();
     }
     #endregion
+
+    public override  void Cancel()
+    {
+        if (execute != null)
+            StopCoroutine(execute);
+        base.Cancel();
+    }
 }
