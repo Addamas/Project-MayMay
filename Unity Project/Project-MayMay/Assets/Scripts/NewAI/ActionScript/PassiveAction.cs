@@ -58,6 +58,7 @@ public class PassiveAction : RootActionMulFrameable
     public override void Cancel()
     {
         leader = null;
+        stat.SetValue(Max);
         base.Cancel();
     }
 

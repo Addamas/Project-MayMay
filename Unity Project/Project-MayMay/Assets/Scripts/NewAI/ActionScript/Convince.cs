@@ -26,12 +26,10 @@ public class Convince : RootActionMulFrameable
         return Max;
     }
 
-    private int val;
     public override IEnumerator LifeTime()
     {
         Memory.Other other = GetOther();
         Character otherCharacter = other.character;
-        val = GetReturnValue();
 
         if (otherCharacter.curAction != null)
             otherCharacter.Cancel();

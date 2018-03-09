@@ -40,11 +40,4 @@ public class Converse : LeadAction {
 
         Complete();
     }
-
-    public override void Cancel()
-    {
-        Social social = Social;
-        ai.StartCoroutine(social.Speak(social.interrupted));
-        base.Cancel();
-    }
 }

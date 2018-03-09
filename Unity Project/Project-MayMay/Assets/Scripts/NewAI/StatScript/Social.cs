@@ -6,7 +6,6 @@ using System;
 [CreateAssetMenu(fileName = "Social", menuName = "Stats/Social", order = 1)]
 public class Social : TickStat {
 
-    public ConPart interrupted;
     public List<Conversation> genericConversations = new List<Conversation>();
 
     public float rewardPerAffinity, decreasePerAffinity,
