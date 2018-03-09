@@ -14,7 +14,7 @@ public abstract class Action : Extension
     }
     public virtual void Complete()
     {
-        Debug.Log(name);
+        //Debug.Log(name + " " + ai);
         ai.Complete();
     }
     #endregion
@@ -158,16 +158,26 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
 public abstract class NormalActionMulFrameable : NormalAction, IMultipleFramable
 {
     protected Coroutine lifeTime;
+    private bool executing;
 
     public override void Execute()
     {
+        executing = true;
         lifeTime = ai.StartCoroutine(LifeTime());
     }
 
     public override void Cancel()
     {
-        ai.StopCoroutine(lifeTime);
+        if (lifeTime != null)
+            ai.StopCoroutine(lifeTime);
+        executing = false;
         base.Cancel();
+    }
+
+    public override void Complete()
+    {
+        executing = false;
+        base.Complete();
     }
 
     public abstract IEnumerator LifeTime();

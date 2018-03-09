@@ -7,7 +7,14 @@ using Jext;
 public class Convince : RootActionMulFrameable
 {
     [SerializeField]
-    private Stat convinceToFill;
+    protected PassiveAction wantedAction;
+    protected System.Type ActionType
+    {
+        get
+        {
+            return wantedAction.GetType();
+        }
+    }
 
     public override List<Link> GetRemainingLinks()
     {
@@ -28,17 +35,32 @@ public class Convince : RootActionMulFrameable
 
         if (otherCharacter.curAction != null)
             otherCharacter.Cancel();
-        System.Type type = convinceToFill.GetType();
-        foreach (Stat stat in otherCharacter.stats)
-            if (stat.GetType() == type)
-            {
-                stat.SetValue(otherCharacter.settings.critVal);
-                otherCharacter.NewEvent();
-                break;
-            }
 
-        yield return null;
+        ProcessStat(GetWantedAction(otherCharacter).stat);
+        otherCharacter.NewEvent();
+
+        lifeTime = ai.StartCoroutine(SecondLifeTime(other));
+        yield break;
+    }
+
+    protected virtual void ProcessStat(Stat stat)
+    {
+        stat.SetValue(stat.ai.settings.critVal);
+    }
+
+    protected RootAction GetWantedAction(Character character)
+    {
+        foreach (Stat stat in character.stats)
+            foreach (RootAction action in stat.rootActions)
+                if (action.GetType() == ActionType)
+                    return action;
+        return null;
+    }
+
+    protected virtual IEnumerator SecondLifeTime(Memory.Other other)
+    {
         Complete();
+        yield break;
     }
 
     public override Transform PosTrans()
@@ -57,12 +79,15 @@ public class Convince : RootActionMulFrameable
         Action action;
         Character character;
 
-        for (int i = others.Count - 1; i > 0; i--)
+        int count = others.Count - 1;
+        for (int i = count; i > 0; i--)
         {
             character = others[i].character;
             action = character.curAction;
+            
             if (action == null)
                 continue;
+
             character.stats.Sort();
             if(!AvailableCheck(others[i]) || !action.breakable || 
                 character.stats.First().GetValue() < character.settings.critVal)

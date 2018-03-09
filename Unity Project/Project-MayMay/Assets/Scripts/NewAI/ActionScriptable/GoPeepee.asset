@@ -11,4 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb5deaa8c606ab4a8635f6ae24278da, type: 3}
   m_Name: GoPeepee
   m_EditorClassIdentifier: 
+  special: 0
+  breakable: 1
   maxDuration: 5

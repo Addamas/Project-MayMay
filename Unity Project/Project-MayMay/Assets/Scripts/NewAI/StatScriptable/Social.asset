@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Name: Social
   m_EditorClassIdentifier: 
   rootActions:
-  - {fileID: 11400000, guid: 2fb0d1eb92faa1b498f04ff98e9ad89b, type: 2}
-  value: 40
-  tickFrequency: 0.5
+  - {fileID: 11400000, guid: 46e81784a4d1f70429d407997c01c757, type: 2}
+  value: 100
+  tickFrequency: 2
   interrupted:
-    parts: []
+    parts:
+    - Sorry, gotta go.
   genericConversations:
   - parts:
     - parts:
