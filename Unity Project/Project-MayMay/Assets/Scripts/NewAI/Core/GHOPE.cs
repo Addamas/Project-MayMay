@@ -48,6 +48,7 @@ public abstract class GHOPE : MonoBehaviour {
         stats.ForEach(x => x.Init(this));
         foreach (Stat stat in stats)
             stat.rootActions.ForEach(x => x.Init(this, stat));
+        actions.ForEach(x => x.Init(this));
         #endregion
     }
 
@@ -79,7 +80,7 @@ public abstract class GHOPE : MonoBehaviour {
         if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;
 
-        StopMovement();
+        Cancel();
             
         foreach (Stat stat in stats)
             if (PathPossible(stat))
@@ -94,8 +95,6 @@ public abstract class GHOPE : MonoBehaviour {
         stats.Sort();
         return stats.First();
     }
-
-    protected abstract void StopMovement();
 
     protected virtual void Execute()
     {
@@ -159,6 +158,7 @@ public abstract class GHOPE : MonoBehaviour {
                     continue;
 
                 links = tryAction.action.GetRemainingLinks();
+
                 foreach(Action.Link link in links)
                     if(action.Linkable(link))
                     {

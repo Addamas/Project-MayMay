@@ -147,6 +147,8 @@ public class Character : GHOPE {
             
             if (curAction.InRange())
             {
+                if (!curAction.autoMovement)
+                    movement.Stop();
                 base.Execute();
                 yield break;
             }
@@ -155,19 +157,13 @@ public class Character : GHOPE {
             yield return null;
         }
     }
+    #endregion
 
-    protected override void StopMovement()
+    public override void Cancel()
     {
         if (execute != null)
             StopCoroutine(execute);
         movement.Stop();
-    }
-    #endregion
-
-    public override  void Cancel()
-    {
-        if (execute != null)
-            StopCoroutine(execute);
         base.Cancel();
     }
 }

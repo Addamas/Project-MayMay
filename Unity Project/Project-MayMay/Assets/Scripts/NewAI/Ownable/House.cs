@@ -15,4 +15,15 @@ public class House : Interactable {
             return true;
         }
     }
+
+    public bool Open
+    {
+        get
+        {
+            foreach (Door door in doors)
+                if (!door.IsOpen)
+                    return false;
+            return true;
+        }
+    }
 }

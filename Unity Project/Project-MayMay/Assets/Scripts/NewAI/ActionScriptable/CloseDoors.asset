@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   special: 0
   breakable: 1
-  returnValue: 
+  autoMovement: 0
+  returnValue: 02000000
   houseName: MyInn
   openDoors: 0

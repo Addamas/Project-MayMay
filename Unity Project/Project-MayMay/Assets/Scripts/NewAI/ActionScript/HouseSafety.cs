@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HouseSafity : NormalBasicAction
+public abstract class HouseSafety : NormalBasicAction
 {
     [SerializeField]
     private string houseName;
@@ -20,7 +20,7 @@ public abstract class HouseSafity : NormalBasicAction
 
     protected List<Door> GetDoors(bool getOpen)
     {
-        List<Door> ret = GetDoors();
+        List<Door> ret = GetDoors().ConvertListToNew();
         ret.RemoveAll(x => x.IsOpen != getOpen);
         return ret;
     }

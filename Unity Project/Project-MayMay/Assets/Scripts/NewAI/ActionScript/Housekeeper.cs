@@ -8,15 +8,15 @@ public class Housekeeper : RootActionMulFrameable
     [SerializeField]
     private string houseName;
 
-    protected Inn GetHouse()
+    protected House GetHouse()
     {
-        return ai.GetHouse(houseName) as Inn;
+        return ai.GetHouse(houseName);
     }
 
     public override List<Link> GetRemainingLinks()
     {
         List<Link> ret = new List<Link>();
-        if (GetHouse().Locked)
+        if (!GetHouse().Open)
             ret.Add(Link.OpenedHouse);
         return ret;
     }
@@ -28,7 +28,8 @@ public class Housekeeper : RootActionMulFrameable
 
     public override IEnumerator LifeTime()
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForSeconds(2); //temporarily
+        Complete();
     }
 
     public override Transform PosTrans()

@@ -14,18 +14,18 @@ public abstract class Action : Extension
     }
     public virtual void Complete()
     {
-        Debug.Log(name + " " + ai);
+        //Debug.Log(name + " " + ai);
         ai.Complete();
     }
     #endregion
 
     #region Main Check
-    public enum Link {HasFood, OpenedHouse, b, c };
+    public enum Link {HasFood, OpenedHouse, closedHouse };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
     #region Small Checks
-    public bool special, breakable;
+    public bool special, breakable, autoMovement;
 
     public virtual bool IsExecuting()
     {

@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5636a7bf3d8932c45b33f16d90272c52, type: 3}
-  m_Name: CharacterObject
+  m_Script: {fileID: 11500000, guid: 7ea78e7bc41909c4c94b5ed1f4619fe7, type: 3}
+  m_Name: HouseManagement
   m_EditorClassIdentifier: 
-  critVal: 10
-  interactDistance: 2
+  rootActions:
+  - {fileID: 11400000, guid: a6bf062d6eece45449bf6c82a29f9482, type: 2}
