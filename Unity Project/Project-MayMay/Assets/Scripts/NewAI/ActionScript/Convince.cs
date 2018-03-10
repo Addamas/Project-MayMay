@@ -87,8 +87,8 @@ public class Convince : RootActionMulFrameable
                 continue;
 
             character.stats.Sort();
-            if(!AvailableCheck(others[i]) || !action.breakable || 
-                character.stats.First().GetValue() < character.settings.critVal)
+            if (!AvailableCheck(others[i]) || !action.breakable ||
+                character.stats.First().GetValue() <= character.settings.critVal)
                 others.RemoveAt(i);
         }
 

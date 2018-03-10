@@ -38,6 +38,7 @@ public class Converse : LeadAction {
             yield return turnTaker.ai.StartCoroutine(turnTaker.Speak(conversation.parts[i]));
         }
 
+        otherSocial.AddValue(Max);
         Complete();
     }
 }
