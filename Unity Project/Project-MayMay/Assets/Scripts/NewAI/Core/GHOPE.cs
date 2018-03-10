@@ -145,9 +145,6 @@ public abstract class GHOPE : MonoBehaviour {
             tryAction = tryable.First();
             tryable.Remove(tryAction);
 
-            if (!tryAction.action.IsExecutable())
-                continue;
-
             //check if executable
             if(tryAction.action.GetRemainingLinks().Count == 0)
             {
@@ -158,6 +155,9 @@ public abstract class GHOPE : MonoBehaviour {
             //get deeper path
             foreach(NormalAction action in actions)
             {
+                if (!action.IsExecutable())
+                    continue;
+
                 links = tryAction.action.GetRemainingLinks();
                 foreach(Action.Link link in links)
                     if(action.Linkable(link))

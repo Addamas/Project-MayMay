@@ -9,4 +9,9 @@ public class Interactable : Ownable {
         if (isPublic)
             GameManager.characters.ForEach(x => x.interactables.Add(this));
     }
+
+    public virtual void Interact(Character character)
+    {
+
+    }
 }

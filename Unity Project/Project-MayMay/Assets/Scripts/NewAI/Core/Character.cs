@@ -117,6 +117,15 @@ public class Character : GHOPE {
         ret.SortByClosest(Pos);
         return ret;
     }
+
+    public House GetHouse(string houseName)
+    {
+        List<House> houses = GetFromInteractables<House>();
+        foreach (House house in houses)
+            if (house.name == houseName)
+                return house;
+        return null;
+    }
     #endregion
 
     #region Override Functions

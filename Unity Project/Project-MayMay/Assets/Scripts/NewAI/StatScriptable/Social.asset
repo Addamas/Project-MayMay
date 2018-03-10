@@ -15,12 +15,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46e81784a4d1f70429d407997c01c757, type: 2}
   value: 100
   tickFrequency: 2
-  greeting:
-    parts:
-    - Oh hi Mark.
-  interrupted:
-    parts:
-    - Sorry, gotta go.
   genericConversations:
   - parts:
     - parts:

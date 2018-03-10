@@ -78,7 +78,7 @@ public class Convince : RootActionMulFrameable
         Character character;
 
         int count = others.Count - 1;
-        for (int i = count; i > 0; i--)
+        for (int i = count; i > -1; i--)
         {
             character = others[i].character;
             action = character.curAction;

@@ -59,7 +59,6 @@ public class PassiveAction : RootActionMulFrameable
     {
         leader = null;
         stat.SetValue(Max);
-        Debug.Log(stat.GetValue());
         base.Cancel();
     }
 

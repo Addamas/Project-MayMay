@@ -20,7 +20,7 @@ public abstract class Action : Extension
     #endregion
 
     #region Main Check
-    public enum Link {HasFood, a, b, c };
+    public enum Link {HasFood, OpenedHouse, b, c };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
@@ -118,7 +118,23 @@ public abstract class RootAction : Action
 public abstract class NormalAction : Action
 {
     public abstract List<Link> GetReturnValue();
-    public abstract bool Linkable(Link link);
+    public virtual bool Linkable(Link link)
+    {
+        if (GetReturnValue().Contains(link))
+            return true;
+        return false;
+    }
+}
+
+public abstract class NormalBasicAction : NormalAction
+{
+    [SerializeField]
+    protected List<Link> returnValue = new List<Link>();
+
+    public override List<Link> GetReturnValue()
+    {
+        return returnValue;
+    }
 }
 
 public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
