@@ -7,11 +7,13 @@ public class TimeManager : MonoBehaviour {
     public static TimeManager instance;
     public static int time;
 
+    public Transform sunMoon;
     public float minuteDuration;
 
     private void Awake()
     {
-        instance = this;       
+        instance = this;
+        StartFlow();
     }
 
     public void StartFlow()
@@ -23,6 +25,8 @@ public class TimeManager : MonoBehaviour {
     {
         while (true)
         {
+            sunMoon.Rotate(0, 0, 1);
+            Debug.Log(time);
             yield return new WaitForSeconds(minuteDuration);
             time++;
         }
