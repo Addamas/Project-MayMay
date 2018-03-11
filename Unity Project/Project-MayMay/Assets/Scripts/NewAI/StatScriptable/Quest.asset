@@ -8,10 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3b91926339cfe4488d4a1a73444a64, type: 3}
-  m_Name: Peepee
+  m_Script: {fileID: 11500000, guid: 52fa4dcf07eceb94a898617fd4250b2d, type: 3}
+  m_Name: Quest
   m_EditorClassIdentifier: 
   rootActions:
-  - {fileID: 11400000, guid: 39ba3391f6a6051408806ac4f6050f87, type: 2}
-  value: 100
-  tickFrequency: 2
+  - {fileID: 11400000, guid: 4c998850e63a0f04389ffe44e217e7d6, type: 2}
+  times:
+  - start: 0
+    end: 10

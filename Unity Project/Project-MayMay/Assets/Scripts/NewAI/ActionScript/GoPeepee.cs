@@ -28,6 +28,7 @@ public class GoPeepee : RootActionMulFrameable, IDuration
 
     public override IEnumerator LifeTime()
     {
+        GetWC().Interact(ai);
         yield return new WaitForSeconds(Duration);
         Complete();
     }

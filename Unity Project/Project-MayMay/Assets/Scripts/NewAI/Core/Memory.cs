@@ -6,8 +6,7 @@ using Jext;
 
 public class Memory : CharacterExtension
 {
-    [SerializeField]
-    private List<Other> relatives = new List<Other>();
+    public List<Other> relatives = new List<Other>();
     [SerializeField, Range(0,100)]
     private int defaultAffinity;
     [SerializeField]
@@ -39,6 +38,7 @@ public class Memory : CharacterExtension
         public int lastSpotted;
         public Area lastSpottedArea;
         public List<Area> knownAreas = new List<Area>(); //where you can usually find him
+        public List<Social.Conversation> conversations = new List<Social.Conversation>();
 
         public Other(Character character, int affinity)
         {
@@ -160,6 +160,9 @@ public class Memory : CharacterExtension
         {
             if (character == GetComponent<Character>())
                 continue;
+            if (!character.Socializable)
+                continue;
+
             fit = true;
             foreach (Other other in relatives)
                 if (other.character == character)

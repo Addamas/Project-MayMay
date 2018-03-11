@@ -8,31 +8,34 @@ public abstract class Action : Extension
     #region Core Functions
     public abstract void Execute();
 
-    public abstract void Cancel();
+    public virtual void Cancel()
+    {
+        ai.curAction = null;
+    }
     public virtual void Complete()
     {
-        Debug.Log(name);
+        //Debug.Log(name + " " + ai);
         ai.Complete();
     }
     #endregion
 
     #region Main Check
-    public enum Link {HasFood, a, b, c };
+    public enum Link {HasFood, OpenedHouse, closedHouse };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
     #region Small Checks
-    public bool special;
+    public bool special, breakable, autoMovement;
 
     public virtual bool IsExecuting()
     {
         return false;
     }
 
-    protected List<Character> Spotting()
+    protected List<Memory.Other> Spotting()
     {
-        List<Character> surrounding = ai.senses.GetSurrounding();
-        surrounding.RemoveAll(x => !x.senses.TrySpot(ai));
+        List<Memory.Other> surrounding = ai.senses.GetSurrounding();
+        surrounding.RemoveAll(x => !x.character.senses.TrySpot(ai));
         return surrounding;
     }
     #endregion
@@ -115,7 +118,23 @@ public abstract class RootAction : Action
 public abstract class NormalAction : Action
 {
     public abstract List<Link> GetReturnValue();
-    public abstract bool Linkable(Link link);
+    public virtual bool Linkable(Link link)
+    {
+        if (GetReturnValue().Contains(link))
+            return true;
+        return false;
+    }
+}
+
+public abstract class NormalBasicAction : NormalAction
+{
+    [SerializeField]
+    protected List<Link> returnValue = new List<Link>();
+
+    public override List<Link> GetReturnValue()
+    {
+        return returnValue;
+    }
 }
 
 public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
@@ -138,7 +157,9 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
     public override void Cancel()
     {
         executing = false;
-        ai.StopCoroutine(lifeTime);
+        if(lifeTime != null)
+            ai.StopCoroutine(lifeTime);
+        base.Cancel();
     }
 
     public override void Complete()
@@ -153,15 +174,26 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
 public abstract class NormalActionMulFrameable : NormalAction, IMultipleFramable
 {
     protected Coroutine lifeTime;
+    private bool executing;
 
     public override void Execute()
     {
+        executing = true;
         lifeTime = ai.StartCoroutine(LifeTime());
     }
 
     public override void Cancel()
     {
-        ai.StopCoroutine(lifeTime);
+        if (lifeTime != null)
+            ai.StopCoroutine(lifeTime);
+        executing = false;
+        base.Cancel();
+    }
+
+    public override void Complete()
+    {
+        executing = false;
+        base.Complete();
     }
 
     public abstract IEnumerator LifeTime();

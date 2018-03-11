@@ -20,7 +20,7 @@ namespace Jext
 {
     public static class Methods
     {
-        public static bool IsEven(int i)
+        public static bool IsEven(this int i)
         {
             return i % 2 == 0;
         }

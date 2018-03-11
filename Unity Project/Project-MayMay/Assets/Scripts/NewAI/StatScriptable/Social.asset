@@ -11,7 +11,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b55dde4e0f8804485fd833faf7d95d, type: 3}
   m_Name: Social
   m_EditorClassIdentifier: 
-  rootActions: []
+  rootActions:
+  - {fileID: 11400000, guid: 46e81784a4d1f70429d407997c01c757, type: 2}
   value: 100
   tickFrequency: 2
+  genericConversations:
+  - parts:
+    - parts:
+      - Pain is an art..
+      - AND I'M AN ARTIST!
+    - parts:
+      - Allright then.
+    - parts:
+      - Seeya.
+  rewardPerAffinity: 1
+  decreasePerAffinity: 1
+  timePerChar: 0.1
   minValue: 40
+  breakValue: 70

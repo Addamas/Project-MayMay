@@ -33,7 +33,7 @@ public abstract class GHOPE : MonoBehaviour {
     }
     #endregion
 
-    public void Init()
+    public virtual void Init()
     {
         movement.Init();
         memory.Init();
@@ -48,6 +48,7 @@ public abstract class GHOPE : MonoBehaviour {
         stats.ForEach(x => x.Init(this));
         foreach (Stat stat in stats)
             stat.rootActions.ForEach(x => x.Init(this, stat));
+        actions.ForEach(x => x.Init(this));
         #endregion
     }
 
@@ -72,22 +73,14 @@ public abstract class GHOPE : MonoBehaviour {
         NewEvent();
     }
 
-    protected bool Unbreakable
-    {
-        get
-        {
-            return curAction != null && stats.First().GetValue() > settings.critVal;
-        }
-    }
-
     public virtual void NewEvent()
     {
         stats.Sort();
 
-        if (Unbreakable)
+        if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;
 
-        StopMovement();
+        Cancel();
             
         foreach (Stat stat in stats)
             if (PathPossible(stat))
@@ -97,7 +90,11 @@ public abstract class GHOPE : MonoBehaviour {
             Execute();
     }
 
-    protected abstract void StopMovement();
+    public Stat FirstStat()
+    {
+        stats.Sort();
+        return stats.First();
+    }
 
     protected virtual void Execute()
     {
@@ -131,7 +128,9 @@ public abstract class GHOPE : MonoBehaviour {
     {
         List<Path> tryable = new List<Path>(), 
             pathable = new List<Path>();
-        stat.rootActions.ForEach(x => tryable.Add(new Path(x)));
+        foreach (RootAction action in stat.rootActions)
+            if (action.IsExecutable())
+                tryable.Add(new Path(action));
 
         if (tryable.Count == 0)
             return false;
@@ -145,9 +144,6 @@ public abstract class GHOPE : MonoBehaviour {
             tryAction = tryable.First();
             tryable.Remove(tryAction);
 
-            if (!tryAction.action.IsExecutable())
-                continue;
-
             //check if executable
             if(tryAction.action.GetRemainingLinks().Count == 0)
             {
@@ -158,7 +154,11 @@ public abstract class GHOPE : MonoBehaviour {
             //get deeper path
             foreach(NormalAction action in actions)
             {
+                if (!action.IsExecutable())
+                    continue;
+
                 links = tryAction.action.GetRemainingLinks();
+
                 foreach(Action.Link link in links)
                     if(action.Linkable(link))
                     {
@@ -174,6 +174,12 @@ public abstract class GHOPE : MonoBehaviour {
 
         curAction = pathable.First().action;
         return true;
+    }
+
+    public virtual void Cancel()
+    {
+        if(curAction != null)
+            curAction.Cancel();
     }
 }
 
