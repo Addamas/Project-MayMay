@@ -16,6 +16,22 @@ public class House : Interactable {
         }
     }
 
+    public bool UnwantedUnlock
+    {
+        get
+        {
+            foreach (Character owner in owners)
+                if (IsInHouse(owner))
+                    return false;
+            return true;
+        }
+    }
+
+    protected bool IsInHouse(Character character)
+    {
+        return Vector3.Distance(character.Pos, transform.position) < 5; //tijdelijk obviously
+    }
+
     public bool Open
     {
         get

@@ -20,7 +20,7 @@ public abstract class Action : Extension
     #endregion
 
     #region Main Check
-    public enum Link {HasFood, OpenedHouse, closedHouse };
+    public enum Link {HasFood };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 

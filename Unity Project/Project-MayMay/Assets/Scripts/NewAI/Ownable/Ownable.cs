@@ -6,7 +6,7 @@ using System;
 public class Ownable : MonoBehaviour {
 
     [NonSerialized]
-    public List<Character> owner = new List<Character>();
+    public List<Character> owners = new List<Character>();
     [SerializeField]
     protected bool isPublic;
 
@@ -14,7 +14,7 @@ public class Ownable : MonoBehaviour {
     {
         get
         {
-            return owner.Count > 0;
+            return owners.Count > 0;
         }
     }
 }

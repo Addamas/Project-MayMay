@@ -95,8 +95,8 @@ public class Character : GHOPE {
     protected override void Awake()
     {
         #region Add Owner
-        inventory.ForEach(x => x.owner.Add(this));
-        interactables.ForEach(x => x.owner.Add(this));
+        inventory.ForEach(x => x.owners.Add(this));
+        interactables.ForEach(x => x.owners.Add(this));
         #endregion
 
         base.Awake();

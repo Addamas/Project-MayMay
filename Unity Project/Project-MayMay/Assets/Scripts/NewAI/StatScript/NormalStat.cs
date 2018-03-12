@@ -8,6 +8,7 @@ public class NormalStat : Stat
     public override void SetValue(int value)
     {
         Value = value;
+        base.SetValue(value);
     }
     public override void AddValue(int value)
     {

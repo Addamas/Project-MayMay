@@ -1133,17 +1133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: 75632a1da6084e94a995cc6228ea0be0, type: 2}
-  - {fileID: 11400000, guid: c0758ee74b48c7845a05480fc9d57112, type: 2}
+  actions: []
   stats:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
   - {fileID: 11400000, guid: d53148c7860e09d418fe28119706c473, type: 2}
   - {fileID: 11400000, guid: e5753be4883131246a68cc32672ca7d5, type: 2}
   - {fileID: 11400000, guid: 62c57f50b63d14649affa57ad58f2555, type: 2}
-  - {fileID: 11400000, guid: bc930041405e4eb459ed60a61e9be4a0, type: 2}
-  - {fileID: 11400000, guid: e35e966680369224c9228de00cf326b7, type: 2}
   settings: {fileID: 11400000, guid: 598fb7ab8ced11345a3fef2afb7e89f7, type: 2}
   inventory:
   - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
