@@ -6,7 +6,7 @@ using UnityEngine;
 public class Consume : RootAction
 {
     [SerializeField]
-    private Action peepee;
+    private string peepeeStatName;
 
     private bool HasFood
     {
@@ -67,13 +67,7 @@ public class Consume : RootAction
         consumable.Consume(Stat<TickStat>());
         ai.inventory.Remove(consumable);
 
-        System.Type type = peepee.GetType();
-        foreach(Stat stat in ai.stats)
-            if(type == stat.GetType())
-            {
-                stat.AddValue(Mathf.RoundToInt(consumable.peePerValuePoint * consumable.value));
-                break;
-            }
+        ai.GetStat(peepeeStatName).AddValue(Mathf.RoundToInt(consumable.peePerValuePoint * consumable.value));
 
         Complete();
     }

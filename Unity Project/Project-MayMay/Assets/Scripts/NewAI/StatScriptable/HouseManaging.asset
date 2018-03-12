@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e04c479ee3d2afa47be6dd21057034e4, type: 3}
-  m_Name: Consume
+  m_Script: {fileID: 11500000, guid: 018ad78e87ad8ba4491ee00b23d36065, type: 3}
+  m_Name: HouseManaging
   m_EditorClassIdentifier: 
-  special: 0
-  breakable: 0
-  autoMovement: 0
-  peepeeStatName: Peepee
+  rootActions:
+  - {fileID: 11400000, guid: 96bdd72d3deb4614886ea37e06424a75, type: 2}
+  value: 100
+  unlockedDoors: []

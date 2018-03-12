@@ -8,10 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e04c479ee3d2afa47be6dd21057034e4, type: 3}
-  m_Name: Consume
+  m_Script: {fileID: 11500000, guid: d3df9dbc96d6a274b8ca70e207891d19, type: 3}
+  m_Name: SenseDoors
   m_EditorClassIdentifier: 
-  special: 0
-  breakable: 0
-  autoMovement: 0
-  peepeeStatName: Peepee
+  unlockedDoors: []
+  stat: {fileID: 0}

@@ -185,7 +185,7 @@ public abstract class GHOPE : MonoBehaviour {
 
 public class Extension : ScriptableObject
 {
-    protected int Min
+    public static int Min
     {
         get
         {
@@ -193,7 +193,7 @@ public class Extension : ScriptableObject
         }
     }
 
-    protected int Max
+    public static int Max
     {
         get
         {

@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPublic: 0
-  open: 0
+  open: 1
 --- !u!1 &78841179
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
+  senses: []
 --- !u!1 &443211251
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7be2b401e45284587bde31623282a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunMoon: {fileID: 0}
   minuteDuration: 1
 --- !u!1 &738126807
 GameObject:
@@ -1111,6 +1113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
+  senses:
+  - {fileID: 11400000, guid: 128e253428f70dd4d8c93bf02ad3ce58, type: 2}
 --- !u!114 &1343325796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1144,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d53148c7860e09d418fe28119706c473, type: 2}
   - {fileID: 11400000, guid: e5753be4883131246a68cc32672ca7d5, type: 2}
   - {fileID: 11400000, guid: 62c57f50b63d14649affa57ad58f2555, type: 2}
+  - {fileID: 11400000, guid: 43267ac71ab3c8e47811ea4191768175, type: 2}
   settings: {fileID: 11400000, guid: 598fb7ab8ced11345a3fef2afb7e89f7, type: 2}
   inventory:
   - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
@@ -1295,6 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
+  senses: []
 --- !u!114 &1365713224
 MonoBehaviour:
   m_ObjectHideFlags: 0

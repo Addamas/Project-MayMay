@@ -59,6 +59,14 @@ public class Character : GHOPE {
         return null;
     }
 
+    public Stat GetStat(Type type)
+    {
+        foreach (Stat stat in stats)
+            if (type == stat.GetType())
+                return stat;
+        return null;
+    }
+
     public Area GetArea()
     {
         List<Area> districts = new List<Area>();
