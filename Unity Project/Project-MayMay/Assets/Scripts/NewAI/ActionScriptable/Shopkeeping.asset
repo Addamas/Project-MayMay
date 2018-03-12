@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742e9f258a19cba46a8feefe3a1aef22, type: 3}
+  m_Name: Shopkeeping
+  m_EditorClassIdentifier: 
+  special: 0
+  breakable: 0
+  autoMovement: 0
+  inventory:
+  - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}

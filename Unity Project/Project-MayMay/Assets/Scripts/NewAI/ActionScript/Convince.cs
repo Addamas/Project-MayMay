@@ -98,7 +98,7 @@ public class Convince : RootActionMulFrameable
 
     protected virtual Memory.Other GetOther()
     {
-        return GetAvailable()[0];
+        return GetAvailable().First();
     }
 
     private float SortOthers(Memory.Other other)

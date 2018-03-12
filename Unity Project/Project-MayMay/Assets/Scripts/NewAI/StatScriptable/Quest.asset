@@ -11,7 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fa4dcf07eceb94a898617fd4250b2d, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: 
-  rootActions: []
+  rootActions:
+  - {fileID: 11400000, guid: 75e50b26214590d42983082c5bfb3f01, type: 2}
+  - {fileID: 11400000, guid: 448845994341546468ac5994e4ca4cc3, type: 2}
   times:
-  - start: 0
-    end: 10
+  - start: 5
+    end: 25

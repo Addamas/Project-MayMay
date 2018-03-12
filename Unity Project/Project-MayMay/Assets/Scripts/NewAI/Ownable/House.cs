@@ -51,9 +51,9 @@ public class House : Interactable {
         get
         {
             foreach (Door door in doors)
-                if (!door.IsOpen)
-                    return false;
-            return true;
+                if (door.IsOpen)
+                    return true;
+            return false;
         }
     }
 }

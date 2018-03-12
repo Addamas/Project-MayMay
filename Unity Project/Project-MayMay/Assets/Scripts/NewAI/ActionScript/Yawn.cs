@@ -30,6 +30,11 @@ public class Yawn : RootActionMulFrameable, IDuration
         return true;
     }
 
+    public override float GetEstimatedTimeRequired()
+    {
+        return TooLong;
+    }
+
     public override IEnumerator LifeTime()
     {
         yield return new WaitForSeconds(duration);

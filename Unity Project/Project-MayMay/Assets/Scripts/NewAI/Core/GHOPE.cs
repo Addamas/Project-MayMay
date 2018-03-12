@@ -170,8 +170,8 @@ public abstract class GHOPE : MonoBehaviour {
 
         if (pathable.Count == 0)
             return false;
-        pathable.Sort();
 
+        pathable.Sort();
         curAction = pathable.First().action;
         return true;
     }
@@ -198,6 +198,14 @@ public class Extension : ScriptableObject
         get
         {
             return 100;
+        }
+    }
+
+    public static int TooLong
+    {
+        get
+        {
+            return 10000;
         }
     }
 

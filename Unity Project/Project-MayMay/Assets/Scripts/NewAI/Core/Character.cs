@@ -152,7 +152,7 @@ public class Character : GHOPE {
                 NewEvent();
                 yield break;
             }
-            
+
             if (curAction.InRange())
             {
                 if (!curAction.autoMovement)
@@ -164,6 +164,10 @@ public class Character : GHOPE {
             movement.Follow(curAction.PosTrans());
             yield return null;
         }
+
+        movement.Stop();
+        base.Cancel();
+        NewEvent();
     }
     #endregion
 

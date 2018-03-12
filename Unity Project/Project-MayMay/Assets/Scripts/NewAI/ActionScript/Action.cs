@@ -14,13 +14,13 @@ public abstract class Action : Extension
     }
     public virtual void Complete()
     {
-        //Debug.Log(name + " " + ai);
+        Debug.Log(name + " " + ai + " " + TimeManager.time);
         ai.Complete();
     }
     #endregion
 
     #region Main Check
-    public enum Link {HasFood };
+    public enum Link {HasFood, OpenedShop };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 

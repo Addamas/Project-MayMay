@@ -62,7 +62,7 @@ public class Senses : CharacterExtension
 
     private bool InRange(Transform trans)
     {
-        return Vector3.Distance(character.Pos, trans.position) > settings.spotDistance;
+        return Vector3.Distance(character.Pos, trans.position) < settings.spotDistance;
     }
 }
 
