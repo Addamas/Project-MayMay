@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HouseManaging", menuName = "Stats/HouseManaging", order = 1)]
 public class HouseManaging : Stat
 {
-    //[NonSerialized]
+    [NonSerialized]
     public List<Door> unlockedDoors = new List<Door>();
 
     public override void AddValue(int value)

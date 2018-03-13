@@ -43,7 +43,7 @@ public class Convince : RootActionMulFrameable
 
     protected virtual void ProcessStat(Stat stat)
     {
-        stat.SetValue(stat.ai.settings.critVal);
+        stat.SetValue(stat.ai.settings.critVal - 1);
     }
 
     protected RootAction GetWantedAction(Character character)
@@ -71,9 +71,16 @@ public class Convince : RootActionMulFrameable
         return GetAvailable().Count > 0;
     }
 
+
+    [SerializeField]
+    protected bool rangeMatters = true;
     protected virtual List<Memory.Other> GetAvailable()
     {
-        List<Memory.Other> others = ai.senses.GetSurrounding();
+        List<Memory.Other> others = new List<Memory.Other>();
+        if (rangeMatters)
+            others = ai.senses.GetSurrounding();
+        else
+            others = ai.memory.relatives.ConvertListToNew();
         Action action;
         Character character;
 
@@ -82,13 +89,138 @@ public class Convince : RootActionMulFrameable
         {
             character = others[i].character;
             action = character.curAction;
-            
+
+            if (!AvailableCheck(others[i]))
+            {
+                others.RemoveAt(i);
+                continue;
+            }
+
             if (action == null)
                 continue;
 
             character.stats.Sort();
-            if (!AvailableCheck(others[i]) || !action.breakable ||
-                character.stats.First().GetValue() <= character.settings.critVal)
+            if (!action.breakable || character.stats.First().GetValue() < character.settings.critVal)
+                others.RemoveAt(i);
+        }
+
+        others.SuperSort(SortOthers);
+        return others;
+    }
+
+    protected virtual Memory.Other GetOther()
+    {
+        return GetAvailable().First();
+    }
+
+    private float SortOthers(Memory.Other other)
+    {
+        return Vector3.Distance(other.character.Pos, ai.Pos);
+    }
+
+    protected virtual bool AvailableCheck(Memory.Other other)
+    {
+        return true;
+    }
+}
+
+public class ConvinceNormal : NormalActionMulFrameable
+{
+    [SerializeField]
+    protected PassiveAction wantedAction;
+    protected System.Type ActionType
+    {
+        get
+        {
+            return wantedAction.GetType();
+        }
+    }
+
+    public override List<Link> GetRemainingLinks()
+    {
+        return new List<Link>();
+    }
+
+    public override List<Link> GetReturnValue()
+    {
+        return new List<Link>();
+    }
+
+    public override IEnumerator LifeTime()
+    {
+        Memory.Other other = GetOther();
+        Character otherCharacter = other.character;
+
+        if (otherCharacter.curAction != null)
+            otherCharacter.Cancel();
+
+        ProcessStat(GetWantedAction(otherCharacter).stat);
+        otherCharacter.NewEvent();
+
+        lifeTime = ai.StartCoroutine(SecondLifeTime(other));
+        yield break;
+    }
+
+    protected virtual void ProcessStat(Stat stat)
+    {
+        stat.SetValue(stat.ai.settings.critVal - 1);
+    }
+
+    protected RootAction GetWantedAction(Character character)
+    {
+        foreach (Stat stat in character.stats)
+            foreach (RootAction action in stat.rootActions)
+                if (action.GetType() == ActionType)
+                    return action;
+        return null;
+    }
+
+    protected virtual IEnumerator SecondLifeTime(Memory.Other other)
+    {
+        Complete();
+        yield break;
+    }
+
+    public override Transform PosTrans()
+    {
+        return GetOther().character.transform;
+    }
+
+    protected override bool ExecutableCheck()
+    {
+        return GetAvailable().Count > 0;
+    }
+
+
+    [SerializeField]
+    protected bool rangeMatters = true;
+    protected virtual List<Memory.Other> GetAvailable()
+    {
+        List<Memory.Other> others = new List<Memory.Other>();
+        if (rangeMatters)
+            others = ai.senses.GetSurrounding();
+        else
+            others = ai.memory.relatives.ConvertListToNew();
+        Action action;
+        Character character;
+
+        int count = others.Count - 1;
+        for (int i = count; i > -1; i--)
+        {
+            character = others[i].character;
+            action = character.curAction;
+
+            if(!AvailableCheck(others[i]))
+            {
+                others.RemoveAt(i);
+                continue;
+            }
+
+            if (action == null)
+                continue;
+
+            character.stats.Sort();
+            if (!action.breakable || character.stats.First().GetValue() < character.settings.critVal)
                 others.RemoveAt(i);
         }
 

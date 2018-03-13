@@ -48,7 +48,6 @@ public class ShopKeeping : RootActionMulFrameable
 
     public override IEnumerator LifeTime()
     {
-        Debug.Log("Shopkeepin'");
         yield return new WaitForSeconds(ai.senses.settings.frequency);
         Complete();
     }

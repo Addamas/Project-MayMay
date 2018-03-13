@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootActions:
   - {fileID: 11400000, guid: 2c4f77d4857983049b7c4c9f3c7798af, type: 2}
-  value: 100
+  value: 40
   tickFrequency: 1

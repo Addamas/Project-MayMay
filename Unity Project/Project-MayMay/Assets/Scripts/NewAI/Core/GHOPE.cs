@@ -73,20 +73,24 @@ public abstract class GHOPE : MonoBehaviour {
         NewEvent();
     }
 
+    private bool changed;
     public virtual void NewEvent()
     {
+        if (curAction as RootAction != null)
+            if ((curAction as RootAction).GetReturnValue() <= settings.critVal)
+                return;
+
         stats.Sort();
 
         if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;
 
-        Cancel();
-            
+        changed = false;
         foreach (Stat stat in stats)
             if (PathPossible(stat))
                 break;
 
-        if(curAction != null)
+        if (changed)
             Execute();
     }
 
@@ -126,7 +130,7 @@ public abstract class GHOPE : MonoBehaviour {
 
     public bool PathPossible(Stat stat)
     {
-        List<Path> tryable = new List<Path>(), 
+        List<Path> tryable = new List<Path>(),
             pathable = new List<Path>();
         foreach (RootAction action in stat.rootActions)
             if (action.IsExecutable())
@@ -138,29 +142,29 @@ public abstract class GHOPE : MonoBehaviour {
         Path tryAction;
         List<Action.Link> links;
 
-        while(tryable.Count > 0)
+        while (tryable.Count > 0)
         {
             //remove and set ref
             tryAction = tryable.First();
             tryable.Remove(tryAction);
 
             //check if executable
-            if(tryAction.action.GetRemainingLinks().Count == 0)
+            if (tryAction.action.GetRemainingLinks().Count == 0)
             {
                 pathable.Add(tryAction);
                 continue;
             }
 
             //get deeper path
-            foreach(NormalAction action in actions)
+            foreach (NormalAction action in actions)
             {
                 if (!action.IsExecutable())
                     continue;
 
                 links = tryAction.action.GetRemainingLinks();
 
-                foreach(Action.Link link in links)
-                    if(action.Linkable(link))
+                foreach (Action.Link link in links)
+                    if (action.Linkable(link))
                     {
                         tryable.Add(new Path(action, tryAction));
                         break;
@@ -172,7 +176,13 @@ public abstract class GHOPE : MonoBehaviour {
             return false;
 
         pathable.Sort();
-        curAction = pathable.First().action;
+
+        if (pathable.First().action != curAction) {
+            changed = true;
+            Cancel();
+            curAction = pathable.First().action;
+        }
+
         return true;
     }
 

@@ -43,7 +43,7 @@ public class House : Interactable {
 
     protected bool IsInHouse(Character character)
     {
-        return Vector3.Distance(character.Pos, transform.position) < 1; //tijdelijk obviously
+        return Vector3.Distance(character.Pos, transform.position) < 5; //tijdelijk obviously
     }
 
     public bool Open

@@ -25,7 +25,7 @@ public class TimeManager : MonoBehaviour {
     {
         while (true)
         {
-            sunMoon.Rotate(0, 0, 1);
+            //sunMoon.Rotate(0, 0, 1);
             //Debug.Log(time);
             yield return new WaitForSeconds(minuteDuration);
             time++;

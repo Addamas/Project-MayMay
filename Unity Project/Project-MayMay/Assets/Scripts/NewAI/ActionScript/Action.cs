@@ -14,7 +14,7 @@ public abstract class Action : Extension
     }
     public virtual void Complete()
     {
-        Debug.Log(name + " " + ai + " " + TimeManager.time);
+        Debug.Log("COMPLETED: " + name + " " + ai + " " + TimeManager.time);
         ai.Complete();
     }
     #endregion

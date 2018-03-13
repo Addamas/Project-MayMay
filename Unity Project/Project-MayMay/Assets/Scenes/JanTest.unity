@@ -370,7 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: 21b4ea6d6c6c09543b5aa7981053dac6, type: 2}
   stats:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
@@ -1285,7 +1286,8 @@ MonoBehaviour:
     lastSpottedArea: {fileID: 0}
     knownAreas: []
     conversations:
-    - parts:
+    - tag: 0
+      parts:
       - parts:
         - I like birds.
   defaultAffinity: 50

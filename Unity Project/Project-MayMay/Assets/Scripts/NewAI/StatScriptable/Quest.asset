@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 448845994341546468ac5994e4ca4cc3, type: 2}
   times:
   - start: 5
-    end: 25
+    end: 1000

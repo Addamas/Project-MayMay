@@ -13,5 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootActions:
   - {fileID: 11400000, guid: 96bdd72d3deb4614886ea37e06424a75, type: 2}
-  value: 100
-  unlockedDoors: []
+  importance: 20

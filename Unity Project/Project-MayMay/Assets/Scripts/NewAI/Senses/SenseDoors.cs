@@ -27,15 +27,14 @@ public class SenseDoors : Sense
 
     public override void Execute(List<Memory.Other> surrounding)
     {
+        //check if notices that doors have been closed
         int count = stat.unlockedDoors.Count - 1;
         for (int i = count; i >= 0; i--)
-        {
-            if (stat.unlockedDoors[i].IsOpen)
-                continue;
-            if (senses.TrySpot(stat.unlockedDoors[i]))
-                stat.unlockedDoors.RemoveAt(i);
-        }
+            if (!stat.unlockedDoors[i].IsOpen)
+                if (senses.TrySpot(stat.unlockedDoors[i]))
+                    stat.unlockedDoors.RemoveAt(i);
 
+        //doesnt need to check for new since there are still closed doors
         if(stat.unlockedDoors.Count > 0)
         {
             character.NewEvent();

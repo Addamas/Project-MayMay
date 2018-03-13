@@ -42,6 +42,18 @@ public class Character : GHOPE {
         return null;
     }
 
+    public Action GetAction(string name)
+    {
+        foreach (Action action in actions)
+            if (action.name == name + "(Clone)")
+                return action;
+        foreach (Stat stat in stats)
+            foreach (RootAction action in stat.rootActions)
+                if (action.name == name + "(Clone)")
+                    return action;
+        return null;
+    }
+
     public T GetStat<T>() where T : Stat
     {
         foreach (Stat stat in stats)
