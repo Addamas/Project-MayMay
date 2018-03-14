@@ -18769,6 +18769,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114304382130310312, guid: 113751ec82e680b4daa06f064a5f2249,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2112017332}
+    - target: {fileID: 114304382130310312, guid: 113751ec82e680b4daa06f064a5f2249,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1817659637}
+    - target: {fileID: 114304382130310312, guid: 113751ec82e680b4daa06f064a5f2249,
+        type: 2}
+      propertyPath: camZoomThreshold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114304382130310312, guid: 113751ec82e680b4daa06f064a5f2249,
+        type: 2}
+      propertyPath: zoomSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 113751ec82e680b4daa06f064a5f2249, type: 2}
   m_IsPrefabParent: 0
@@ -20177,6 +20197,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1817659637 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4321520604114316, guid: 113751ec82e680b4daa06f064a5f2249,
+    type: 2}
+  m_PrefabInternal: {fileID: 1690787124}
 --- !u!1 &1826325120
 GameObject:
   m_ObjectHideFlags: 0
@@ -23915,6 +23940,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4906920133728530, guid: 5ee928b4e2c029648a09859b7f7bcfc6,
     type: 2}
   m_PrefabInternal: {fileID: 1547198396}
+--- !u!4 &2112017332 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4813946854176106, guid: f38e50e2be093f64294f9fa54c6698bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1964695229}
 --- !u!1 &2112092414
 GameObject:
   m_ObjectHideFlags: 0
