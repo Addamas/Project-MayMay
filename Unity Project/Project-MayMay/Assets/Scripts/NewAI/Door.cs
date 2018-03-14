@@ -17,17 +17,17 @@ public class Door : Interactable {
     public override void Interact(Character character)
     {
         if (open)
-            Close();
+            Close(character);
         else
-            Open();
+            Open(character);
     }
 
-    protected void Open()
+    protected virtual void Open(Character character)
     {
         open = true;
     }
 
-    protected void Close()
+    protected virtual void Close(Character character)
     {
         open = false;
     }

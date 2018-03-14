@@ -8,10 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3b91926339cfe4488d4a1a73444a64, type: 3}
-  m_Name: Hunger
+  m_Script: {fileID: 11500000, guid: 018ad78e87ad8ba4491ee00b23d36065, type: 3}
+  m_Name: HouseManaging
   m_EditorClassIdentifier: 
   rootActions:
-  - {fileID: 11400000, guid: 2c4f77d4857983049b7c4c9f3c7798af, type: 2}
-  value: 40
-  tickFrequency: 1
+  - {fileID: 11400000, guid: 96bdd72d3deb4614886ea37e06424a75, type: 2}
+  importance: 20

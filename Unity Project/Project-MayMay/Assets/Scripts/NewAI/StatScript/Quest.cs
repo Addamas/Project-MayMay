@@ -22,7 +22,7 @@ public class Quest : Stat {
 
     public override int GetValue()
     {
-        return IsTime() ? Min : Max;
+        return IsTime() ? ai.settings.critVal : Max;
     }
 
     public override void SetValue(int value)

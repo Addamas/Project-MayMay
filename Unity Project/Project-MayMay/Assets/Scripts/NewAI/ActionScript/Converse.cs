@@ -14,10 +14,15 @@ public class Converse : LeadAction {
         }
     }
 
+    protected virtual Social.Conversation PickConversation(Memory.Other other)
+    {
+        return other.conversations.Count > 0 ?
+            other.conversations.RandomItem() : Social.genericConversations.RandomItem();
+    }
+
     protected override IEnumerator WhileLinked(Memory.Other other)
     {
-        Social.Conversation conversation = other.conversations.Count > 0 ? 
-            other.conversations.RandomItem() : Social.genericConversations.RandomItem();
+        Social.Conversation conversation = PickConversation(other);
         Social otherSocial = other.character.GetStat<Social>();
         Social turnTaker;
 
@@ -25,12 +30,12 @@ public class Converse : LeadAction {
         {
             if (other.character.curAction.GetType() != ActionType)
             {
-                Complete();
+                WhenCompleted();
                 yield break;
             }
             if ((other.character.curAction as PassiveAction).leader != ai)
             {
-                Complete();
+                WhenCompleted();
                 yield break;
             }
 
@@ -39,6 +44,60 @@ public class Converse : LeadAction {
         }
 
         otherSocial.AddValue(Max);
+        WhenCompleted();
+    }
+
+    protected virtual void WhenCompleted()
+    {
+        Complete();
+    }
+}
+
+public class ConverseNormal : LeadActionNormal
+{
+    protected Social Social
+    {
+        get
+        {
+            return ai.GetStat<Social>();
+        }
+    }
+
+    protected virtual Social.Conversation PickConversation(Memory.Other other)
+    {
+        return other.conversations.Count > 0 ?
+            other.conversations.RandomItem() : Social.genericConversations.RandomItem();
+    }
+
+    protected override IEnumerator WhileLinked(Memory.Other other)
+    {
+        Social.Conversation conversation = PickConversation(other);
+        Social otherSocial = other.character.GetStat<Social>();
+        Social turnTaker;
+
+        for (int i = 0; i < conversation.parts.Count; i++)
+        {
+            if (other.character.curAction.GetType() != ActionType)
+            {
+                WhenCompleted();
+                yield break;
+            }
+            if ((other.character.curAction as PassiveAction).leader != ai)
+            {
+                WhenCompleted();
+                yield break;
+            }
+
+            turnTaker = i.IsEven() ? Social : otherSocial;
+            yield return turnTaker.ai.StartCoroutine(turnTaker.Speak(conversation.parts[i]));
+        }
+
+        otherSocial.AddValue(Max);
+        WhenCompleted();
+    }
+
+    protected virtual void WhenCompleted()
+    {
         Complete();
     }
 }

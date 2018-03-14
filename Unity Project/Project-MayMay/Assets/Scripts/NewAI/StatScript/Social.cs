@@ -14,9 +14,13 @@ public class Social : TickStat {
     [Range(0, 100)]
     public int minValue, breakValue;
 
+    public enum ConversationType {Normal, Buying }
+
     [Serializable]
     public class Conversation
     {
+        [Tooltip("Optional")]
+        public ConversationType tag;
         public List<ConPart> parts = new List<ConPart>();
     }
 
@@ -24,6 +28,30 @@ public class Social : TickStat {
     public class ConPart
     {
         public List<string> parts = new List<string>();
+    }
+
+    public Conversation GetConversation(ConversationType tag)
+    {
+        foreach (Conversation conversation in genericConversations)
+            if (conversation.tag == tag)
+                return conversation;
+        return null;
+    }
+
+    public Conversation GetConversation(ConversationType tag, Memory.Other other)
+    {
+        try
+        {
+            List<Conversation> conversations = ai.memory.GetInfoCharacter(other.character).conversations;
+            foreach (Conversation conversation in conversations)
+                if (conversation.tag == tag)
+                    return conversation;
+            return null;
+        }
+        catch
+        {
+            return GetConversation(tag);
+        }
     }
 
     public override void SetValue(int value)

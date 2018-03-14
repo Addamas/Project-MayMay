@@ -16,7 +16,8 @@ MonoBehaviour:
   value: 100
   tickFrequency: 2
   genericConversations:
-  - parts:
+  - tag: 0
+    parts:
     - parts:
       - Pain is an art..
       - AND I'M AN ARTIST!
@@ -24,6 +25,16 @@ MonoBehaviour:
       - Allright then.
     - parts:
       - Seeya.
+  - tag: 1
+    parts:
+    - parts:
+      - Hello, good sir.
+      - What will it be today?
+    - parts:
+      - I need food, mate.
+    - parts:
+      - Here!
+      - Have a nice day.
   rewardPerAffinity: 1
   decreasePerAffinity: 1
   timePerChar: 0.1

@@ -6,7 +6,11 @@ using System;
 public abstract class Stat : Extension, IComparable<Stat> {
 
     public abstract int GetValue();
-    public abstract void SetValue(int value);
+    public virtual void SetValue(int value)
+    {
+        if (GetValue() < ai.settings.critVal)
+            ai.NewEvent();
+    }
     public abstract void AddValue(int value);
 
     public List<RootAction> rootActions = new List<RootAction>();

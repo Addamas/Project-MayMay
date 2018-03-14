@@ -42,6 +42,18 @@ public class Character : GHOPE {
         return null;
     }
 
+    public Action GetAction(string name)
+    {
+        foreach (Action action in actions)
+            if (action.name == name + "(Clone)")
+                return action;
+        foreach (Stat stat in stats)
+            foreach (RootAction action in stat.rootActions)
+                if (action.name == name + "(Clone)")
+                    return action;
+        return null;
+    }
+
     public T GetStat<T>() where T : Stat
     {
         foreach (Stat stat in stats)
@@ -55,6 +67,14 @@ public class Character : GHOPE {
         name += "(Clone)";
         foreach (Stat stat in stats)
             if (stat.name == name)
+                return stat;
+        return null;
+    }
+
+    public Stat GetStat(Type type)
+    {
+        foreach (Stat stat in stats)
+            if (type == stat.GetType())
                 return stat;
         return null;
     }
@@ -95,8 +115,8 @@ public class Character : GHOPE {
     protected override void Awake()
     {
         #region Add Owner
-        inventory.ForEach(x => x.owner.Add(this));
-        interactables.ForEach(x => x.owner.Add(this));
+        inventory.ForEach(x => x.owners.Add(this));
+        interactables.ForEach(x => x.owners.Add(this));
         #endregion
 
         base.Awake();
@@ -144,7 +164,7 @@ public class Character : GHOPE {
                 NewEvent();
                 yield break;
             }
-            
+
             if (curAction.InRange())
             {
                 if (!curAction.autoMovement)
@@ -156,6 +176,10 @@ public class Character : GHOPE {
             movement.Follow(curAction.PosTrans());
             yield return null;
         }
+
+        movement.Stop();
+        base.Cancel();
+        NewEvent();
     }
     #endregion
 

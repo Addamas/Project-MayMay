@@ -208,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 4371908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.97, y: 1, z: -2.83}
+  m_LocalPosition: {x: -4.33, y: 1, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -370,7 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: 21b4ea6d6c6c09543b5aa7981053dac6, type: 2}
   stats:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
@@ -512,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
+  senses: []
 --- !u!1 &443211251
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7be2b401e45284587bde31623282a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunMoon: {fileID: 0}
   minuteDuration: 1
 --- !u!1 &738126807
 GameObject:
@@ -1043,7 +1046,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1224509390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.55, y: 1, z: 2.54}
+  m_LocalPosition: {x: -4.3, y: 1, z: -0.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1111,6 +1114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
+  senses:
+  - {fileID: 11400000, guid: 128e253428f70dd4d8c93bf02ad3ce58, type: 2}
 --- !u!114 &1343325796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,16 +1139,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 75632a1da6084e94a995cc6228ea0be0, type: 2}
-  - {fileID: 11400000, guid: c0758ee74b48c7845a05480fc9d57112, type: 2}
+  - {fileID: 11400000, guid: b1f21dfebc3c8a2448e03d26f853edb5, type: 2}
   stats:
   - {fileID: 11400000, guid: 3d7c4ed1fd8ee34469dfce7142e65133, type: 2}
   - {fileID: 11400000, guid: 01b6c0ac0e3c03749b7dd3a6322f8fa1, type: 2}
   - {fileID: 11400000, guid: d53148c7860e09d418fe28119706c473, type: 2}
   - {fileID: 11400000, guid: e5753be4883131246a68cc32672ca7d5, type: 2}
   - {fileID: 11400000, guid: 62c57f50b63d14649affa57ad58f2555, type: 2}
+  - {fileID: 11400000, guid: 43267ac71ab3c8e47811ea4191768175, type: 2}
   - {fileID: 11400000, guid: bc930041405e4eb459ed60a61e9be4a0, type: 2}
-  - {fileID: 11400000, guid: e35e966680369224c9228de00cf326b7, type: 2}
   settings: {fileID: 11400000, guid: 598fb7ab8ced11345a3fef2afb7e89f7, type: 2}
   inventory:
   - {fileID: 114721019955454742, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
@@ -1282,7 +1286,8 @@ MonoBehaviour:
     lastSpottedArea: {fileID: 0}
     knownAreas: []
     conversations:
-    - parts:
+    - tag: 0
+      parts:
       - parts:
         - I like birds.
   defaultAffinity: 50
@@ -1299,6 +1304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 5dbd0f537eeb7e846b3e4ad4d8b02794, type: 2}
+  senses: []
 --- !u!114 &1365713224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,7 +1603,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1723103480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.92, y: 1, z: 4}
+  m_LocalPosition: {x: -3.92, y: 1, z: -3.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

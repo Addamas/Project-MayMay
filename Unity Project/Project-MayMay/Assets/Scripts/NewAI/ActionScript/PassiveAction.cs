@@ -25,7 +25,8 @@ public class PassiveAction : RootActionMulFrameable
 
         while (leader.curAction != null)
         {
-            if (leader.curAction as LeadAction == null)
+            if (leader.curAction as LeadAction == null && 
+                leader.curAction as LeadActionNormal == null)
                 break;
             yield return null;
         }

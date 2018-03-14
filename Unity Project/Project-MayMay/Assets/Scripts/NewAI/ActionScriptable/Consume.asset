@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   special: 0
   breakable: 0
-  peepee: {fileID: 11400000, guid: 39ba3391f6a6051408806ac4f6050f87, type: 2}
+  autoMovement: 0
+  peepeeStatName: Peepee
