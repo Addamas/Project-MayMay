@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b55dde4e0f8804485fd833faf7d95d, type: 3}
+  m_Name: Social
+  m_EditorClassIdentifier: 
+  rootActions:
+  - {fileID: 11400000, guid: 46e81784a4d1f70429d407997c01c757, type: 2}
+  value: 100
+  tickFrequency: 2
+  genericConversations:
+  - tag: 0
+    parts:
+    - parts:
+      - Pain is an art..
+      - AND I'M AN ARTIST!
+    - parts:
+      - Allright then.
+    - parts:
+      - Seeya.
+  - tag: 1
+    parts:
+    - parts:
+      - Hello, good sir.
+      - What will it be today?
+    - parts:
+      - I need food, mate.
+    - parts:
+      - Here!
+      - Have a nice day.
+  rewardPerAffinity: 1
+  decreasePerAffinity: 1
+  timePerChar: 0.1
+  minValue: 40
+  breakValue: 70

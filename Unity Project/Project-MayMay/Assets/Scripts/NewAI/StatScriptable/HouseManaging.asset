@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018ad78e87ad8ba4491ee00b23d36065, type: 3}
+  m_Name: HouseManaging
+  m_EditorClassIdentifier: 
+  rootActions:
+  - {fileID: 11400000, guid: 96bdd72d3deb4614886ea37e06424a75, type: 2}
+  importance: 20
