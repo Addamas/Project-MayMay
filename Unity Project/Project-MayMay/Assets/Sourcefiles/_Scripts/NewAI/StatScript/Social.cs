@@ -8,11 +8,10 @@ public class Social : TickStat {
 
     public List<Conversation> genericConversations = new List<Conversation>();
 
-    public float rewardPerAffinity, decreasePerAffinity,
-        timePerChar;
+    public float timePerChar;
 
     [Range(0, 100)]
-    public int minValue, breakValue;
+    public int minValue;
 
     public enum ConversationType {Normal, Buying }
 
