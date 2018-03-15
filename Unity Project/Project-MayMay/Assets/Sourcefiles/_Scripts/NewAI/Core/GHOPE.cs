@@ -73,25 +73,50 @@ public abstract class GHOPE : MonoBehaviour {
         NewEvent();
     }
 
+    public virtual void ForceNewEvent()
+    {
+        Cancel();
+        NewEvent();
+    }
+
     private bool changed;
     public virtual void NewEvent()
     {
+        if (pathfinding)
+            return;
         if (curAction as RootAction != null)
             if ((curAction as RootAction).GetReturnValue() <= settings.critVal)
                 return;
 
         stats.Sort();
-
         if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;
+        StartCoroutine(Pathfinding());
+    }
 
+    [NonSerialized]
+    public bool pathfinding;
+    private IEnumerator Pathfinding()
+    {
+        pathfinding = true;
         changed = false;
+
         foreach (Stat stat in stats)
-            if (PathPossible(stat))
+        {
+            yield return StartCoroutine((PathPossible(stat)));
+            if (changed)
                 break;
+        }
+
+        if(!changed)
+            yield return new WaitForSeconds(senses.settings.frequency);
+
+        pathfinding = false;
 
         if (changed)
             Execute();
+        else
+            NewEvent();
     }
 
     public Stat FirstStat()
@@ -128,7 +153,7 @@ public abstract class GHOPE : MonoBehaviour {
         }
     }
 
-    public bool PathPossible(Stat stat)
+    public IEnumerator PathPossible(Stat stat)
     {
         List<Path> tryable = new List<Path>(),
             pathable = new List<Path>();
@@ -137,7 +162,7 @@ public abstract class GHOPE : MonoBehaviour {
                 tryable.Add(new Path(action));
 
         if (tryable.Count == 0)
-            return false;
+            yield break;
 
         Path tryAction;
         List<Action.Link> links;
@@ -173,17 +198,15 @@ public abstract class GHOPE : MonoBehaviour {
         }
 
         if (pathable.Count == 0)
-            return false;
+            yield break;
 
         pathable.Sort();
 
         if (pathable.First().action != curAction) {
-            changed = true;
             Cancel();
+            changed = true;
             curAction = pathable.First().action;
         }
-
-        return true;
     }
 
     public virtual void Cancel()

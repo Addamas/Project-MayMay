@@ -21,8 +21,6 @@ public class PassiveAction : RootActionMulFrameable
 
     public override IEnumerator LifeTime()
     {
-        yield return null;
-
         while (leader.curAction != null)
         {
             if (leader.curAction as LeadAction == null && 

@@ -33,11 +33,11 @@ public class Character : GHOPE {
     public T GetAction<T>() where T : Action
     {
         foreach (Action action in actions)
-            if (action.GetType() is T)
+            if (action is T)
                 return action as T;
         foreach (Stat stat in stats)
             foreach (RootAction action in stat.rootActions)
-                if (action.GetType() is T)
+                if (action is T)
                     return action as T;
         return null;
     }
@@ -157,6 +157,7 @@ public class Character : GHOPE {
     private Coroutine execute;
     private IEnumerator _Execute()
     {
+        Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
         while (curAction.IsExecutable())
         {
             if (curAction.GetRemainingLinks().Count > 0)

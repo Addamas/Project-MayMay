@@ -5,6 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LeadAction", menuName = "Actions/Convince/LeadAction", order = 1)]
 public class LeadAction : Convince {
 
+    protected override void BeforeNewEventOther(Character other)
+    {
+        other.GetAction<PassiveAction>().leader = ai;
+        base.BeforeNewEventOther(other);
+    }
+
     protected override IEnumerator SecondLifeTime(Memory.Other other)
     {
         Character otherCharacter = other.character;
@@ -18,11 +24,10 @@ public class LeadAction : Convince {
 
         if (!fit)
         {
-            ai.NewEvent();
+            ai.ForceNewEvent();
             yield break;
         }
 
-        action.leader = ai;
         lifeTime = ai.StartCoroutine(WhileLinked(other));
     }
 
@@ -40,6 +45,12 @@ public class LeadAction : Convince {
 
 public class LeadActionNormal : ConvinceNormal
 {
+    protected override void BeforeNewEventOther(Character other)
+    {
+        other.GetAction<PassiveAction>().leader = ai;
+        base.BeforeNewEventOther(other);
+    }
+
     protected override IEnumerator SecondLifeTime(Memory.Other other)
     {
         Character otherCharacter = other.character;
@@ -53,11 +64,10 @@ public class LeadActionNormal : ConvinceNormal
 
         if (!fit)
         {
-            ai.NewEvent();
+            ai.ForceNewEvent();
             yield break;
         }
 
-        action.leader = ai;
         lifeTime = ai.StartCoroutine(WhileLinked(other));
     }
 

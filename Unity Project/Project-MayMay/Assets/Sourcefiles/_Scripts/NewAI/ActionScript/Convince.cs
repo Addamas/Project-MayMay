@@ -34,11 +34,20 @@ public class Convince : RootActionMulFrameable
         if (otherCharacter.curAction != null)
             otherCharacter.Cancel();
 
+        BeforeNewEventOther(otherCharacter);
         ProcessStat(GetWantedAction(otherCharacter).stat);
         otherCharacter.NewEvent();
 
+        while (otherCharacter.pathfinding)
+            yield return null;
+
         lifeTime = ai.StartCoroutine(SecondLifeTime(other));
         yield break;
+    }
+
+    protected virtual void BeforeNewEventOther(Character other)
+    {
+
     }
 
     protected virtual void ProcessStat(Stat stat)
@@ -154,11 +163,18 @@ public class ConvinceNormal : NormalActionMulFrameable
         if (otherCharacter.curAction != null)
             otherCharacter.Cancel();
 
+        BeforeNewEventOther(otherCharacter);
         ProcessStat(GetWantedAction(otherCharacter).stat);
         otherCharacter.NewEvent();
-
+        while (otherCharacter.pathfinding)
+            yield return null;
         lifeTime = ai.StartCoroutine(SecondLifeTime(other));
         yield break;
+    }
+
+    protected virtual void BeforeNewEventOther(Character other)
+    {
+
     }
 
     protected virtual void ProcessStat(Stat stat)
