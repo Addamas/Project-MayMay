@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Threading;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
@@ -18,6 +19,27 @@ Ik heb dit erbij gepakt omdat het me gewoon veel regels code bespaart.
 
 namespace Jext
 {
+    public static class ThreadSwitching
+    {
+        private static Queue<System.Action> executables = new Queue<System.Action>();
+
+        private static System.Action executable;
+        public static void ExecuteMulThreadDataInMainThread()
+        {
+            if (executables.Count > 0)
+            {
+                executable = executables.Dequeue();
+                executable();
+            }
+        }
+
+        public static void ExecuteInMainThread(System.Action action)
+        {
+            executables.Enqueue(action);
+        }
+    }
+
+
     public static class Methods
     {
         public static bool IsEven(this int i)
