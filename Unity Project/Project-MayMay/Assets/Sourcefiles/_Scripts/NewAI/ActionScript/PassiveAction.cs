@@ -64,6 +64,7 @@ public class PassiveAction : RootActionMulFrameable
     public override void Complete()
     {
         leader = null;
+        stat.SetValue(Max);
         base.Complete();
     }
 }

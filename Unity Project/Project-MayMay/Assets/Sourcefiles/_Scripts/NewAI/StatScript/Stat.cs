@@ -19,4 +19,12 @@ public abstract class Stat : Extension, IComparable<Stat> {
     {
         return GetValue() - other.GetValue();
     }
+
+    public T GetAction<T>() where T : RootAction
+    {
+        foreach (RootAction action in rootActions)
+            if (action.GetType() is T)
+                return action as T;
+        return null;
+    }
 }

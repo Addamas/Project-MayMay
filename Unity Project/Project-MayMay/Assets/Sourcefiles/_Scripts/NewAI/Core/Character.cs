@@ -30,6 +30,7 @@ public class Character : GHOPE {
 
     #region Get Functions
 
+
     public T GetAction<T>() where T : Action
     {
         foreach (Action action in actions)

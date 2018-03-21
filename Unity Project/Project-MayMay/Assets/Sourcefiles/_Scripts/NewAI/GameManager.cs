@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start () {
 
+        StartCoroutine(PathfindingQueue());
         StartCoroutine(Init());
 	}
 
@@ -42,4 +43,28 @@ public class GameManager : MonoBehaviour {
         foreach (Character chararacter in characters)
             GameManager.characters.Add(chararacter);
     }
+
+    #region Pathfinding Queue
+
+    private static Queue<GHOPE> pathfindingQueue = new Queue<GHOPE>();
+
+    public void EnqueuePathfinding(GHOPE ghope)
+    {
+        pathfindingQueue.Enqueue(ghope);
+    }
+
+    private IEnumerator PathfindingQueue()
+    {
+        GHOPE ghope;
+        while (true)
+        {
+            while (pathfindingQueue.Count == 0)
+                yield return null;
+
+            ghope = pathfindingQueue.Dequeue();
+            yield return StartCoroutine(ghope.Pathfinding());
+        }
+    }
+
+    #endregion
 }
