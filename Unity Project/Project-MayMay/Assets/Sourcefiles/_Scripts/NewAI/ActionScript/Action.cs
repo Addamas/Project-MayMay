@@ -62,6 +62,11 @@ public abstract class Action : Extension
         return Dis() < ai.settings.interactDistance;
     }
 
+    public bool InRange(Transform other)
+    {
+        return Vector3.Distance(ai.transform.position, other.position) < ai.settings.interactDistance;
+    }
+
     public virtual float Dis()
     {
         return Vector3.Distance(ai.transform.position, Pos());

@@ -28,6 +28,11 @@ public class Converse : LeadAction {
 
         for (int i = 0; i < conversation.parts.Count; i++)
         {
+            if(other.character.curAction == null)
+            {
+                WhenCompleted();
+                yield break;
+            }
             if (other.character.curAction.GetType() != ActionType)
             {
                 WhenCompleted();

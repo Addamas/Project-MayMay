@@ -160,26 +160,16 @@ public class Character : GHOPE {
     {
         //Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
 
-        int frame = 0;
-        Transform target;
-
         if (curAction.IsExecutable())
         {
-            target = curAction.PosTrans();
+            int frame = 0;
+            Transform target = curAction.PosTrans();
 
-            while (curAction.IsExecutable())
+            while (!curAction.InRange(target))
             {
                 if (curAction.GetRemainingLinks().Count > 0)
                 {
                     NewEvent();
-                    yield break;
-                }
-
-                if (curAction.InRange())
-                {
-                    if (!curAction.autoMovement)
-                        movement.Stop();
-                    base.Execute();
                     yield break;
                 }
 
@@ -189,6 +179,14 @@ public class Character : GHOPE {
 
                 movement.Follow(target);
                 yield return null;
+            }
+            
+            if (curAction.IsExecutable())
+            {
+                if (!curAction.autoMovement)
+                    movement.Stop();
+                base.Execute();
+                yield break;
             }
         }
 
