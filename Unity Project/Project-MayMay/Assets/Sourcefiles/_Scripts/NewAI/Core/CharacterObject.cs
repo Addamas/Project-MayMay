@@ -6,5 +6,6 @@ using UnityEngine;
 public class CharacterObject : ScriptableObject
 {
     public int critVal = 10;
+    public int movementFramesUntilNewCheck = 500;
     public float interactDistance;
 }

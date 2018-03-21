@@ -158,25 +158,38 @@ public class Character : GHOPE {
     private Coroutine execute;
     private IEnumerator _Execute()
     {
-        Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
-        while (curAction.IsExecutable())
+        //Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
+
+        int frame = 0;
+        Transform target;
+
+        if (curAction.IsExecutable())
         {
-            if (curAction.GetRemainingLinks().Count > 0)
-            {
-                NewEvent();
-                yield break;
-            }
+            target = curAction.PosTrans();
 
-            if (curAction.InRange())
+            while (curAction.IsExecutable())
             {
-                if (!curAction.autoMovement)
-                    movement.Stop();
-                base.Execute();
-                yield break;
-            }
+                if (curAction.GetRemainingLinks().Count > 0)
+                {
+                    NewEvent();
+                    yield break;
+                }
 
-            movement.Follow(curAction.PosTrans());
-            yield return null;
+                if (curAction.InRange())
+                {
+                    if (!curAction.autoMovement)
+                        movement.Stop();
+                    base.Execute();
+                    yield break;
+                }
+
+                frame++;
+                if (frame % settings.movementFramesUntilNewCheck == 0)
+                    target = curAction.PosTrans();
+
+                movement.Follow(target);
+                yield return null;
+            }
         }
 
         movement.Stop();
