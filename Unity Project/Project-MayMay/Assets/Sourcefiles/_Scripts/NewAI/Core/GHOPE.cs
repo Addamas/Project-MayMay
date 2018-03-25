@@ -91,16 +91,17 @@ public abstract class GHOPE : MonoBehaviour {
         stats.Sort();
         if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;
-        StartCoroutine(Pathfinding());
+
+        pathfinding = true;
+        changed = false;
+
+        GameManager.instance.EnqueuePathfinding(this);
     }
 
     [NonSerialized]
     public bool pathfinding;
-    private IEnumerator Pathfinding()
+    public IEnumerator Pathfinding()
     {
-        pathfinding = true;
-        changed = false;
-
         foreach (Stat stat in stats)
         {
             yield return StartCoroutine((PathPossible(stat)));
@@ -202,11 +203,14 @@ public abstract class GHOPE : MonoBehaviour {
 
         pathable.Sort();
 
-        if (pathable.First().action != curAction) {
-            Cancel();
-            changed = true;
-            curAction = pathable.First().action;
-        }
+        if (curAction != null)
+            if (curAction == pathable.First().action)
+                yield break;
+
+        Cancel();
+        
+        changed = true;
+        curAction = pathable.First().action;
     }
 
     public virtual void Cancel()

@@ -5,12 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LeadAction", menuName = "Actions/Convince/LeadAction", order = 1)]
 public class LeadAction : Convince {
 
-    protected override void BeforeNewEventOther(Character other)
-    {
-        other.GetAction<PassiveAction>().leader = ai;
-        base.BeforeNewEventOther(other);
-    }
-
     protected override IEnumerator SecondLifeTime(Memory.Other other)
     {
         Character otherCharacter = other.character;
@@ -45,12 +39,6 @@ public class LeadAction : Convince {
 
 public class LeadActionNormal : ConvinceNormal
 {
-    protected override void BeforeNewEventOther(Character other)
-    {
-        other.GetAction<PassiveAction>().leader = ai;
-        base.BeforeNewEventOther(other);
-    }
-
     protected override IEnumerator SecondLifeTime(Memory.Other other)
     {
         Character otherCharacter = other.character;

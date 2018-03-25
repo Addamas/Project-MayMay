@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   special: 0
   breakable: 0
-  autoMovement: 0
+  autoMovement: 1
   wantedAction: {fileID: 11400000, guid: f0f60fa60a599244292a23de689c79f1, type: 2}
   rangeMatters: 1

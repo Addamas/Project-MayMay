@@ -10,12 +10,12 @@ public abstract class Action : Extension
 
     public virtual void Cancel()
     {
-        Debug.Log("CANCELLED: " + name + " " + ai + " " + TimeManager.time);
+        //Debug.Log("CANCELLED: " + name + " " + ai + " " + TimeManager.time);
         ai.curAction = null;
     }
     public virtual void Complete()
     {
-        Debug.Log("COMPLETED: " + name + " " + ai + " " + TimeManager.time);
+        //Debug.Log("COMPLETED: " + name + " " + ai + " " + TimeManager.time);
         ai.Complete();
     }
     #endregion
@@ -62,6 +62,11 @@ public abstract class Action : Extension
         return Dis() < ai.settings.interactDistance;
     }
 
+    public bool InRange(Transform other)
+    {
+        return Vector3.Distance(ai.transform.position, other.position) < ai.settings.interactDistance;
+    }
+
     public virtual float Dis()
     {
         return Vector3.Distance(ai.transform.position, Pos());
@@ -72,7 +77,11 @@ public abstract class Action : Extension
         return PosTrans().position;
     }
 
-    public abstract Transform PosTrans();
+    public virtual Transform PosTrans()
+    {
+        return ai.transform;
+    }
+
     #endregion
 
     #region Time

@@ -76,9 +76,4 @@ public class Consume : RootAction
     {
         
     }
-
-    public override Transform PosTrans()
-    {
-        throw new System.NotImplementedException();
-    }
 }
