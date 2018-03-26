@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour {
             yield return null;
         }
 
+        FindInteractables();
+
         TimeManager.instance.StartFlow();
         characters.ForEach(x => x.NewEvent());
     }
@@ -42,6 +44,13 @@ public class GameManager : MonoBehaviour {
         Character[] characters = FindObjectsOfType(typeof(Character)) as Character[];
         foreach (Character chararacter in characters)
             GameManager.characters.Add(chararacter);
+    }
+
+    private void FindInteractables()
+    {
+        Interactable[] interactables = FindObjectsOfType(typeof(Interactable)) as Interactable[];
+        foreach (Interactable interactable in interactables)
+            interactable.Init();
     }
 
     #region Pathfinding Queue

@@ -142,6 +142,7 @@ public class Character : GHOPE {
     public House GetHouse(string houseName)
     {
         List<House> houses = GetFromInteractables<House>();
+
         foreach (House house in houses)
             if (house.name == houseName)
                 return house;
