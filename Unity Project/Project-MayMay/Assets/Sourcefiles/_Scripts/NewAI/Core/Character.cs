@@ -176,7 +176,10 @@ public class Character : GHOPE {
 
                 frame++;
                 if (frame % settings.movementFramesUntilNewCheck == 0)
-                    target = curAction.PosTrans();
+                    if (curAction.IsExecutable())
+                        target = curAction.PosTrans();
+                    else
+                        break;
 
                 movement.Follow(target);
                 yield return null;

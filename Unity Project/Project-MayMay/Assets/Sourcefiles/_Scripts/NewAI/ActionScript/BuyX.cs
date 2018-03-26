@@ -20,8 +20,8 @@ public class BuyX : ConverseNormal {
 
     protected override bool AvailableCheck(Memory.Other other)
     {
-        ShopKeeping shopkeeping = other.character.GetAction(shopKeepType) as ShopKeeping; 
-        
+        ShopKeeping shopkeeping = other.character.GetAction(shopKeepType) as ShopKeeping;
+
         if (shopkeeping == null)
             return false;
         if (!shopkeeping.Open)
@@ -44,5 +44,13 @@ public class BuyX : ConverseNormal {
     {
         ai.inventory.AddList(items, true);
         base.WhenCompleted();
+    }
+
+    protected override Memory.Other GetOther()
+    {
+        foreach (Memory.Other other in ai.memory.relatives)
+            if (other.character.GetAction(shopKeepType) as ShopKeeping != null)
+                return other;
+        return null;
     }
 }

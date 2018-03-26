@@ -83,7 +83,6 @@ public class Convince : RootActionMulFrameable
         return GetAvailable().Count > 0;
     }
 
-
     [SerializeField]
     protected bool rangeMatters = true;
     protected virtual List<Memory.Other> GetAvailable()

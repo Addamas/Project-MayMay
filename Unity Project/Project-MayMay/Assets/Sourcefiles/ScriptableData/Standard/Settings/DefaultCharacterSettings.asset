@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   critVal: 10
   movementFramesUntilNewCheck: 500
-  interactDistance: 1.5
+  interactDistance: 2

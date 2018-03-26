@@ -28,5 +28,11 @@ MonoBehaviour:
     - parts:
       - Well that makes me feel better.
       - Thanks.
+  - tag: 1
+    parts:
+    - parts:
+      - Howdy, some of your finest stuff please.
+    - parts:
+      - Aight.
   timePerChar: 0.05
   minValue: 15
