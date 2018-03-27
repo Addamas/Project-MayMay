@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootActions:
   - {fileID: 11400000, guid: 3c164b5351dc4a44ab4416f50ec3d827, type: 2}
+  randomizable: 1
   value: 100
   tickFrequency: 1

@@ -8,14 +8,26 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    [SerializeField]
+    private string seed;
+
     [NonSerialized]
     public static List<Character> characters = new List<Character>();
     [NonSerialized]
     public static List<Area> districts = new List<Area>();
 
+    public static System.Random random;
+
     private void Awake()
     {
         instance = this;
+        SetSeed();
+    }
+
+    private void SetSeed()
+    {
+        random = new System.Random(
+            seed.Length == 0 ? DateTime.Now.GetHashCode() : seed.GetHashCode());
     }
 
     private void Start () {

@@ -48,9 +48,15 @@ public class BuyX : ConverseNormal {
 
     protected override Memory.Other GetOther()
     {
+        ShopKeeping shopKeeper;
         foreach (Memory.Other other in ai.memory.relatives)
-            if (other.character.GetAction(shopKeepType) as ShopKeeping != null)
+        {
+            shopKeeper = other.character.GetAction(shopKeepType) as ShopKeeping;
+            if (shopKeeper == null)
+                continue;
+            if (shopKeeper.Open)
                 return other;
+        }
         return null;
     }
 }
