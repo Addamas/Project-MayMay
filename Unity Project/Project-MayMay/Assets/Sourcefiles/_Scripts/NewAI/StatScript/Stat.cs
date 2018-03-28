@@ -23,7 +23,7 @@ public abstract class Stat : Extension, IComparable<Stat> {
     public T GetAction<T>() where T : RootAction
     {
         foreach (RootAction action in rootActions)
-            if (action.GetType() is T)
+            if (action.GetType() == typeof(T))
                 return action as T;
         return null;
     }

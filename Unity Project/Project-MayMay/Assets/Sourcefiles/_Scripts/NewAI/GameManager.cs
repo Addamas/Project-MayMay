@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jext;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,5 +88,48 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public static Character GetCharacter(string name)
+    {
+        foreach (Character character in characters)
+            if (character.name == name)
+                return character;
+        return null;
+    }
+
     #endregion
+}
+namespace ProjectShortcuts
+{
+    public static class Shortcuts
+    {
+        public static T GetClosest<T>(ref List<T> sortableList, Vector3 point) where T : Extension
+        {
+            T ret = sortableList.First();
+            float dis = Vector3.Distance(ret.ai.Pos, point), dis2;
+            for (int i = 1; i < sortableList.Count; i++)
+            {
+                dis2 = Vector3.Distance(ret.ai.Pos, sortableList[i].ai.Pos);
+                if (dis2 > dis)
+                    continue;
+                ret = sortableList[i];
+                dis = dis2;
+            }
+            return ret;
+        }
+
+        public static Memory.Other GetClosest(ref List<Memory.Other> sortableList, Vector3 point)
+        {
+            Memory.Other ret = sortableList.First();
+            float dis = Vector3.Distance(ret.character.Pos, point), dis2;
+            for (int i = 1; i < sortableList.Count; i++)
+            {
+                dis2 = Vector3.Distance(ret.character.Pos, sortableList[i].character.Pos);
+                if (dis2 > dis)
+                    continue;
+                ret = sortableList[i];
+                dis = dis2;
+            }
+            return ret;
+        }
+    }
 }

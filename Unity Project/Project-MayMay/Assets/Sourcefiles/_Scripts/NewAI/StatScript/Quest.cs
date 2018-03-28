@@ -9,6 +9,9 @@ public class Quest : Stat {
     [SerializeField]
     public List<QuestTime> times = new List<QuestTime>();
 
+    [SerializeField]
+    private int questImportance = 10;
+
     [Serializable]
     public class QuestTime
     {
@@ -22,7 +25,7 @@ public class Quest : Stat {
 
     public override int GetValue()
     {
-        return IsTime() ? ai.settings.critVal : Max;
+        return IsTime() ? questImportance : Max;
     }
 
     public override void SetValue(int value)

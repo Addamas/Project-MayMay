@@ -159,7 +159,7 @@ public class Character : GHOPE {
     private Coroutine execute;
     private IEnumerator _Execute()
     {
-        //Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
+        Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
 
         if (curAction.IsExecutable())
         {

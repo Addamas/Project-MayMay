@@ -175,6 +175,8 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
     public override void Complete()
     {
         executing = false;
+        if (lifeTime != null)
+            ai.StopCoroutine(lifeTime);
         base.Complete();
     }
 
