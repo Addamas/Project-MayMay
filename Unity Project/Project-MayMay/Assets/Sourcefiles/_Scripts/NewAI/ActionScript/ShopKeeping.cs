@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shopkeeping", menuName = "Jobs/Shopkeeping", order = 1)]
 public class ShopKeeping : RootActionMulFrameable
 {
+    // Only used by the player
     public List<Item> inventory = new List<Item>();
 
     public bool Open
@@ -43,7 +44,7 @@ public class ShopKeeping : RootActionMulFrameable
     {
         if(!InRange())
             return base.GetEstimatedTimeRequired();
-        return TooLong + 1;
+        return TooLong;
     }
 
     public override IEnumerator LifeTime()

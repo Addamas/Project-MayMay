@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ProjectShortcuts;
 
 [CreateAssetMenu(fileName = "BuyItem", menuName = "Actions/Convince/BuyItem", order = 1)]
 public class BuyX : ConverseNormal {
@@ -20,8 +21,8 @@ public class BuyX : ConverseNormal {
 
     protected override bool AvailableCheck(Memory.Other other)
     {
-        ShopKeeping shopkeeping = other.character.GetAction(shopKeepType) as ShopKeeping; 
-        
+        ShopKeeping shopkeeping = other.character.GetAction(shopKeepType) as ShopKeeping;
+
         if (shopkeeping == null)
             return false;
         if (!shopkeeping.Open)
@@ -44,5 +45,20 @@ public class BuyX : ConverseNormal {
     {
         ai.inventory.AddList(items, true);
         base.WhenCompleted();
+    }
+
+    protected override Memory.Other GetOther()
+    {
+        List<Memory.Other> shopKeepers = new List<Memory.Other>();
+        ShopKeeping shopKeeper;
+        foreach (Memory.Other other in ai.memory.relatives)
+        {
+            shopKeeper = other.character.GetAction(shopKeepType) as ShopKeeping;
+            if (shopKeeper == null)
+                continue;
+            if (shopKeeper.Open)
+                shopKeepers.Add(other);
+        }
+        return Shortcuts.GetClosest(ref shopKeepers, ai.Pos);
     }
 }

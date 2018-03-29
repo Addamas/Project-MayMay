@@ -45,9 +45,4 @@ public class Yawn : RootActionMulFrameable, IDuration
     {
         return true;
     }
-
-    public override Transform PosTrans()
-    {
-        throw new System.NotImplementedException();
-    }
 }

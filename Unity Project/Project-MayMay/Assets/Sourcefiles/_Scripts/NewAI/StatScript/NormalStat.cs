@@ -5,6 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NormalStat", menuName = "Stats/Generic/NormalStat", order = 1)]
 public class NormalStat : Stat
 {
+    [SerializeField]
+    private bool randomizable;
+
+    public override void Init(GHOPE ai)
+    {
+        base.Init(ai);
+        if(randomizable)
+            SetValue(GameManager.random.Next((ai as Character).settings.critVal, Max));
+    }
+
     public override void SetValue(int value)
     {
         Value = value;

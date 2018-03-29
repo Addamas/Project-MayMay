@@ -30,6 +30,7 @@ public class Character : GHOPE {
 
     #region Get Functions
 
+
     public T GetAction<T>() where T : Action
     {
         foreach (Action action in actions)
@@ -141,6 +142,7 @@ public class Character : GHOPE {
     public House GetHouse(string houseName)
     {
         List<House> houses = GetFromInteractables<House>();
+
         foreach (House house in houses)
             if (house.name == houseName)
                 return house;
@@ -158,24 +160,38 @@ public class Character : GHOPE {
     private IEnumerator _Execute()
     {
         Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
-        while (curAction.IsExecutable())
-        {
-            if (curAction.GetRemainingLinks().Count > 0)
-            {
-                NewEvent();
-                yield break;
-            }
 
-            if (curAction.InRange())
+        if (curAction.IsExecutable())
+        {
+            int frame = 0;
+            Transform target = curAction.PosTrans();
+
+            while (!curAction.InRange(target))
+            {
+                if (curAction.GetRemainingLinks().Count > 0)
+                {
+                    NewEvent();
+                    yield break;
+                }
+
+                frame++;
+                if (frame % settings.movementFramesUntilNewCheck == 0)
+                    if (curAction.IsExecutable())
+                        target = curAction.PosTrans();
+                    else
+                        break;
+
+                movement.Follow(target);
+                yield return null;
+            }
+            
+            if (curAction.IsExecutable())
             {
                 if (!curAction.autoMovement)
                     movement.Stop();
                 base.Execute();
                 yield break;
             }
-
-            movement.Follow(curAction.PosTrans());
-            yield return null;
         }
 
         movement.Stop();

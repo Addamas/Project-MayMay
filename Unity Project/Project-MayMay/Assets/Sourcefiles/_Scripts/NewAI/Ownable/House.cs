@@ -10,6 +10,8 @@ public class House : Interactable {
     {
         get
         {
+            if (doors.Count == 0)
+                return false;
             foreach (Door door in doors)
                 if (door.IsOpen)
                     return false;
@@ -50,6 +52,8 @@ public class House : Interactable {
     {
         get
         {
+            if (doors.Count == 0)
+                return true;
             foreach (Door door in doors)
                 if (door.IsOpen)
                     return true;

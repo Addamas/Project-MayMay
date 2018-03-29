@@ -62,6 +62,11 @@ public abstract class Action : Extension
         return Dis() < ai.settings.interactDistance;
     }
 
+    public bool InRange(Transform other)
+    {
+        return Vector3.Distance(ai.transform.position, other.position) < ai.settings.interactDistance;
+    }
+
     public virtual float Dis()
     {
         return Vector3.Distance(ai.transform.position, Pos());
@@ -72,7 +77,11 @@ public abstract class Action : Extension
         return PosTrans().position;
     }
 
-    public abstract Transform PosTrans();
+    public virtual Transform PosTrans()
+    {
+        return ai.transform;
+    }
+
     #endregion
 
     #region Time
@@ -166,6 +175,8 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
     public override void Complete()
     {
         executing = false;
+        if (lifeTime != null)
+            ai.StopCoroutine(lifeTime);
         base.Complete();
     }
 

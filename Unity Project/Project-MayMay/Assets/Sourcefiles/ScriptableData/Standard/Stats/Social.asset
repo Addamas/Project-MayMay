@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b55dde4e0f8804485fd833faf7d95d, type: 3}
+  m_Name: Social
+  m_EditorClassIdentifier: 
+  rootActions:
+  - {fileID: 11400000, guid: 6e19f9dd39e3e86499c25614b8abf210, type: 2}
+  randomizable: 1
+  value: 100
+  tickFrequency: 2
+  genericConversations:
+  - tag: 0
+    parts:
+    - parts:
+      - You know that we're not real right?
+    - parts:
+      - You mean... that my love for you isn't really my love but just something artificially
+        created to make me feel like I have a purpose?
+    - parts:
+      - Kinda.
+    - parts:
+      - Well that makes me feel better.
+      - Thanks.
+  - tag: 1
+    parts:
+    - parts:
+      - Howdy, some of your finest stuff please.
+    - parts:
+      - Aight.
+  timePerChar: 0.05
+  minValue: 25

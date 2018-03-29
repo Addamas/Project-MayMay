@@ -31,6 +31,9 @@ public class Convince : RootActionMulFrameable
         Memory.Other other = GetOther();
         Character otherCharacter = other.character;
 
+        while (otherCharacter.pathfinding)
+            yield return null;
+
         if (otherCharacter.curAction != null)
             otherCharacter.Cancel();
 
@@ -47,7 +50,7 @@ public class Convince : RootActionMulFrameable
 
     protected virtual void BeforeNewEventOther(Character other)
     {
-
+        GetWantedAction(other).leader = ai;
     }
 
     protected virtual void ProcessStat(Stat stat)
@@ -55,12 +58,12 @@ public class Convince : RootActionMulFrameable
         stat.SetValue(stat.ai.settings.critVal - 1);
     }
 
-    protected RootAction GetWantedAction(Character character)
+    protected PassiveAction GetWantedAction(Character character)
     {
         foreach (Stat stat in character.stats)
             foreach (RootAction action in stat.rootActions)
                 if (action.GetType() == ActionType)
-                    return action;
+                    return action as PassiveAction;
         return null;
     }
 
@@ -79,7 +82,6 @@ public class Convince : RootActionMulFrameable
     {
         return GetAvailable().Count > 0;
     }
-
 
     [SerializeField]
     protected bool rangeMatters = true;
@@ -150,15 +152,13 @@ public class ConvinceNormal : NormalActionMulFrameable
         return new List<Link>();
     }
 
-    public override List<Link> GetReturnValue()
-    {
-        return new List<Link>();
-    }
-
     public override IEnumerator LifeTime()
     {
         Memory.Other other = GetOther();
         Character otherCharacter = other.character;
+
+        while (otherCharacter.pathfinding)
+            yield return null;
 
         if (otherCharacter.curAction != null)
             otherCharacter.Cancel();
@@ -166,15 +166,17 @@ public class ConvinceNormal : NormalActionMulFrameable
         BeforeNewEventOther(otherCharacter);
         ProcessStat(GetWantedAction(otherCharacter).stat);
         otherCharacter.NewEvent();
+
         while (otherCharacter.pathfinding)
             yield return null;
+
         lifeTime = ai.StartCoroutine(SecondLifeTime(other));
         yield break;
     }
 
     protected virtual void BeforeNewEventOther(Character other)
     {
-
+        GetWantedAction(other).leader = ai;
     }
 
     protected virtual void ProcessStat(Stat stat)
@@ -182,12 +184,12 @@ public class ConvinceNormal : NormalActionMulFrameable
         stat.SetValue(stat.ai.settings.critVal - 1);
     }
 
-    protected RootAction GetWantedAction(Character character)
+    protected PassiveAction GetWantedAction(Character character)
     {
         foreach (Stat stat in character.stats)
             foreach (RootAction action in stat.rootActions)
                 if (action.GetType() == ActionType)
-                    return action;
+                    return action as PassiveAction;
         return null;
     }
 
@@ -207,7 +209,6 @@ public class ConvinceNormal : NormalActionMulFrameable
         return GetAvailable().Count > 0;
     }
 
-
     [SerializeField]
     protected bool rangeMatters = true;
     protected virtual List<Memory.Other> GetAvailable()
@@ -226,7 +227,7 @@ public class ConvinceNormal : NormalActionMulFrameable
             character = others[i].character;
             action = character.curAction;
 
-            if(!AvailableCheck(others[i]))
+            if (!AvailableCheck(others[i]))
             {
                 others.RemoveAt(i);
                 continue;
@@ -257,5 +258,10 @@ public class ConvinceNormal : NormalActionMulFrameable
     protected virtual bool AvailableCheck(Memory.Other other)
     {
         return true;
+    }
+
+    public override List<Link> GetReturnValue()
+    {
+        return new List<Link>();
     }
 }
