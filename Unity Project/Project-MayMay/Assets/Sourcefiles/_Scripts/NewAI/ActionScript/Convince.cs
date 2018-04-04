@@ -55,7 +55,7 @@ public class Convince : RootActionMulFrameable
 
     protected virtual void ProcessStat(Stat stat)
     {
-        stat.SetValue(stat.ai.settings.critVal - 1);
+        stat.SetValue(0);
     }
 
     protected PassiveAction GetWantedAction(Character character)

@@ -10,18 +10,24 @@ public abstract class Action : Extension
 
     public virtual void Cancel()
     {
-        Debug.Log("CANCELLED: " + name + " " + ai + " " + TimeManager.time);
+        if(ai.debug)
+            Debug.Log("CANCELLED: " + name + " " + ai + " " + TimeManager.time);
+        OnFinished();
         ai.curAction = null;
     }
     public virtual void Complete()
     {
-        Debug.Log("COMPLETED: " + name + " " + ai + " " + TimeManager.time);
+        if(ai.debug)
+            Debug.Log("COMPLETED: " + name + " " + ai + " " + TimeManager.time);
+        OnFinished();
         ai.Complete();
     }
+
+    protected virtual void OnFinished() { }
     #endregion
 
     #region Main Check
-    public enum Link {HasFood, OpenedShop };
+    public enum Link {HasFood, hasWater, OpenedShop, hasBucket, hasFilledBucket };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
@@ -64,7 +70,7 @@ public abstract class Action : Extension
 
     public bool InRange(Transform other)
     {
-        return Vector3.Distance(ai.transform.position, other.position) < ai.settings.interactDistance;
+        return Vector3.Distance(ai.transform.position, other.position) < StoppingDistance();
     }
 
     public virtual float Dis()
@@ -92,6 +98,16 @@ public abstract class Action : Extension
         return 0;
     }
     #endregion
+
+    public virtual void WhileMoving()
+    {
+
+    }
+
+    public virtual float StoppingDistance()
+    {
+        return ai.settings.interactDistance;
+    }
 }
 
 public abstract class RootAction : Action

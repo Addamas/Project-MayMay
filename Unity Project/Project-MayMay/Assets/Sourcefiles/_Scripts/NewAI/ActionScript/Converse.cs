@@ -16,8 +16,19 @@ public class Converse : LeadAction {
 
     protected virtual Social.Conversation PickConversation(Memory.Other other)
     {
-        return other.conversations.Count > 0 ?
-            other.conversations.RandomItem() : Social.genericConversations.RandomItem();
+        return GetConversation(other, Social.ConversationType.Normal);
+    }
+
+    protected virtual Social.Conversation GetConversation(Memory.Other other, Social.ConversationType type)
+    {
+        try
+        {
+            return other.GetConversation(type);
+        }
+        catch
+        {
+            return Social.GetConversation(type);
+        }
     }
 
     protected override IEnumerator WhileLinked(Memory.Other other)

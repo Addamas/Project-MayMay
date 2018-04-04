@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9daee431e9ea0a45ac80e094a3ce765, type: 3}
   m_Name: DefaultSensesSettings
   m_EditorClassIdentifier: 
-  frequency: 5
+  frequency: 1
   spotDistance: 10

@@ -51,6 +51,15 @@ public class Memory : CharacterExtension
             return other.lastSpotted - lastSpotted;
         }
 
+        public Social.Conversation GetConversation(Social.ConversationType type)
+        {
+            List<Social.Conversation> conversations = new List<Social.Conversation>();
+            foreach (Social.Conversation conversation in this.conversations)
+                if (conversation.tag == type)
+                    conversations.Add(conversation);
+            return conversations.RandomItem();
+        }
+
         private List<MemorySlot> memories = new List<MemorySlot>(),
             specialMemories = new List<MemorySlot>();
 
@@ -138,7 +147,7 @@ public class Memory : CharacterExtension
     }
     #endregion
 
-    public class MemorySlot
+    public class MemorySlot : IComparable<MemorySlot>
     {
         public Action action;
         public Area area;
@@ -149,6 +158,20 @@ public class Memory : CharacterExtension
             this.action = action;
             area = action.ai.GetArea();
             this.time = time;
+        }
+
+        public void UpdateMemory(MemorySlot memorySlot)
+        {
+            if (time > memorySlot.time)
+                return;
+
+            area = memorySlot.area;
+            time = memorySlot.time;
+        }
+
+        public int CompareTo(MemorySlot other)
+        {
+            return time - other.time;
         }
     }
 

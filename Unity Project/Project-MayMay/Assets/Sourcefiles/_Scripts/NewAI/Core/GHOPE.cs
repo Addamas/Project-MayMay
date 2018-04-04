@@ -35,13 +35,6 @@ public abstract class GHOPE : MonoBehaviour {
 
     public virtual void Init()
     {
-        movement.Init();
-        memory.Init();
-        senses.Init();
-    }
-
-    protected virtual void Awake()
-    {
         SetShortcuts();
 
         #region Initialize Actions and Stats
@@ -50,6 +43,10 @@ public abstract class GHOPE : MonoBehaviour {
             stat.rootActions.ForEach(x => x.Init(this, stat));
         actions.ForEach(x => x.Init(this));
         #endregion
+
+        movement.Init();
+        memory.Init();
+        senses.Init();
     }
 
     private void SetShortcuts()
@@ -109,15 +106,10 @@ public abstract class GHOPE : MonoBehaviour {
                 break;
         }
 
-        if(!changed)
-            yield return new WaitForSeconds(senses.settings.frequency);
-
         pathfinding = false;
 
         if (changed)
             Execute();
-        else
-            NewEvent();
     }
 
     public Stat FirstStat()

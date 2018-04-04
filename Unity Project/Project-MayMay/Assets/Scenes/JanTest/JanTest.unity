@@ -1526,6 +1526,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5651129a4d56c44bee3749fd46b982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &502672292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 502672293}
+  - component: {fileID: 502672297}
+  - component: {fileID: 502672296}
+  - component: {fileID: 502672295}
+  - component: {fileID: 502672294}
+  m_Layer: 0
+  m_Name: Public Toilet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &502672293
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502672292}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 8.82, y: 1, z: 19.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &502672294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502672292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPublic: 1
+--- !u!23 &502672295
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502672292}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &502672296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502672292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &502672297
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502672292}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &508810663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 6eaa79ea1123acf4fb5952f4e5078b48, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
@@ -2353,7 +2452,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ce081679dd7ca94794f2f20f5cf02ea, type: 2}
   - {fileID: 11400000, guid: 2072ca3e9f814774fa93adb49165a0d1, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 1319664720}
   - {fileID: 282646184}
@@ -2395,7 +2495,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2481,7 +2581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &831737149
 GameObject:
@@ -2564,6 +2664,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &930297042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 930297047}
+  - component: {fileID: 930297046}
+  - component: {fileID: 930297045}
+  - component: {fileID: 930297044}
+  - component: {fileID: 930297043}
+  m_Layer: 0
+  m_Name: Well
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &930297043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930297042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPublic: 1
+  water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
+--- !u!23 &930297044
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930297042}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &930297045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930297042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &930297046
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930297042}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &930297047
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930297042}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 18.3, y: 1, z: 23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952514573
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,7 +2779,7 @@ GameObject:
   - component: {fileID: 952514575}
   - component: {fileID: 952514574}
   m_Layer: 0
-  m_Name: Character (4)
+  m_Name: Detective
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2600,14 +2798,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 947f06482dca6404b81f9af7a073b1df, type: 2}
   - {fileID: 11400000, guid: ec765c199b1db194fb6bf41ef7e9d777, type: 2}
+  - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
+  - {fileID: 11400000, guid: 7b422b3bad115594bbc647d4cffac463, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 2010312269}
 --- !u!114 &952514575
@@ -2622,7 +2825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 21b77e0b68c17c3448a08d54d169891d, type: 2}
-  senses: []
+  senses:
+  - {fileID: 11400000, guid: f8b4487e2f7441a41ab1c147dae9976b, type: 2}
 --- !u!114 &952514576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2647,7 +2851,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2666,7 +2870,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d7bad9e13852d43a10251f511306cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatives: []
+  relatives:
+  - character: {fileID: 721985903}
+    affinity: 0
+    lastSpottedArea: {fileID: 1854746216}
+    knownAreas: []
+    conversations: []
   defaultAffinity: 50
   memorySlots: 15
 --- !u!23 &952514579
@@ -3332,7 +3541,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
@@ -3341,7 +3551,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec765c199b1db194fb6bf41ef7e9d777, type: 2}
   - {fileID: 11400000, guid: 9ece647b75866e64c9ea236f469f604e, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 1846018535}
   - {fileID: 223237039}
@@ -3382,7 +3593,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3506,14 +3717,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 947f06482dca6404b81f9af7a073b1df, type: 2}
   - {fileID: 11400000, guid: ec765c199b1db194fb6bf41ef7e9d777, type: 2}
+  - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 694574609}
 --- !u!114 &1221451499
@@ -3553,7 +3768,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3942,6 +4157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
@@ -3951,7 +4168,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f685a0832fb0fb43b7a1edddf7ef1f1, type: 2}
   - {fileID: 11400000, guid: 2072ca3e9f814774fa93adb49165a0d1, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 594195240}
 --- !u!114 &1377601404
@@ -3992,7 +4210,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4181,7 +4399,7 @@ GameObject:
   - component: {fileID: 1454108076}
   - component: {fileID: 1454108075}
   m_Layer: 0
-  m_Name: Character (3)
+  m_Name: Drinkert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4200,14 +4418,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 947f06482dca6404b81f9af7a073b1df, type: 2}
   - {fileID: 11400000, guid: ec765c199b1db194fb6bf41ef7e9d777, type: 2}
+  - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 2041864753}
 --- !u!114 &1454108076
@@ -4247,7 +4469,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4455,6 +4677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
+  - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
+  - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   stats:
   - {fileID: 11400000, guid: f5695a8301a28df40938f4bc6f2265f3, type: 2}
   - {fileID: 11400000, guid: 171734a9942b4654ba704820ca3af26f, type: 2}
@@ -4463,7 +4687,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec765c199b1db194fb6bf41ef7e9d777, type: 2}
   - {fileID: 11400000, guid: 39351df11cee84041880300217afa293, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  inventory: []
+  inventory:
+  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
   interactables:
   - {fileID: 1168536161}
 --- !u!114 &1614452564
@@ -4503,7 +4728,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.3
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -6198,7 +6423,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -6280,7 +6505,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2015072370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.93, y: 1, z: -0.56}
+  m_LocalPosition: {x: -10.25, y: 1, z: 16.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

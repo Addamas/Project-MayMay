@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shopkeeping", menuName = "Jobs/Shopkeeping", order = 1)]
 public class ShopKeeping : RootActionMulFrameable
 {
-    // Only used by the player
     public List<Item> inventory = new List<Item>();
 
     public bool Open

@@ -8,9 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5636a7bf3d8932c45b33f16d90272c52, type: 3}
-  m_Name: DefaultCharacterSettings
+  m_Script: {fileID: 11500000, guid: bb3b91926339cfe4488d4a1a73444a64, type: 3}
+  m_Name: Thirst
   m_EditorClassIdentifier: 
-  critVal: 10
-  movementFramesUntilNewCheck: 50
-  interactDistance: 2
+  rootActions:
+  - {fileID: 11400000, guid: a7fc978648ba79b489af7281c5cd67ac, type: 2}
+  randomizable: 1
+  value: 100
+  tickFrequency: 1

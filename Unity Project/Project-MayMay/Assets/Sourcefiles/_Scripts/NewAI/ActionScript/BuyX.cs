@@ -11,8 +11,6 @@ public class BuyX : ConverseNormal {
     protected List<Item> items;
     [SerializeField]
     protected List<Link> links;
-    [SerializeField]
-    protected string shopKeepType;
 
     public override List<Link> GetReturnValue()
     {
@@ -21,19 +19,24 @@ public class BuyX : ConverseNormal {
 
     protected override bool AvailableCheck(Memory.Other other)
     {
-        ShopKeeping shopkeeping = other.character.GetAction(shopKeepType) as ShopKeeping;
+        ShopKeeping shopkeeping = other.character.GetAction<ShopKeeping>();
 
         if (shopkeeping == null)
             return false;
+
         if (!shopkeeping.Open)
             return false;
+
+        foreach (Item item in items)
+            if (!shopkeeping.inventory.Contains(item))
+                return false;
 
         return base.AvailableCheck(other);
     }
 
     protected override bool ExecutableCheck()
     {
-        return GetOther().character.GetAction(shopKeepType) != null;
+        return GetOther().character.GetAction<ShopKeeping>() != null;
     }
 
     protected override Social.Conversation PickConversation(Memory.Other other)
@@ -50,15 +53,11 @@ public class BuyX : ConverseNormal {
     protected override Memory.Other GetOther()
     {
         List<Memory.Other> shopKeepers = new List<Memory.Other>();
-        ShopKeeping shopKeeper;
+
         foreach (Memory.Other other in ai.memory.relatives)
-        {
-            shopKeeper = other.character.GetAction(shopKeepType) as ShopKeeping;
-            if (shopKeeper == null)
-                continue;
-            if (shopKeeper.Open)
+            if (AvailableCheck(other))
                 shopKeepers.Add(other);
-        }
+
         return Shortcuts.GetClosest(ref shopKeepers, ai.Pos);
     }
 }

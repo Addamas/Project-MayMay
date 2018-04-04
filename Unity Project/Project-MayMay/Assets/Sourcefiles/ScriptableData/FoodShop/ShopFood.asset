@@ -14,4 +14,5 @@ MonoBehaviour:
   special: 1
   breakable: 0
   autoMovement: 0
-  inventory: []
+  inventory:
+  - {fileID: 114610989578192632, guid: bec07f8e93efaec41946f9423d61c69d, type: 2}
