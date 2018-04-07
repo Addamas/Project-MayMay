@@ -225,7 +225,8 @@ public class Character : GHOPE {
 
     private void Stop()
     {
-        Debug.Log("CANCELLED: " + name + " " + curAction.name + " " + TimeManager.time);
+        if(debug)
+            Debug.Log("CANCELLED: " + name + " " + curAction.name + " " + TimeManager.time);
         movement.Stop();
         base.Cancel();
         NewEvent();

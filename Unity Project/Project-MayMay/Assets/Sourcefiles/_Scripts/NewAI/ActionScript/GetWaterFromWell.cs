@@ -47,7 +47,10 @@ public class GetWaterFromWell : NormalActionMulFrameable
             yield break;
         }
 
-        ai.GetEmptyBucket().item = Well.water;
+        Well well = Well;
+
+        well.Interact(ai);
+        
 
         Complete();
     }

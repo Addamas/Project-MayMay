@@ -92,28 +92,8 @@ public class Convince : RootActionMulFrameable
             others = ai.senses.GetSurrounding();
         else
             others = ai.memory.relatives.ConvertListToNew();
-        Action action;
-        Character character;
 
-        int count = others.Count - 1;
-        for (int i = count; i > -1; i--)
-        {
-            character = others[i].character;
-            action = character.curAction;
-
-            if (!AvailableCheck(others[i]))
-            {
-                others.RemoveAt(i);
-                continue;
-            }
-
-            if (action == null)
-                continue;
-
-            character.stats.Sort();
-            if (!action.breakable || character.stats.First().GetValue() < character.settings.critVal)
-                others.RemoveAt(i);
-        }
+        others.RemoveAll(x => !AvailableCheck(x));
 
         others.SuperSort(SortOthers);
         return others;
@@ -131,6 +111,18 @@ public class Convince : RootActionMulFrameable
 
     protected virtual bool AvailableCheck(Memory.Other other)
     {
+        Character character = other.character;
+        Action action = character.curAction;
+
+        if (action == null)
+            return true;
+
+        if (!action.breakable)
+            return false;
+
+        if (GetWantedAction(character).leader != null)
+            return false;
+        
         return true;
     }
 }
@@ -218,28 +210,8 @@ public class ConvinceNormal : NormalActionMulFrameable
             others = ai.senses.GetSurrounding();
         else
             others = ai.memory.relatives.ConvertListToNew();
-        Action action;
-        Character character;
 
-        int count = others.Count - 1;
-        for (int i = count; i > -1; i--)
-        {
-            character = others[i].character;
-            action = character.curAction;
-
-            if (!AvailableCheck(others[i]))
-            {
-                others.RemoveAt(i);
-                continue;
-            }
-
-            if (action == null)
-                continue;
-
-            character.stats.Sort();
-            if (!action.breakable || character.stats.First().GetValue() < character.settings.critVal)
-                others.RemoveAt(i);
-        }
+        others.RemoveAll(x => !AvailableCheck(x));
 
         others.SuperSort(SortOthers);
         return others;
@@ -257,6 +229,18 @@ public class ConvinceNormal : NormalActionMulFrameable
 
     protected virtual bool AvailableCheck(Memory.Other other)
     {
+        Character character = other.character;
+        Action action = character.curAction;
+
+        if (action == null)
+            return true;
+
+        if (!action.breakable)
+            return false;
+
+        if (GetWantedAction(character).leader != null)
+            return false;
+
         return true;
     }
 
