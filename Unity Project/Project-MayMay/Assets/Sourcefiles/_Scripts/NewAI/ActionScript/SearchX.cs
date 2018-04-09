@@ -9,11 +9,11 @@ public class SearchX : Converse {
     [SerializeField]
     private float areaSeachSize;
 
-    private SearchStat SearchStat
+    private SearchCharacterStat SearchStat
     {
         get
         {
-            return Stat<SearchStat>();
+            return Stat<SearchCharacterStat>();
         }
     }
 

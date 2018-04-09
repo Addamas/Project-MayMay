@@ -64,9 +64,9 @@ public class Consume : RootAction
     public override void Execute()
     {
         Consumable consumable = GetConsumable();
+
         consumable.Consume(Stat<TickStat>());
         ai.inventory.Remove(consumable);
-
         ai.GetStat(peepeeStatName).AddValue(Mathf.RoundToInt(consumable.peePerValuePoint * consumable.value));
 
         Complete();

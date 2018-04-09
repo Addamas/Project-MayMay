@@ -5,12 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SensePerson", menuName = "Sense/SensePerson", order = 1)]
 public class SensePerson : Sense {
 
-    private SearchStat searchStat;
+    protected SearchCharacterStat searchStat;
 
     public override void Init(Senses senses)
     {
         base.Init(senses);
-        searchStat = character.GetStat<SearchStat>();
+        searchStat = character.GetStat<SearchCharacterStat>();
+    }
+
+    public override bool ShouldExecute(List<Memory.Other> surrounding)
+    {
+        return searchStat.Searching;
     }
 
     public override void Execute(List<Memory.Other> surrounding)
@@ -20,14 +25,9 @@ public class SensePerson : Sense {
             if (other.character == target)
             {               
                 Debug.Log("Found " + target.name);
-                searchStat.target = null;
+                searchStat.FoundTarget();
                 character.ForceNewEvent();
                 return;
             }
-    }
-
-    public override bool ShouldExecute(List<Memory.Other> surrounding)
-    {
-        return searchStat.Searching;
     }
 }

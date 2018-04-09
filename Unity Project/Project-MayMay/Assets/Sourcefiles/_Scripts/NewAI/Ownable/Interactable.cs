@@ -11,7 +11,11 @@ public class Interactable : Ownable {
 
     public void Init()
     {
-        if (isPublic)
-            GameManager.characters.ForEach(x => x.interactables.Add(this));
+        if(isPublic)
+            foreach(Character character in GameManager.characters)
+            {
+                character.interactables.Add(this);
+                owners.Add(character);
+            }
     }
 }

@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 1
   water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
 --- !u!23 &14452604
@@ -643,6 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &76594937
@@ -688,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &76594940
 MeshRenderer:
@@ -1090,6 +1093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &122393400
@@ -1149,6 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1081343323}
@@ -1321,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &160934423
 MeshRenderer:
@@ -1600,6 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1229593141}
@@ -1996,6 +2003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1895045313}
@@ -2042,6 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &315911470
 MeshRenderer:
@@ -2489,6 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 118447659}
@@ -2588,6 +2598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &376161964
@@ -2770,6 +2781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &420761849
@@ -2899,6 +2911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &431831856
 MeshRenderer:
@@ -3164,6 +3177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &480260352
 MeshRenderer:
@@ -3275,6 +3289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1728831588}
@@ -3321,6 +3336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &499528397
 MeshRenderer:
@@ -3555,6 +3571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &529405262
@@ -3737,6 +3754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &563630868
@@ -3769,6 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f72904eb3156b428cca78e77f6dd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   value: 100
   peePerValuePoint: 0.2
@@ -3881,6 +3900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!23 &572514718
@@ -4032,6 +4052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &603879506
@@ -4084,7 +4105,7 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
   debug: 0
   inventory:
-  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
+  - {fileID: 1693522675}
   interactables:
   - {fileID: 308933910}
   - {fileID: 76594939}
@@ -4270,6 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &622995864
 MeshRenderer:
@@ -4549,6 +4571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1603282030}
@@ -4595,6 +4618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &726361425
 MeshRenderer:
@@ -4706,6 +4730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 366502638}
@@ -4766,6 +4791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1998104810}
@@ -5232,6 +5258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &818563063
 MeshRenderer:
@@ -5329,6 +5356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &820208504
 MeshRenderer:
@@ -5510,6 +5538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &824930732
 MeshRenderer:
@@ -5607,6 +5636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 1
   water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
 --- !u!23 &846988007
@@ -5758,6 +5788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &903898747
@@ -5817,6 +5848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 408285489}
@@ -5947,6 +5979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &930287834
 MeshRenderer:
@@ -6044,6 +6077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &949794042
 MeshRenderer:
@@ -6155,6 +6189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1489603297}
@@ -6299,6 +6334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1397403131}
@@ -6527,6 +6563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1370380377}
@@ -6587,6 +6624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 66343409}
@@ -6686,6 +6724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1070585140
@@ -6952,6 +6991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1093507373
@@ -6997,6 +7037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1093507376
 MeshRenderer:
@@ -7108,6 +7149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 551875708}
@@ -7324,6 +7366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab1082d70934e144ae5f611761d9724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 572514717}
@@ -7671,6 +7714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1206167788
@@ -7859,6 +7903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1238928469
@@ -8209,6 +8254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1271941803
@@ -8254,6 +8300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1271941806
 MeshRenderer:
@@ -8365,6 +8412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1572992692}
@@ -8884,6 +8932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1381582663
@@ -8943,9 +8992,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1780768421}
+--- !u!1 &1382649890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1382649895}
+  - component: {fileID: 1382649894}
+  - component: {fileID: 1382649893}
+  - component: {fileID: 1382649892}
+  - component: {fileID: 1382649891}
+  m_Layer: 0
+  m_Name: Bucket (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1382649891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382649890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65562d77e1a47da44bce3f6e84e8032c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owners:
+  - {fileID: 1740490214}
+  isPublic: 0
+  item: {fileID: 0}
+--- !u!23 &1382649892
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382649890}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1382649893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382649890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1382649894
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382649890}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1382649895
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382649890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.8, y: 1, z: -26.08}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391738741
 GameObject:
   m_ObjectHideFlags: 0
@@ -9042,6 +9192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1393422277
@@ -9185,6 +9336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1065014100}
@@ -9284,6 +9436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1416434923
@@ -9343,6 +9496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1879388984}
@@ -9473,6 +9627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 1
   water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
 --- !u!23 &1461730963
@@ -9624,6 +9779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1543872033
@@ -9656,6 +9812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f72904eb3156b428cca78e77f6dd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   value: 100
   peePerValuePoint: 0.2
@@ -9768,6 +9925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1572984944
 MeshRenderer:
@@ -9918,6 +10076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1594832192
@@ -10100,6 +10259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1605440077
@@ -10145,6 +10305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1605440080
 MeshRenderer:
@@ -10492,6 +10653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 584238321}
@@ -10579,6 +10741,105 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1674821270}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1693522674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1693522679}
+  - component: {fileID: 1693522678}
+  - component: {fileID: 1693522677}
+  - component: {fileID: 1693522676}
+  - component: {fileID: 1693522675}
+  m_Layer: 0
+  m_Name: Bucket (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1693522675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693522674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65562d77e1a47da44bce3f6e84e8032c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owners: []
+  isPublic: 0
+  item: {fileID: 0}
+--- !u!23 &1693522676
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693522674}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1693522677
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693522674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1693522678
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693522674}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1693522679
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693522674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.5, y: 1, z: -35.6}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709742177
 GameObject:
   m_ObjectHideFlags: 0
@@ -10636,6 +10897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 511101650}
@@ -10819,6 +11081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1731669020
@@ -11124,8 +11387,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ce081679dd7ca94794f2f20f5cf02ea, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
   debug: 0
-  inventory:
-  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
+  inventory: []
   interactables:
   - {fileID: 1771675378}
   - {fileID: 160934422}
@@ -11314,6 +11576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1202978464}
@@ -11513,6 +11776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1264289384}
@@ -11612,6 +11876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1781389248
@@ -11747,8 +12012,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b422b3bad115594bbc647d4cffac463, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
   debug: 0
-  inventory:
-  - {fileID: 114424794221827364, guid: 98387d94791e6434c85b8ee23ce92a85, type: 2}
+  inventory: []
   interactables:
   - {fileID: 1036555865}
   - {fileID: 622995863}
@@ -11922,6 +12186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1825397710
 MeshRenderer:
@@ -12019,6 +12284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1842455459
 MeshRenderer:
@@ -12116,6 +12382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1869146838
 MeshRenderer:
@@ -12266,6 +12533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1886077247
@@ -12311,6 +12579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1886077250
 MeshRenderer:
@@ -12461,6 +12730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1903181754
@@ -12590,6 +12860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &1920470122
 MeshRenderer:
@@ -13037,6 +13308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 1391738746}
@@ -13136,6 +13408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &2006587802
@@ -13306,6 +13579,106 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2011861544}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2026718007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2026718012}
+  - component: {fileID: 2026718011}
+  - component: {fileID: 2026718010}
+  - component: {fileID: 2026718009}
+  - component: {fileID: 2026718008}
+  m_Layer: 0
+  m_Name: Bucket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2026718008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026718007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65562d77e1a47da44bce3f6e84e8032c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owners:
+  - {fileID: 1785984726}
+  isPublic: 0
+  item: {fileID: 0}
+--- !u!23 &2026718009
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026718007}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &2026718010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026718007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2026718011
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026718007}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2026718012
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026718007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.8, y: 1, z: -36.39}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2038882173
 GameObject:
   m_ObjectHideFlags: 0
@@ -13349,6 +13722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &2038882176
 MeshRenderer:
@@ -13709,6 +14083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
   doors:
   - {fileID: 885628134}
@@ -14175,6 +14550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owners: []
   isPublic: 0
 --- !u!23 &2144415526
 MeshRenderer:

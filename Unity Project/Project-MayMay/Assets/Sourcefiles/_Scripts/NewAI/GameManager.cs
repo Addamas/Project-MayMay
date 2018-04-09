@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     [NonSerialized]
     public static List<Area> districts = new List<Area>();
 
+    public static List<Item> publicItems = new List<Item>();
+
     public static System.Random random;
 
     private void Awake()

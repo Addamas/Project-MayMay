@@ -28,6 +28,37 @@ public class Memory : CharacterExtension
         }
     }
 
+    public class SpottedItem
+    {
+        public Item item;
+        public Vector3 pos;
+
+        public SpottedItem(Item item)
+        {
+            this.item = item;
+            UpdatePos();
+        }
+
+        public void UpdatePos()
+        {
+            pos = item.transform.position;
+        }
+    }
+
+    private List<SpottedItem> spottedItems = new List<SpottedItem>();
+
+    public void AddSpottedItem(Item item)
+    {
+        foreach (SpottedItem other in spottedItems)
+            if (other.item == item)
+            {
+                other.UpdatePos();
+                return;
+            }
+
+        spottedItems.Add(new SpottedItem(item));
+    }
+
     [Serializable]
 	public class Other : IComparable<Other>
     {

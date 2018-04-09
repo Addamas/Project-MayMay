@@ -32,7 +32,6 @@ public class Character : GHOPE {
 
     #region Get Functions
 
-
     public T GetAction<T>() where T : Action
     {
         foreach (Action action in actions)
@@ -112,7 +111,7 @@ public class Character : GHOPE {
     #endregion
 
     #region Inventory & Available Interactables
-    public List<Item> inventory = new List<Item>();
+    public List<Item> inventory = new List<Item>(), ownedItems = new List<Item>();
     public List<Interactable> interactables = new List<Interactable>();
 
     public override void Init()
@@ -126,6 +125,11 @@ public class Character : GHOPE {
     }
 
     public List<T> GetFromInventory<T>() where T : Item
+    {
+        return inventory.GetTypeFromListAsU<Item, T>();
+    }
+
+    public List<T> GetFromOwnedItems<T>() where T : Item
     {
         return inventory.GetTypeFromListAsU<Item, T>();
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SearchStat", menuName = "Stats/SearchStat", order = 1)]
-public class SearchStat : Stat
+public class SearchCharacterStat : Stat
 {
     [NonSerialized]
     public Character target;
@@ -27,9 +27,11 @@ public class SearchStat : Stat
         valueFunc = func;
     }
 
-    public override void Init(GHOPE ai)
+    public void FoundTarget()
     {
-        base.Init(ai);
+        target = null;
+        targetPredictedArea = null;
+        valueFunc = null;
     }
 
     public bool Searching
