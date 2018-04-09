@@ -34,10 +34,6 @@ public class SenseDoors : Sense
                 if (senses.TrySpot(stat.unlockedDoors[i]))
                     stat.unlockedDoors.RemoveAt(i);
 
-        //doesnt need to check for new since there are still closed doors
-        if(stat.unlockedDoors.Count > 0)
-            return;
-
         List<House> ownedHouses = UnwantedUnlockHouses;
         List<Door> unwantedOpenDoors = new List<Door>();
         foreach (House house in ownedHouses)
@@ -45,6 +41,12 @@ public class SenseDoors : Sense
 
         unwantedOpenDoors.RemoveAll(x => !senses.TrySpot(x));
         stat.unlockedDoors.AddList(unwantedOpenDoors, false);
+
+        if (unwantedOpenDoors.Count == 0)
+            return;
+
+        if (character.curAction.GetType() != typeof(CloseDoor))
+            character.ForceNewEvent();
     }
 
     public override bool ShouldExecute(List<Memory.Other> surrounding)

@@ -22,7 +22,7 @@ public class HouseManaging : Stat
         unlockedDoors.SortByClosest(ai.Pos);
         foreach (Door door in unlockedDoors)
             if (Vector3.Distance(door.transform.position, ai.Pos) > threshold)
-                return ai.settings.critVal;
+                return Min - 1;
         return Max;
     }
 }

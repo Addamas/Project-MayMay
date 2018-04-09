@@ -45,20 +45,6 @@ public class Memory : CharacterExtension
         }
     }
 
-    private List<SpottedItem> spottedItems = new List<SpottedItem>();
-
-    public void AddSpottedItem(Item item)
-    {
-        foreach (SpottedItem other in spottedItems)
-            if (other.item == item)
-            {
-                other.UpdatePos();
-                return;
-            }
-
-        spottedItems.Add(new SpottedItem(item));
-    }
-
     [Serializable]
 	public class Other : IComparable<Other>
     {

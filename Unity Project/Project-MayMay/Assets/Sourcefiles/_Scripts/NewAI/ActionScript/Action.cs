@@ -27,7 +27,7 @@ public abstract class Action : Extension
     #endregion
 
     #region Main Check
-    public enum Link {HasFood, hasWater, OpenedShop, hasBucket, hasFilledBucket };
+    public enum Link {HasItem, HasWater, HasFood, OpenedShop, HasFilledBucket, HasEmptyBucket };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
@@ -98,6 +98,11 @@ public abstract class Action : Extension
         return 0;
     }
     #endregion
+
+    public virtual void Prepare()
+    {
+
+    }
 
     public virtual void WhileMoving()
     {

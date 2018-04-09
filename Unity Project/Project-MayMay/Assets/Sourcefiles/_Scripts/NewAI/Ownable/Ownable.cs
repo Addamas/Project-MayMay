@@ -5,6 +5,7 @@ using System;
 
 public class Ownable : MonoBehaviour {
 
+    [NonSerialized]
     public List<Character> owners = new List<Character>();
     [SerializeField]
     protected bool isPublic;
@@ -15,5 +16,9 @@ public class Ownable : MonoBehaviour {
         {
             return owners.Count > 0;
         }
+    }
+
+    public virtual void Init() {
+
     }
 }

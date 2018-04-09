@@ -125,18 +125,27 @@ public abstract class GHOPE : MonoBehaviour {
 
     private class Path : IComparable<Path>
     {
-        public Action action;
+        public List<Action> actions = new List<Action>();
         public float duration;
+
+        public Action Action
+        {
+            get
+            {
+                return actions.Last();
+            }
+        }
 
         public Path(Action action)
         {
-            this.action = action;
+            actions.Add(action);
             duration = action.GetEstimatedTimeRequired();
         }
 
         public Path(Action action, Path path)
         {
-            this.action = action;
+            path.actions.ForEach(x => actions.Add(x));
+            actions.Add(action);
             duration = path.duration + action.GetEstimatedTimeRequired();
         }
 
@@ -167,7 +176,7 @@ public abstract class GHOPE : MonoBehaviour {
             tryable.Remove(tryAction);
 
             //check if executable
-            if (tryAction.action.GetRemainingLinks().Count == 0)
+            if (tryAction.Action.GetRemainingLinks().Count == 0)
             {
                 pathable.Add(tryAction);
                 continue;
@@ -179,7 +188,7 @@ public abstract class GHOPE : MonoBehaviour {
                 if (!action.IsExecutable())
                     continue;
 
-                links = tryAction.action.GetRemainingLinks();
+                links = tryAction.Action.GetRemainingLinks();
 
                 foreach (Action.Link link in links)
                     if (action.Linkable(link))
@@ -194,15 +203,17 @@ public abstract class GHOPE : MonoBehaviour {
             yield break;
 
         pathable.Sort();
+        Path path = pathable.First();
 
         if (curAction != null)
-            if (curAction == pathable.First().action)
+            if (curAction == path.Action)
                 yield break;
 
         Cancel();
         
-        changed = true;
-        curAction = pathable.First().action;
+        changed = true;   
+        curAction = path.Action;
+        path.actions.ForEach(x => x.Prepare());
     }
 
     public virtual void Cancel()

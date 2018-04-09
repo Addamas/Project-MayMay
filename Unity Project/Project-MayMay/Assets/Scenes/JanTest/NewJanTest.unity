@@ -324,7 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 1
   water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
 --- !u!23 &14452604
@@ -644,7 +643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &76594937
@@ -690,7 +688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &76594940
 MeshRenderer:
@@ -1093,7 +1090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &122393400
@@ -1153,7 +1149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1081343323}
@@ -1326,7 +1321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &160934423
 MeshRenderer:
@@ -1606,7 +1600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1229593141}
@@ -2003,7 +1996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1895045313}
@@ -2050,7 +2042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &315911470
 MeshRenderer:
@@ -2498,7 +2489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 118447659}
@@ -2598,7 +2588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &376161964
@@ -2781,7 +2770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &420761849
@@ -2911,7 +2899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &431831856
 MeshRenderer:
@@ -3177,7 +3164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &480260352
 MeshRenderer:
@@ -3289,7 +3275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1728831588}
@@ -3336,7 +3321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &499528397
 MeshRenderer:
@@ -3571,7 +3555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &529405262
@@ -3754,7 +3737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &563630868
@@ -3787,7 +3769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f72904eb3156b428cca78e77f6dd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   value: 100
   peePerValuePoint: 0.2
@@ -3900,7 +3881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!23 &572514718
@@ -4052,7 +4032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &603879506
@@ -4093,6 +4072,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
   - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
+  - {fileID: 11400000, guid: 03fbdc515287b3f42875a3f14fe0950f, type: 2}
   stats:
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 2072ca3e9f814774fa93adb49165a0d1, type: 2}
@@ -4106,6 +4086,8 @@ MonoBehaviour:
   debug: 0
   inventory:
   - {fileID: 1693522675}
+  ownedItems:
+  - {fileID: 1462444578}
   interactables:
   - {fileID: 308933910}
   - {fileID: 76594939}
@@ -4291,7 +4273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &622995864
 MeshRenderer:
@@ -4571,7 +4552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1603282030}
@@ -4618,7 +4598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &726361425
 MeshRenderer:
@@ -4730,7 +4709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 366502638}
@@ -4791,7 +4769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1998104810}
@@ -5258,7 +5235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &818563063
 MeshRenderer:
@@ -5356,7 +5332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &820208504
 MeshRenderer:
@@ -5538,7 +5513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &824930732
 MeshRenderer:
@@ -5636,7 +5610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 1
   water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
 --- !u!23 &846988007
@@ -5788,7 +5761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &903898747
@@ -5848,7 +5820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 408285489}
@@ -5979,7 +5950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &930287834
 MeshRenderer:
@@ -6077,7 +6047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &949794042
 MeshRenderer:
@@ -6189,7 +6158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1489603297}
@@ -6334,7 +6302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1397403131}
@@ -6563,7 +6530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1370380377}
@@ -6624,7 +6590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 66343409}
@@ -6724,7 +6689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1070585140
@@ -6991,7 +6955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1093507373
@@ -7037,7 +7000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1093507376
 MeshRenderer:
@@ -7149,7 +7111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 551875708}
@@ -7366,7 +7327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab1082d70934e144ae5f611761d9724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 572514717}
@@ -7714,7 +7674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1206167788
@@ -7903,7 +7862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1238928469
@@ -8254,7 +8212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1271941803
@@ -8300,7 +8257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1271941806
 MeshRenderer:
@@ -8412,7 +8368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1572992692}
@@ -8932,7 +8887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1381582663
@@ -8992,7 +8946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1780768421}
@@ -9026,8 +8979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65562d77e1a47da44bce3f6e84e8032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners:
-  - {fileID: 1740490214}
   isPublic: 0
   item: {fileID: 0}
 --- !u!23 &1382649892
@@ -9192,7 +9143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1393422277
@@ -9336,7 +9286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1065014100}
@@ -9436,7 +9385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1416434923
@@ -9496,7 +9444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1879388984}
@@ -9627,7 +9574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ad358245cf194ba1fde5e7e8c093b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 1
   water: {fileID: 114449453106521602, guid: b92ab87e3f51dcc4da43631f87932da0, type: 2}
 --- !u!23 &1461730963
@@ -9683,6 +9629,105 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1461730960}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1462444577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1462444582}
+  - component: {fileID: 1462444581}
+  - component: {fileID: 1462444580}
+  - component: {fileID: 1462444579}
+  - component: {fileID: 1462444578}
+  m_Layer: 0
+  m_Name: Normale Nino's food
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1462444578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462444577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f72904eb3156b428cca78e77f6dd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPublic: 0
+  value: 100
+  peePerValuePoint: 0.2
+--- !u!23 &1462444579
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462444577}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1462444580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462444577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1462444581
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462444577}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1462444582
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462444577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -45.14, y: 1.75, z: -39.98}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489603292
 GameObject:
   m_ObjectHideFlags: 0
@@ -9779,7 +9824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1543872033
@@ -9812,7 +9856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f72904eb3156b428cca78e77f6dd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   value: 100
   peePerValuePoint: 0.2
@@ -9925,7 +9968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1572984944
 MeshRenderer:
@@ -10076,7 +10118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1594832192
@@ -10259,7 +10300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1605440077
@@ -10305,7 +10345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1605440080
 MeshRenderer:
@@ -10653,7 +10692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 584238321}
@@ -10771,7 +10809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65562d77e1a47da44bce3f6e84e8032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   item: {fileID: 0}
 --- !u!23 &1693522676
@@ -10897,7 +10934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 511101650}
@@ -11081,7 +11117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1731669020
@@ -11375,6 +11410,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
   - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
   - {fileID: 11400000, guid: 6eaa79ea1123acf4fb5952f4e5078b48, type: 2}
+  - {fileID: 11400000, guid: 03fbdc515287b3f42875a3f14fe0950f, type: 2}
   stats:
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 2072ca3e9f814774fa93adb49165a0d1, type: 2}
@@ -11388,6 +11424,8 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
   debug: 0
   inventory: []
+  ownedItems:
+  - {fileID: 1382649891}
   interactables:
   - {fileID: 1771675378}
   - {fileID: 160934422}
@@ -11576,7 +11614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1202978464}
@@ -11776,7 +11813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1264289384}
@@ -11876,7 +11912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1781389248
@@ -12001,6 +12036,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
   - {fileID: 11400000, guid: 512d96824c20c114db357e4a328c5853, type: 2}
+  - {fileID: 11400000, guid: 03fbdc515287b3f42875a3f14fe0950f, type: 2}
   stats:
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 2072ca3e9f814774fa93adb49165a0d1, type: 2}
@@ -12013,6 +12049,8 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
   debug: 0
   inventory: []
+  ownedItems:
+  - {fileID: 2026718008}
   interactables:
   - {fileID: 1036555865}
   - {fileID: 622995863}
@@ -12186,7 +12224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1825397710
 MeshRenderer:
@@ -12284,7 +12321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1842455459
 MeshRenderer:
@@ -12382,7 +12418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1869146838
 MeshRenderer:
@@ -12533,7 +12568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1886077247
@@ -12579,7 +12613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1886077250
 MeshRenderer:
@@ -12730,7 +12763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &1903181754
@@ -12860,7 +12892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &1920470122
 MeshRenderer:
@@ -13308,7 +13339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 1391738746}
@@ -13408,7 +13438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3325d1984a034fa40a941d081ec41131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   open: 0
 --- !u!1 &2006587802
@@ -13609,8 +13638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65562d77e1a47da44bce3f6e84e8032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners:
-  - {fileID: 1785984726}
   isPublic: 0
   item: {fileID: 0}
 --- !u!23 &2026718009
@@ -13722,7 +13749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &2038882176
 MeshRenderer:
@@ -14083,7 +14109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a8fe949bfc58449be5f399282031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
   doors:
   - {fileID: 885628134}
@@ -14550,7 +14575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430da1222de29c744a59cc7accaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owners: []
   isPublic: 0
 --- !u!23 &2144415526
 MeshRenderer:

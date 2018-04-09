@@ -118,6 +118,7 @@ public class Character : GHOPE {
     {
         #region Add Owner
         inventory.ForEach(x => x.owners.Add(this));
+        ownedItems.ForEach(x => x.owners.Add(this));
         interactables.ForEach(x => x.owners.Add(this));
         #endregion
 

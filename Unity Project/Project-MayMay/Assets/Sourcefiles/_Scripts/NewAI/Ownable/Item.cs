@@ -13,16 +13,20 @@ public class Item : Ownable {
     public void PutInInventory(Character character)
     {
         gameObject.SetActive(false);
-        character.inventory.Add(this);       
+        character.inventory.Add(this);
+        foreach (Character other  in owners)
+            character.ownedItems.Remove(this);
     }
 
     public void PutInWorld(Character character)
     {
         gameObject.SetActive(true);
         character.inventory.Remove(this);
+        foreach (Character other in owners)
+            character.ownedItems.Add(this);
     }
 
-    public void Init()
+    public override void Init()
     {
         if (isPublic)
             foreach (Character character in GameManager.characters)
@@ -30,5 +34,6 @@ public class Item : Ownable {
                 character.ownedItems.Add(this);
                 owners.Add(character);
             }
+        base.Init();
     }
 }

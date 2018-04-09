@@ -35,7 +35,10 @@ public class Consume : RootAction
     {
         List<Link> ret = new List<Link>();
         if (!HasFood)
-            ret.Add(Link.HasFood);
+            if (ai.GetAction<SearchItem>().CanFind(typeof(Consumable)))
+                ret.Add(Link.HasItem);
+            else
+                ret.Add(Link.HasFood);
         return ret;
     }
 
@@ -75,5 +78,11 @@ public class Consume : RootAction
     public override void Cancel()
     {
         
+    }
+
+    public override void Prepare()
+    {
+        ai.GetAction<SearchItem>().target = typeof(Consumable);
+        base.Prepare();
     }
 }

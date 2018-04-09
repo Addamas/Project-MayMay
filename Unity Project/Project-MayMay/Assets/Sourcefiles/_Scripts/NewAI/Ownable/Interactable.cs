@@ -9,7 +9,7 @@ public class Interactable : Ownable {
 
     }
 
-    public void Init()
+    public override void Init()
     {
         if(isPublic)
             foreach(Character character in GameManager.characters)
@@ -17,5 +17,6 @@ public class Interactable : Ownable {
                 character.interactables.Add(this);
                 owners.Add(character);
             }
+        base.Init();
     }
 }
