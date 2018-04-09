@@ -8,11 +8,9 @@ using ProjectShortcuts;
 public class BuyX : ConverseNormal {
 
     [SerializeField]
-    protected List<Item> items;
+    protected Item item;
     [SerializeField]
     protected List<Link> links;
-    [SerializeField]
-    protected string shopKeepType;
 
     public override List<Link> GetReturnValue()
     {
@@ -21,19 +19,53 @@ public class BuyX : ConverseNormal {
 
     protected override bool AvailableCheck(Memory.Other other)
     {
-        ShopKeeping shopkeeping = other.character.GetAction(shopKeepType) as ShopKeeping;
+        ShopKeeping shopkeeping = other.character.GetAction<ShopKeeping>();
 
         if (shopkeeping == null)
             return false;
+
         if (!shopkeeping.Open)
+            return false;
+
+        if (!ContainsItem(shopkeeping, item))
             return false;
 
         return base.AvailableCheck(other);
     }
 
+    private bool ContainsItem(ShopKeeping shopkeeping, Item item)
+    {
+        List<Item> items = shopkeeping.Inventory;
+
+        bool fit = false;
+        foreach (Item otherItem in items)
+            if (otherItem.GetType() == item.GetType())
+            {
+                fit = true;
+                break;
+            }
+        if (!fit)
+            return false;
+        return true;
+    }
+
     protected override bool ExecutableCheck()
     {
-        return GetOther().character.GetAction(shopKeepType) != null;
+        return ContainsItem(GetOther().character.GetAction<ShopKeeping>(), item);
+    }
+
+    protected override void WhenCompleted(Memory.Other other)
+    {
+        try
+        {
+            ShopKeeping shopkeeper = other.character.GetAction<ShopKeeping>();
+            shopkeeper.Sell(item, ai);
+        }
+        catch
+        {
+            
+        }
+        base.WhenCompleted(other);
     }
 
     protected override Social.Conversation PickConversation(Memory.Other other)
@@ -41,24 +73,14 @@ public class BuyX : ConverseNormal {
         return other.character.GetStat<Social>().GetConversation(Social.ConversationType.Buying);
     }
 
-    protected override void WhenCompleted()
-    {
-        ai.inventory.AddList(items, true);
-        base.WhenCompleted();
-    }
-
     protected override Memory.Other GetOther()
     {
         List<Memory.Other> shopKeepers = new List<Memory.Other>();
-        ShopKeeping shopKeeper;
+
         foreach (Memory.Other other in ai.memory.relatives)
-        {
-            shopKeeper = other.character.GetAction(shopKeepType) as ShopKeeping;
-            if (shopKeeper == null)
-                continue;
-            if (shopKeeper.Open)
+            if (AvailableCheck(other))
                 shopKeepers.Add(other);
-        }
+
         return Shortcuts.GetClosest(ref shopKeepers, ai.Pos);
     }
 }

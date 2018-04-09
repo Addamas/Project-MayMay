@@ -51,7 +51,7 @@ public class PassiveAction : RootActionMulFrameable
 
     protected override bool ExecutableCheck()
     {
-        return true;
+        return leader != null;
     }
 
     public override void Cancel()

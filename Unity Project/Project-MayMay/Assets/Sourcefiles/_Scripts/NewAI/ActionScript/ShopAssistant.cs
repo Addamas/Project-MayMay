@@ -41,9 +41,4 @@ public class ShopAssistant : RootActionMulFrameable
     {
         return Boss.ai.transform;
     }
-
-    public override Vector3 Pos()
-    {
-        return Boss.ai.Pos;
-    }
 }

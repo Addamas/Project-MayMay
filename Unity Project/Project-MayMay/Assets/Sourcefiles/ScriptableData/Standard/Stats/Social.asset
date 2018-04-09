@@ -35,5 +35,11 @@ MonoBehaviour:
       - Howdy, some of your finest stuff please.
     - parts:
       - Aight.
+  - tag: 2
+    parts:
+    - parts:
+      - Have you seen my buddy sir?
+    - parts:
+      - Hmm. I'll try to remember.
   timePerChar: 0.05
   minValue: 25

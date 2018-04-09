@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: DefaultCharacterSettings
   m_EditorClassIdentifier: 
   critVal: 10
-  movementFramesUntilNewCheck: 500
+  movementFramesUntilNewCheck: 50
   interactDistance: 2

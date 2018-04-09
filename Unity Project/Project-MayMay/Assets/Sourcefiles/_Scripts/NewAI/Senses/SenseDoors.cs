@@ -36,10 +36,7 @@ public class SenseDoors : Sense
 
         //doesnt need to check for new since there are still closed doors
         if(stat.unlockedDoors.Count > 0)
-        {
-            character.NewEvent();
             return;
-        }
 
         List<House> ownedHouses = UnwantedUnlockHouses;
         List<Door> unwantedOpenDoors = new List<Door>();
@@ -48,9 +45,6 @@ public class SenseDoors : Sense
 
         unwantedOpenDoors.RemoveAll(x => !senses.TrySpot(x));
         stat.unlockedDoors.AddList(unwantedOpenDoors, false);
-
-        if(stat.unlockedDoors.Count > 0)
-            character.NewEvent();
     }
 
     public override bool ShouldExecute(List<Memory.Other> surrounding)

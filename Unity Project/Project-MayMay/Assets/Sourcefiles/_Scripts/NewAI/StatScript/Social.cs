@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Jext;
 
 [CreateAssetMenu(fileName = "Social", menuName = "Stats/Social", order = 1)]
 public class Social : TickStat {
@@ -13,7 +14,7 @@ public class Social : TickStat {
     [Range(0, 100)]
     public int minValue;
 
-    public enum ConversationType {Normal, Buying }
+    public enum ConversationType {Normal, Buying, Searching }
 
     [Serializable]
     public class Conversation
@@ -31,10 +32,12 @@ public class Social : TickStat {
 
     public Conversation GetConversation(ConversationType tag)
     {
+        List<Conversation> conversations = new List<Conversation>();
         foreach (Conversation conversation in genericConversations)
             if (conversation.tag == tag)
-                return conversation;
-        return null;
+                conversations.Add(conversation);
+
+        return conversations.RandomItem();
     }
 
     public Conversation GetConversation(ConversationType tag, Memory.Other other)

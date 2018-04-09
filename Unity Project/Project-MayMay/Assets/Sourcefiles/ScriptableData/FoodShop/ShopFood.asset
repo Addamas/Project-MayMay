@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Name: ShopFood
   m_EditorClassIdentifier: 
   special: 1
-  breakable: 0
+  breakable: 1
   autoMovement: 0
-  inventory: []

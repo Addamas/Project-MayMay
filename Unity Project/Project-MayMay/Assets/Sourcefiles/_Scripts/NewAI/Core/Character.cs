@@ -28,6 +28,8 @@ using System;
 
 public class Character : GHOPE {
 
+    public bool debug;
+
     #region Get Functions
 
 
@@ -113,14 +115,14 @@ public class Character : GHOPE {
     public List<Item> inventory = new List<Item>();
     public List<Interactable> interactables = new List<Interactable>();
 
-    protected override void Awake()
+    public override void Init()
     {
         #region Add Owner
         inventory.ForEach(x => x.owners.Add(this));
         interactables.ForEach(x => x.owners.Add(this));
         #endregion
 
-        base.Awake();
+        base.Init();
     }
 
     public List<T> GetFromInventory<T>() where T : Item
@@ -148,6 +150,25 @@ public class Character : GHOPE {
                 return house;
         return null;
     }
+
+    public Bucket GetEmptyBucket()
+    {
+        List<Bucket> buckets = GetFromInventory<Bucket>();
+        foreach (Bucket bucket in buckets)
+            if (!bucket.Filled)
+                return bucket;
+        return null;
+    }
+
+    public Bucket GetFilledBucket<T>() where T : Item
+    {
+        List<Bucket> buckets = GetFromInventory<Bucket>();
+        buckets.RemoveAll(x => !x.Filled);
+        foreach (Bucket bucket in buckets)
+            if (bucket.item as T != null)
+                return bucket;
+        return null;
+    }
     #endregion
 
     #region Override Functions
@@ -159,7 +180,8 @@ public class Character : GHOPE {
     private Coroutine execute;
     private IEnumerator _Execute()
     {
-        Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
+        if(debug)
+            Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
 
         if (curAction.IsExecutable())
         {
@@ -170,7 +192,7 @@ public class Character : GHOPE {
             {
                 if (curAction.GetRemainingLinks().Count > 0)
                 {
-                    NewEvent();
+                    Stop();
                     yield break;
                 }
 
@@ -179,8 +201,12 @@ public class Character : GHOPE {
                     if (curAction.IsExecutable())
                         target = curAction.PosTrans();
                     else
-                        break;
+                    {
+                        Stop();
+                        yield break;
+                    }
 
+                curAction.WhileMoving();
                 movement.Follow(target);
                 yield return null;
             }
@@ -194,6 +220,13 @@ public class Character : GHOPE {
             }
         }
 
+        Stop();
+    }
+
+    private void Stop()
+    {
+        if(debug)
+            Debug.Log("CANCELLED: " + name + " " + curAction.name + " " + TimeManager.time);
         movement.Stop();
         base.Cancel();
         NewEvent();
