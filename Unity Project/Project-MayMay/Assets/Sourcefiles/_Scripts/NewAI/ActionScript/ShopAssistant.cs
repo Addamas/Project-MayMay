@@ -16,6 +16,14 @@ public class ShopAssistant : RootActionMulFrameable
         }
     }
 
+    private Shop Shop
+    {
+        get
+        {
+            return Boss.Shop;
+        }
+    }
+
     public override List<Link> GetRemainingLinks()
     {
         return new List<Link>();
@@ -26,8 +34,16 @@ public class ShopAssistant : RootActionMulFrameable
         return Min + 1;
     }
 
+    private List<Shop.ItemStack> stacks;
     public override IEnumerator LifeTime()
     {
+        stacks = Shop.GetRestockable();
+        if(stacks.Count > 0)
+        {
+            //restock
+            Debug.Log("Restock");
+        }
+
         yield return new WaitForSeconds(ai.senses.settings.frequency);
         Complete();
     }

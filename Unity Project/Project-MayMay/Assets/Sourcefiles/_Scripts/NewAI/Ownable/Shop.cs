@@ -40,6 +40,27 @@ public class Shop : House {
         }
     }
 
+    public List<ItemStack> GetRestockable()
+    {
+        List<ItemStack> refillable = new List<ItemStack>();
+        bool fit;
+
+        foreach (ItemStack itemstack in items)
+        {
+            fit = true;
+            foreach (Stack stack in itemstack.stack)
+                if (stack.Filled)
+                {
+                    fit = false;
+                    break;
+                }
+
+            if (fit)
+                refillable.Add(itemstack);
+        }
+        return refillable;
+    }
+
     public Stack GetStack(Item item, bool filled)
     {
         Type type = item.GetType();

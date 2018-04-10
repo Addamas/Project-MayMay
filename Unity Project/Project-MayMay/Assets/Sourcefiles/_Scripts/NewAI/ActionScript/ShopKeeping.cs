@@ -16,7 +16,7 @@ public class ShopKeeping : RootActionMulFrameable
         }
     }
 
-    protected Shop Shop
+    public Shop Shop
     {
         get
         {
