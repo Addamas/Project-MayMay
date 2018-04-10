@@ -17,4 +17,8 @@ public class Ownable : MonoBehaviour {
             return owners.Count > 0;
         }
     }
+
+    public virtual void Init() {
+
+    }
 }

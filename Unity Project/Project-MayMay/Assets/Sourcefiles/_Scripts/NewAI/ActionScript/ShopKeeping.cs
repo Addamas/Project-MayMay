@@ -6,8 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shopkeeping", menuName = "Jobs/Shopkeeping", order = 1)]
 public class ShopKeeping : RootActionMulFrameable
 {
-    public List<Item> inventory = new List<Item>();
-
     public bool Open
     {
         get
@@ -24,6 +22,19 @@ public class ShopKeeping : RootActionMulFrameable
         {
             return ai.GetFromInteractables<Shop>().First();
         }
+    }
+
+    public List<Item> Inventory
+    {
+        get
+        {
+            return Shop.items;
+        }
+    }
+
+    public virtual void Sell(Item item, Character buyer)
+    {
+        Shop.Sell(item, buyer);
     }
 
     public override List<Link> GetRemainingLinks()

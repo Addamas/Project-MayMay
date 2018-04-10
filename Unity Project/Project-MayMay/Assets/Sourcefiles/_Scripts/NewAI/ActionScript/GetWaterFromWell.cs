@@ -29,13 +29,13 @@ public class GetWaterFromWell : NormalActionMulFrameable
     {
         List<Link> ret = new List<Link>();
         if (ai.GetEmptyBucket() == null)
-            ret.Add(Link.hasBucket);
+            ret.Add(Link.HasItem);
         return ret;
     }
 
     public override List<Link> GetReturnValue()
     {
-        return new List<Link>() {Link.hasFilledBucket };
+        return new List<Link>() {Link.HasFilledBucket };
     }
 
     public override IEnumerator LifeTime()
@@ -47,18 +47,27 @@ public class GetWaterFromWell : NormalActionMulFrameable
             yield break;
         }
 
-        ai.GetEmptyBucket().item = Well.water;
+        Well well = Well;
+        well.Interact(ai);
 
         Complete();
     }
 
     protected override bool ExecutableCheck()
     {
+        if (GetRemainingLinks().Count > 0)
+            return ai.GetAction<SearchItem>().CanFind(typeof(Bucket));
         return Well != null;
     }
 
     public override Transform PosTrans()
     {
         return Well.transform;
+    }
+
+    public override void Prepare()
+    {
+        ai.GetAction<SearchItem>().target = typeof(Bucket);
+        base.Prepare();
     }
 }

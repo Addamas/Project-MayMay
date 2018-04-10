@@ -20,7 +20,8 @@ public class PourWaterInCup : NormalActionMulFrameable
     {
         List<Link> ret = new List<Link>();
         if (Bucket == null)
-            ret.Add(Link.hasFilledBucket);
+            ret.Add(Link.HasFilledBucket);
+
         return ret;
     }
 
@@ -50,6 +51,6 @@ public class PourWaterInCup : NormalActionMulFrameable
 
     public override List<Link> GetReturnValue()
     {
-        return new List<Link>() {Link.hasWater };
+        return new List<Link>() {Link.HasWater };
     }
 }

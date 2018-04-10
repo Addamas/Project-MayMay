@@ -1,4 +1,5 @@
 ﻿using Jext;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,48 +7,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SearchX", menuName = "Actions/SearchX", order = 1)]
 public class SearchX : Converse {
 
+    [NonSerialized]
+    public Character target;
+    private Area targetArea;
+
     [SerializeField]
     private float areaSeachSize;
 
-    private SearchStat SearchStat
-    {
-        get
-        {
-            return Stat<SearchStat>();
-        }
-    }
-
-    private Character Target
-    {
-        get
-        {
-            return SearchStat.target;
-        }
-        set
-        {
-            SearchStat.target = value;
-        }
-    }
-
-    private Area TargetArea
-    {
-        get
-        {
-            return SearchStat.targetPredictedArea;
-        }
-        set
-        {
-            SearchStat.targetPredictedArea = value;
-        }
-    }
-
     private List<Character> spokenCharacters = new List<Character>();
+
+    public bool Searching
+    {
+        get
+        {
+            return target != null;
+        }
+    }
 
     protected override bool ExecutableCheck()
     {
         if (InRange())
             return base.ExecutableCheck();
-        return Target != null;
+        return target != null;
     }
 
     protected override bool AvailableCheck(Memory.Other other)
@@ -59,9 +40,9 @@ public class SearchX : Converse {
 
     public override Transform PosTrans()
     {
-        if (TargetArea == null)
+        if (targetArea == null)
             return base.PosTrans();
-        return Vector3.Distance(TargetArea.transform.position, ai.transform.position) > areaSeachSize ? TargetArea.transform : base.PosTrans();
+        return Vector3.Distance(targetArea.transform.position, ai.transform.position) > areaSeachSize ? targetArea.transform : base.PosTrans();
     }
 
     protected override Social.Conversation PickConversation(Memory.Other other)
@@ -84,8 +65,8 @@ public class SearchX : Converse {
         if (memories.Count > 0)
         {
             Memory.MemorySlot slot = memories.First();
-            Target = slot.action.ai;
-            TargetArea = slot.area;
+            target = slot.action.ai;
+            targetArea = slot.area;
         }
 
         return base.WhileLinked(other);
@@ -93,7 +74,8 @@ public class SearchX : Converse {
 
     protected override void OnFinished()
     {
-        if(Target == null)
-            spokenCharacters.Clear();
+        spokenCharacters.Clear();
+        target = null;
+        base.OnFinished();
     }
 }

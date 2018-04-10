@@ -5,29 +5,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SensePerson", menuName = "Sense/SensePerson", order = 1)]
 public class SensePerson : Sense {
 
-    private SearchStat searchStat;
+    protected SearchX searchAction;
 
     public override void Init(Senses senses)
     {
         base.Init(senses);
-        searchStat = character.GetStat<SearchStat>();
-    }
-
-    public override void Execute(List<Memory.Other> surrounding)
-    {
-        Character target = searchStat.target;
-        foreach (Memory.Other other in surrounding)
-            if (other.character == target)
-            {               
-                Debug.Log("Found " + target.name);
-                searchStat.target = null;
-                character.ForceNewEvent();
-                return;
-            }
+        searchAction = character.GetAction<SearchX>();
     }
 
     public override bool ShouldExecute(List<Memory.Other> surrounding)
     {
-        return searchStat.Searching;
+        return searchAction.Searching;
+    }
+
+    public override void Execute(List<Memory.Other> surrounding)
+    {
+        Character target = searchAction.target;
+        foreach (Memory.Other other in surrounding)
+            if (other.character == target)
+            {               
+                Debug.Log("Found " + target.name);
+                searchAction.Complete();
+                return;
+            }
     }
 }

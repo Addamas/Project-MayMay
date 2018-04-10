@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     [NonSerialized]
     public static List<Area> districts = new List<Area>();
 
+    public static List<Item> publicItems = new List<Item>();
+
     public static System.Random random;
 
     private void Awake()
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour {
             yield return null;
         }
 
-        FindInteractables();
+        FindOwnables();
 
         TimeManager.instance.StartFlow();
         characters.ForEach(x => x.NewEvent());
@@ -59,11 +61,11 @@ public class GameManager : MonoBehaviour {
             GameManager.characters.Add(chararacter);
     }
 
-    private void FindInteractables()
+    private void FindOwnables()
     {
-        Interactable[] interactables = FindObjectsOfType(typeof(Interactable)) as Interactable[];
-        foreach (Interactable interactable in interactables)
-            interactable.Init();
+        Ownable[] ownables = FindObjectsOfType(typeof(Ownable)) as Ownable[];
+        foreach (Ownable ownable in ownables)
+            ownable.Init();
     }
 
     #region Pathfinding Queue

@@ -35,7 +35,11 @@ public class Drink : RootAction {
     {
         List<Link> ret = new List<Link>();
         if (!HasWater)
-            ret.Add(Link.hasWater);
+            if (ai.GetAction<SearchItem>().CanFind(typeof(Water)))
+                ret.Add(Link.HasItem);
+            else
+                ret.Add(Link.HasWater);
+
         return ret;
     }
 
@@ -75,5 +79,11 @@ public class Drink : RootAction {
     public override void Cancel()
     {
 
+    }
+
+    public override void Prepare()
+    {
+        ai.GetAction<SearchItem>().target = typeof(Water);
+        base.Prepare();
     }
 }

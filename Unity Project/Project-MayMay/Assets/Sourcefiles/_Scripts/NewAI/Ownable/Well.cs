@@ -13,4 +13,9 @@ public class Well : Interactable {
             return water == null;
         }
     }
+
+    public override void Interact(Character character)
+    {
+        character.GetEmptyBucket().item = water;
+    }
 }
