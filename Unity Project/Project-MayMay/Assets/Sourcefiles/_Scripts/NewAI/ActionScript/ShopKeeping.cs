@@ -28,7 +28,15 @@ public class ShopKeeping : RootActionMulFrameable
     {
         get
         {
-            return Shop.items;
+            List<Item> ret = new List<Item>();
+            foreach(Shop.ItemStack itemStack in Shop.items)
+                foreach(Shop.Stack stack in itemStack.stack)
+                    if(stack.Filled)
+                    {
+                        ret.Add(stack.item);
+                        break;
+                    }
+            return ret;
         }
     }
 

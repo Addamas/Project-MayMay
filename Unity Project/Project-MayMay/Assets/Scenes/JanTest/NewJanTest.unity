@@ -7313,6 +7313,9 @@ Transform:
   - {fileID: 1731669021}
   - {fileID: 1630102382}
   - {fileID: 572514716}
+  - {fileID: 2120445305}
+  - {fileID: 1417828196}
+  - {fileID: 1234812247}
   m_Father: {fileID: 1629825108}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -7331,9 +7334,15 @@ MonoBehaviour:
   doors:
   - {fileID: 572514717}
   items:
-  - {fileID: 1223858178}
-  - {fileID: 563630869}
-  - {fileID: 1543872034}
+  - itemType: {fileID: 114610989578192632, guid: bec07f8e93efaec41946f9423d61c69d,
+      type: 2}
+    stack:
+    - item: {fileID: 1223858178}
+      spot: {fileID: 2120445305}
+    - item: {fileID: 563630869}
+      spot: {fileID: 1417828196}
+    - item: {fileID: 1543872034}
+      spot: {fileID: 1234812247}
 --- !u!114 &1155168636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7864,6 +7873,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPublic: 0
   open: 0
+--- !u!1 &1234812246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1234812247}
+  m_Layer: 0
+  m_Name: Stack3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1234812247
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234812246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 1.6900005, z: -2.55}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 1155168634}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238928469
 GameObject:
   m_ObjectHideFlags: 0
@@ -9447,6 +9484,34 @@ MonoBehaviour:
   isPublic: 0
   doors:
   - {fileID: 1879388984}
+--- !u!1 &1417828195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1417828196}
+  m_Layer: 0
+  m_Name: Stack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417828196
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417828195}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 1.6900005, z: -1.25}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 1155168634}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1421263620
 GameObject:
   m_ObjectHideFlags: 0
@@ -14280,6 +14345,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2084371290}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2120445304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2120445305}
+  m_Layer: 0
+  m_Name: Stack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2120445305
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2120445304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 1.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1155168634}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2123689139
 GameObject:
   m_ObjectHideFlags: 0

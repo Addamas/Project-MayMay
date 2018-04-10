@@ -14,7 +14,7 @@ public class Item : Ownable {
     {
         gameObject.SetActive(false);
         character.inventory.Add(this);
-        foreach (Character other  in owners)
+        foreach (Character other in owners)
             character.ownedItems.Remove(this);
     }
 
