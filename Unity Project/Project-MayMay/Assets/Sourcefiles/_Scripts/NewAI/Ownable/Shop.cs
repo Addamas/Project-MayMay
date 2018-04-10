@@ -17,7 +17,8 @@ public class Shop : House {
         foreach(Item sellable in items)
             if(sellable.GetType() == item.GetType())
             {
-                buyer.inventory.Add(sellable);
+                buyer.ownedItems.Add(sellable);
+                buyer.GetAction<SearchItem>().target = sellable.GetType();
                 items.Remove(sellable);
                 return;
             }

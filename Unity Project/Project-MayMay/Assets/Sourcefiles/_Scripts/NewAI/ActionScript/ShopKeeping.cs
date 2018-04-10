@@ -40,7 +40,7 @@ public class ShopKeeping : RootActionMulFrameable
     public override List<Link> GetRemainingLinks()
     {
         List<Link> ret = new List<Link>();
-        if (!Shop.Open) //when opening the backdoor and closing front door things can go wierd
+        if (!Shop.Open)
             ret.Add(Link.OpenedShop);
         return ret;
     }
