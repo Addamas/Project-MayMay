@@ -8,6 +8,21 @@ public class Shop : House {
 
     public List<ItemStack> items = new List<ItemStack>(), storage = new List<ItemStack>();
 
+    public override void Init()
+    {
+        base.Init();
+
+        InitItemStack(items);
+        InitItemStack(storage);
+    }
+
+    private void InitItemStack(List<ItemStack> Istack)
+    {
+        foreach (ItemStack itemStack in Istack)
+            foreach (StackInteractable interactable in itemStack.stack)
+                interactable.type = itemStack.Type;
+    }
+
     [Serializable]
     public class ItemStack {
         public Item itemType;
@@ -21,15 +36,15 @@ public class Shop : House {
         public StackInteractable[] stack;
     }
 
-    public List<ItemStack> GetRestockable()
+    public List<StackInteractable> GetRestockable()
     {
-        List<ItemStack> refillable = new List<ItemStack>();
+        List<StackInteractable> refillable = new List<StackInteractable>();
 
         foreach (ItemStack itemstack in items)
             foreach (StackInteractable stack in itemstack.stack)
                 if (!stack.Filled)
                 {
-                    refillable.Add(itemstack);
+                    refillable.Add(stack);
                     break;
                 }
 
@@ -65,6 +80,6 @@ public class Shop : House {
         sellable.owners.Add(buyer);
 
         stack.EmptyStack();
-        buyer.GetAction<SearchItem>().target = sellable.GetType();
+        buyer.GetAction<Interact>().target = stack;
     }
 }

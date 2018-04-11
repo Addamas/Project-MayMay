@@ -27,18 +27,24 @@ public class ShopAssistant : RootActionMulFrameable
     public override List<Link> GetRemainingLinks()
     {
         List<Link> ret = new List<Link>();
-        if (GetInteractable() != null)
+        if (GetStorageInteractable() != null)
             ret.Add(Link.Interacted);
         return ret;
     }
 
-    private StackInteractable GetInteractable()
+    private StackInteractable GetStackInteractable()
     {
-        List<Shop.ItemStack> emptyStacks = Shop.GetRestockable();
+        
+        return null;
+    }
+
+    private StackInteractable GetStorageInteractable()
+    {
+        List<StackInteractable> emptyStacks = Shop.GetRestockable();
         Shop shop = Shop;
-        foreach (Shop.ItemStack stack in emptyStacks)
+        foreach (StackInteractable stack in emptyStacks)
             foreach (Shop.ItemStack storageStack in shop.storage)
-                if (stack.Type == storageStack.Type)
+                if (stack.type == storageStack.Type)
                     foreach (StackInteractable interactable in storageStack.stack)
                         if (interactable.Filled)
                             return interactable;
@@ -68,9 +74,13 @@ public class ShopAssistant : RootActionMulFrameable
 
     public override void Prepare()
     {
-        StackInteractable interactable = GetInteractable();
-        if (interactable != null)
+        StackInteractable interactable = GetStackInteractable();
+
+        if (interactable == null)
+            interactable = GetStorageInteractable();
+        if(interactable != null)
             ai.GetAction<Interact>().target = interactable;
+
         base.Prepare();
     }
 }

@@ -18,7 +18,7 @@ public class Item : Ownable {
             character.ownedItems.Remove(this);
     }
 
-    public void PutInWorld(Character character)
+    public void PutInWorld(Character character, Vector3 position)
     {
         gameObject.SetActive(true);
         character.inventory.Remove(this);

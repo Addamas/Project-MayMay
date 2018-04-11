@@ -135,6 +135,24 @@ public class Character : GHOPE {
         return inventory.GetTypeFromListAsU<Item, T>();
     }
 
+    public Item GetFromInventory(Type type)
+    {
+        foreach (Item item in inventory)
+            if (item.GetType() == type)
+                return item;
+        return null;
+    }
+
+    public List<Item> GetFromInventory(Type type, Character owner)
+    {
+        List<Item> ret = new List<Item>();
+        foreach (Item item in inventory)
+            if (item.GetType() == type)
+                if (item.owners.Contains(owner))
+                    ret.Add(item);
+        return ret;
+    }
+
     public List<T> GetFromInteractables<T>() where T : Interactable
     {
         List<T> ret = interactables.GetTypeFromListAsU<Interactable, T>();
