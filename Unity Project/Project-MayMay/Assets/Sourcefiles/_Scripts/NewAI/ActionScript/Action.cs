@@ -27,7 +27,7 @@ public abstract class Action : Extension
     #endregion
 
     #region Main Check
-    public enum Link {HasItem, HasWater, HasFood, OpenedShop, HasFilledBucket, HasEmptyBucket, HasPerson };
+    public enum Link {HasItem, Interacted, HasWater, HasFood, OpenedShop, HasFilledBucket, HasEmptyBucket, HasPerson };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 

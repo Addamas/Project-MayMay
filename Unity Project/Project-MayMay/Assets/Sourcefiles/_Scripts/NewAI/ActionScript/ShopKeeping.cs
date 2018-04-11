@@ -30,7 +30,7 @@ public class ShopKeeping : RootActionMulFrameable
         {
             List<Item> ret = new List<Item>();
             foreach(Shop.ItemStack itemStack in Shop.items)
-                foreach(Shop.Stack stack in itemStack.stack)
+                foreach(StackInteractable stack in itemStack.stack)
                     if(stack.Filled)
                     {
                         ret.Add(stack.item);

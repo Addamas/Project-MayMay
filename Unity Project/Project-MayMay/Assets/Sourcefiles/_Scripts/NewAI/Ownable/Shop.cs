@@ -6,7 +6,7 @@ using Jext;
 
 public class Shop : House {
 
-    public List<ItemStack> items = new List<ItemStack>();
+    public List<ItemStack> items = new List<ItemStack>(), storage = new List<ItemStack>();
 
     [Serializable]
     public class ItemStack {
@@ -18,55 +18,30 @@ public class Shop : House {
                 return itemType.GetType();
             }
         }
-        public Stack[] stack;
-    }
-
-    [Serializable]
-    public class Stack {
-        public Item item;
-        public Transform spot;
-
-        public bool Filled
-        {
-            get
-            {
-                return item != null;
-            }
-        }
-
-        public void EmptyStack()
-        {
-            item = null;
-        }
+        public StackInteractable[] stack;
     }
 
     public List<ItemStack> GetRestockable()
     {
         List<ItemStack> refillable = new List<ItemStack>();
-        bool fit;
 
         foreach (ItemStack itemstack in items)
-        {
-            fit = true;
-            foreach (Stack stack in itemstack.stack)
-                if (stack.Filled)
+            foreach (StackInteractable stack in itemstack.stack)
+                if (!stack.Filled)
                 {
-                    fit = false;
+                    refillable.Add(itemstack);
                     break;
                 }
 
-            if (fit)
-                refillable.Add(itemstack);
-        }
         return refillable;
     }
 
-    public Stack GetStack(Item item, bool filled)
+    public StackInteractable GetStack(Item item, bool filled)
     {
         Type type = item.GetType();
         foreach (ItemStack itemStack in items)
             if (itemStack.Type == type)
-                foreach (Stack stack in itemStack.stack)
+                foreach (StackInteractable stack in itemStack.stack)
                     if (stack.Filled == filled)
                         return stack;
 
@@ -76,13 +51,13 @@ public class Shop : House {
 
     public virtual void PlaceItemInShop(Item item)
     {
-        Stack stack = GetStack(item, false);
+        StackInteractable stack = GetStack(item, false);
         stack.item = item;
     }
 
     public virtual void Sell(Item item, Character buyer)
     {
-        Stack stack = GetStack(item, true);
+        StackInteractable stack = GetStack(item, true);
         Item sellable = stack.item;    
         
         buyer.ownedItems.Add(sellable);

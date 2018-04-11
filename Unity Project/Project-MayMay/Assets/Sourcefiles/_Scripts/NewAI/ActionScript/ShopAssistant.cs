@@ -26,7 +26,23 @@ public class ShopAssistant : RootActionMulFrameable
 
     public override List<Link> GetRemainingLinks()
     {
-        return new List<Link>();
+        List<Link> ret = new List<Link>();
+        if (GetInteractable() != null)
+            ret.Add(Link.Interacted);
+        return ret;
+    }
+
+    private StackInteractable GetInteractable()
+    {
+        List<Shop.ItemStack> emptyStacks = Shop.GetRestockable();
+        Shop shop = Shop;
+        foreach (Shop.ItemStack stack in emptyStacks)
+            foreach (Shop.ItemStack storageStack in shop.storage)
+                if (stack.Type == storageStack.Type)
+                    foreach (StackInteractable interactable in storageStack.stack)
+                        if (interactable.Filled)
+                            return interactable;
+        return null;
     }
 
     public override int GetReturnValue()
@@ -34,27 +50,27 @@ public class ShopAssistant : RootActionMulFrameable
         return Min + 1;
     }
 
-    private List<Shop.ItemStack> stacks;
     public override IEnumerator LifeTime()
     {
-        stacks = Shop.GetRestockable();
-        if(stacks.Count > 0)
-        {
-            //restock
-            Debug.Log("Restock");
-        }
-
         yield return new WaitForSeconds(ai.senses.settings.frequency);
         Complete();
     }
 
     protected override bool ExecutableCheck()
     {
-        return Boss.Open;
+        return true;
     }
 
     public override Transform PosTrans()
     {
         return Boss.ai.transform;
+    }
+
+    public override void Prepare()
+    {
+        StackInteractable interactable = GetInteractable();
+        if (interactable != null)
+            ai.GetAction<Interact>().target = interactable;
+        base.Prepare();
     }
 }

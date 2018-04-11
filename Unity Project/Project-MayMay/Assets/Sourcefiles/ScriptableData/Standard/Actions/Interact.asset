@@ -8,12 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fa4dcf07eceb94a898617fd4250b2d, type: 3}
-  m_Name: ShopkeepingStat
+  m_Script: {fileID: 11500000, guid: 3b4f66dd243dc1441a33ec13a4dc62e2, type: 3}
+  m_Name: Interact
   m_EditorClassIdentifier: 
-  rootActions:
-  - {fileID: 11400000, guid: 9339ce515746b11469f54701771673ed, type: 2}
-  times:
-  - start: 5
-    end: 20000
-  questImportance: 10
+  special: 0
+  breakable: 0
+  autoMovement: 0
+  target: {fileID: 0}
