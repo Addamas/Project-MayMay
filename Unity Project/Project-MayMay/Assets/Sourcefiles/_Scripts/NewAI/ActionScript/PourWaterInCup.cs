@@ -21,7 +21,6 @@ public class PourWaterInCup : NormalActionMulFrameable
         List<Link> ret = new List<Link>();
         if (Bucket == null)
             ret.Add(Link.HasFilledBucket);
-
         return ret;
     }
 

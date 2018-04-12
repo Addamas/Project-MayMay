@@ -27,7 +27,7 @@ public abstract class Action : Extension
     #endregion
 
     #region Main Check
-    public enum Link {HasItem, Interacted, HasWater, HasFood, OpenedShop, HasFilledBucket, HasEmptyBucket, HasPerson };
+    public enum Link {HasItem, Interacted, HasWater, HasFood, OpenedShop, HasFilledBucket, HasEmptyBucket, HasPerson, Passivity };
     public abstract List<Link> GetRemainingLinks();
     #endregion
 
@@ -208,6 +208,11 @@ public abstract class NormalActionMulFrameable : NormalAction, IMultipleFramable
 {
     protected Coroutine lifeTime;
     private bool executing;
+
+    public override bool IsExecuting()
+    {
+        return executing;
+    }
 
     public override void Execute()
     {

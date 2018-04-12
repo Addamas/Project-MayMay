@@ -73,13 +73,16 @@ public class Shop : House {
     public virtual void Sell(Item item, Character buyer)
     {
         StackInteractable stack = GetStack(item, true);
-        Item sellable = stack.item;    
-        
+        Item sellable = stack.item;
+
         buyer.ownedItems.Add(sellable);
         sellable.owners.Clear();
         sellable.owners.Add(buyer);
 
         stack.EmptyStack();
-        buyer.GetAction<Interact>().target = stack;
+
+        Interact interact = buyer.GetAction<Interact>();
+        interact.target = stack;
+        buyer.ForceAction(interact);
     }
 }

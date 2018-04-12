@@ -17,4 +17,4 @@ MonoBehaviour:
   wantedAction: {fileID: 11400000, guid: f0f60fa60a599244292a23de689c79f1, type: 2}
   rangeMatters: 1
   item: {fileID: 114610989578192632, guid: bec07f8e93efaec41946f9423d61c69d, type: 2}
-  links: 02000000
+  links: 03000000

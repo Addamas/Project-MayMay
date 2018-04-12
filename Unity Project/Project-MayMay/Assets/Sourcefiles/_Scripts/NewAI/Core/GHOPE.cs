@@ -69,6 +69,17 @@ public abstract class GHOPE : MonoBehaviour {
         curAction = null;
         NewEvent();
     }
+    public virtual void ForceAction(Action action)
+    {
+        if(curAction != null)
+            curAction.Cancel();
+        curAction = action;
+
+        if (curAction.IsExecutable())
+            action.Execute();
+        else
+            NewEvent();
+    }
 
     public virtual void ForceNewEvent()
     {
