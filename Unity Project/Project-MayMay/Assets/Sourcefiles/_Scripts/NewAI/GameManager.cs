@@ -29,8 +29,11 @@ public class GameManager : MonoBehaviour {
 
     private void SetSeed()
     {
+        int hashCode = DateTime.Now.GetHashCode();
         random = new System.Random(
-            seed.Length == 0 ? DateTime.Now.GetHashCode() : seed.GetHashCode());
+            seed.Length == 0 ?  hashCode: seed.GetHashCode());
+        if (seed.Length == 0)
+            seed = hashCode.ToString();
     }
 
     private void Start () {
@@ -70,11 +73,16 @@ public class GameManager : MonoBehaviour {
 
     #region Pathfinding Queue
 
-    private static Queue<GHOPE> pathfindingQueue = new Queue<GHOPE>();
+    private static List<GHOPE> pathfindingQueue = new List<GHOPE>();
 
-    public void EnqueuePathfinding(GHOPE ghope)
+    public static void EnqueuePathfinding(GHOPE ghope)
     {
-        pathfindingQueue.Enqueue(ghope);
+        pathfindingQueue.Add(ghope);
+    }
+
+    public static void TryRemoveFromPathfindingQueue(GHOPE removable)
+    {
+        pathfindingQueue.RemoveAll(x => x == removable);
     }
 
     private IEnumerator PathfindingQueue()
@@ -85,7 +93,8 @@ public class GameManager : MonoBehaviour {
             while (pathfindingQueue.Count == 0)
                 yield return null;
 
-            ghope = pathfindingQueue.Dequeue();
+            ghope = pathfindingQueue.First();
+            pathfindingQueue.RemoveAt(0);
             yield return StartCoroutine(ghope.Pathfinding());
         }
     }

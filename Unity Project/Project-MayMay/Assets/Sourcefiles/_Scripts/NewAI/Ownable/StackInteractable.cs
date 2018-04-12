@@ -8,6 +8,9 @@ public class StackInteractable : Interactable {
     public Item item;
 
     [NonSerialized]
+    public bool sold;
+
+    [NonSerialized]
     public Type type;
 
     public bool Filled
@@ -20,10 +23,12 @@ public class StackInteractable : Interactable {
 
     public override void Interact(Character character)
     {
+        Debug.Log(Filled);
         if (Filled)
         {
             item.PutInInventory(character);
             EmptyStack();
+            sold = false;
         }
         else try
             {

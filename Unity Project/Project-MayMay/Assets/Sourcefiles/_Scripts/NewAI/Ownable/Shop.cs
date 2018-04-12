@@ -58,7 +58,8 @@ public class Shop : House {
             if (itemStack.Type == type)
                 foreach (StackInteractable stack in itemStack.stack)
                     if (stack.Filled == filled)
-                        return stack;
+                        if(!stack.sold)
+                            return stack;
 
         //It needs a return variable, even a wrong one
         return items.First().stack.First();
@@ -73,13 +74,13 @@ public class Shop : House {
     public virtual void Sell(Item item, Character buyer)
     {
         StackInteractable stack = GetStack(item, true);
+        stack.sold = true;
+
         Item sellable = stack.item;
 
         buyer.ownedItems.Add(sellable);
         sellable.owners.Clear();
         sellable.owners.Add(buyer);
-
-        stack.EmptyStack();
 
         Interact interact = buyer.GetAction<Interact>();
         interact.target = stack;

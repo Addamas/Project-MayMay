@@ -260,6 +260,7 @@ public class Character : GHOPE {
     {
         if (execute != null)
             StopCoroutine(execute);
+
         movement.Stop();
         base.Cancel();
     }
