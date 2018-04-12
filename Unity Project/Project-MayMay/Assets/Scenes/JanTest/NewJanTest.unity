@@ -668,7 +668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &46207377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   - {fileID: 11400000, guid: 2f685a0832fb0fb43b7a1edddf7ef1f1, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 1
+  debug: 0
   inventory: []
   ownedItems:
   - {fileID: 1699738547}
@@ -4424,7 +4424,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 947f06482dca6404b81f9af7a073b1df, type: 2}
   - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 1
+  debug: 0
   inventory:
   - {fileID: 1693522675}
   ownedItems:
@@ -12167,7 +12167,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   - {fileID: 11400000, guid: 5ce081679dd7ca94794f2f20f5cf02ea, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 1
+  debug: 0
   inventory: []
   ownedItems:
   - {fileID: 1382649891}
@@ -12793,7 +12793,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 947f06482dca6404b81f9af7a073b1df, type: 2}
   - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 1
+  debug: 0
   inventory: []
   ownedItems:
   - {fileID: 2026718008}

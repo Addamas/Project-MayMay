@@ -36,19 +36,13 @@ public class Shop : House {
         public StackInteractable[] stack;
     }
 
-    public List<StackInteractable> GetRestockable()
+    public StackInteractable GetRestockable()
     {
-        List<StackInteractable> refillable = new List<StackInteractable>();
-
         foreach (ItemStack itemstack in items)
             foreach (StackInteractable stack in itemstack.stack)
                 if (!stack.Filled)
-                {
-                    refillable.Add(stack);
-                    break;
-                }
-
-        return refillable;
+                    return stack;
+        return null;
     }
 
     public StackInteractable GetStack(Item item, bool filled)

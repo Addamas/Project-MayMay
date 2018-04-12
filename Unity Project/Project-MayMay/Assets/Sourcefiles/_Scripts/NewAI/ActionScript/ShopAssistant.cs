@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,27 +28,33 @@ public class ShopAssistant : RootActionMulFrameable
     public override List<Link> GetRemainingLinks()
     {
         List<Link> ret = new List<Link>();
-        if (GetStorageInteractable() != null)
+        if (GetInteractable() != null)
             ret.Add(Link.Interacted);
         return ret;
     }
 
-    private StackInteractable GetStackInteractable()
+    private StackInteractable GetInteractable()
     {
-        
+        StackInteractable interactable = Shop.GetRestockable();
+        if (interactable != null)
+            return GetShopItemFromInventory(interactable.type).Count > 0 ? 
+                interactable : GetStorageInteractable(interactable.type);
         return null;
     }
 
-    private StackInteractable GetStorageInteractable()
+    private List<Item> GetShopItemFromInventory(Type type)
     {
-        List<StackInteractable> emptyStacks = Shop.GetRestockable();
+        return ai.GetFromInventory(type, Boss.ai);
+    }
+
+    private StackInteractable GetStorageInteractable(Type type)
+    {
         Shop shop = Shop;
-        foreach (StackInteractable stack in emptyStacks)
-            foreach (Shop.ItemStack storageStack in shop.storage)
-                if (stack.type == storageStack.Type)
-                    foreach (StackInteractable interactable in storageStack.stack)
-                        if (interactable.Filled)
-                            return interactable;
+        foreach (Shop.ItemStack stack in shop.storage)
+            if (stack.Type == type)
+                foreach (StackInteractable interactable in stack.stack)
+                    if (interactable.Filled)
+                        return interactable;
         return null;
     }
 
@@ -69,18 +76,14 @@ public class ShopAssistant : RootActionMulFrameable
 
     public override Transform PosTrans()
     {
-        return Boss.ai.transform;
+        return Shop.transform;
     }
 
     public override void Prepare()
     {
-        StackInteractable interactable = GetStackInteractable();
-
-        if (interactable == null)
-            interactable = GetStorageInteractable();
-        if(interactable != null)
-            ai.GetAction<Interact>().target = interactable;
-
+        StackInteractable stack = GetInteractable();
+        ai.GetAction<Interact>().target = stack;
+            
         base.Prepare();
     }
 }

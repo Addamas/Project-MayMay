@@ -11,7 +11,6 @@ public class Interact : NormalAction
 
     public override void Execute()
     {
-        Debug.Log(target);
         target.Interact(ai);
         Complete();
     }

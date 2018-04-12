@@ -23,7 +23,6 @@ public class StackInteractable : Interactable {
 
     public override void Interact(Character character)
     {
-        Debug.Log(Filled);
         if (Filled)
         {
             item.PutInInventory(character);

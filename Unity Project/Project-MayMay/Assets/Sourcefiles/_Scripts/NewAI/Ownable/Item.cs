@@ -24,6 +24,7 @@ public class Item : Ownable {
         character.inventory.Remove(this);
         foreach (Character other in owners)
             character.ownedItems.Add(this);
+        transform.position = position;
     }
 
     public override void Init()

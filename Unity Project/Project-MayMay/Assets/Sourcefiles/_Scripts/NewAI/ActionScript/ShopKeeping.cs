@@ -16,11 +16,14 @@ public class ShopKeeping : RootActionMulFrameable
         }
     }
 
+    private Shop shop;
     public Shop Shop
     {
         get
         {
-            return ai.GetFromInteractables<Shop>().First();
+            if (shop == null)
+                shop = ai.GetFromInteractables<Shop>().First();
+            return shop;
         }
     }
 
@@ -38,6 +41,23 @@ public class ShopKeeping : RootActionMulFrameable
                     }
             return ret;
         }
+    }
+
+    public override void Init(GHOPE ai, Stat stat)
+    {
+        base.Init(ai, stat);
+        Shop shop = this.ai.GetFromInteractables<Shop>().First();
+
+        InitStacks(shop.items);
+        InitStacks(shop.storage);
+    }
+
+    private void InitStacks(List<Shop.ItemStack> stack)
+    {
+        foreach (Shop.ItemStack itemStack in stack)
+            foreach (StackInteractable interactable in itemStack.stack)
+                if (interactable.Filled)
+                    interactable.item.owners.Add(ai);
     }
 
     public virtual void Sell(Item item, Character buyer)
