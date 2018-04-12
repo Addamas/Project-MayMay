@@ -22,8 +22,9 @@ public class Item : Ownable {
     {
         gameObject.SetActive(true);
         character.inventory.Remove(this);
+
         foreach (Character other in owners)
-            character.ownedItems.Add(this);
+            other.ownedItems.Add(this);
         transform.position = position;
     }
 
