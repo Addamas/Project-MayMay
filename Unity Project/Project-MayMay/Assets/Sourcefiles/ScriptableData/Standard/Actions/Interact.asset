@@ -8,8 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2933eb83632edd48b71db2a7a8a4fe6, type: 3}
-  m_Name: SearchStat
+  m_Script: {fileID: 11500000, guid: 3b4f66dd243dc1441a33ec13a4dc62e2, type: 3}
+  m_Name: Interact
   m_EditorClassIdentifier: 
-  rootActions:
-  - {fileID: 11400000, guid: a61ee057b21c3fc428f14b7699506b4a, type: 2}
+  special: 0
+  breakable: 0
+  autoMovement: 0
+  target: {fileID: 0}

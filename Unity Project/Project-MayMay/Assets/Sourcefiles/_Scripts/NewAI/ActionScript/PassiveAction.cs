@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PassiveAction", menuName = "Actions/Convince/PassiveAction", order = 1)]
-public class PassiveAction : RootActionMulFrameable
+public class PassiveAction : NormalActionMulFrameable
 {
     [NonSerialized]
     public Character leader;
@@ -14,9 +14,9 @@ public class PassiveAction : RootActionMulFrameable
         return new List<Link>();
     }
 
-    public override int GetReturnValue()
+    public override List<Link>  GetReturnValue()
     {
-        return Max;
+        return new List<Link> { Link.Passivity };
     }
 
     public override IEnumerator LifeTime()
@@ -26,6 +26,7 @@ public class PassiveAction : RootActionMulFrameable
             if (leader.curAction as LeadAction == null && 
                 leader.curAction as LeadActionNormal == null)
                 break;
+
             yield return null;
         }
 
@@ -54,17 +55,9 @@ public class PassiveAction : RootActionMulFrameable
         return leader != null;
     }
 
-    public override void Cancel()
+    protected override void OnFinished()
     {
         leader = null;
-        stat.SetValue(Max);
-        base.Cancel();
-    }
-
-    public override void Complete()
-    {
-        leader = null;
-        stat.SetValue(Max);
-        base.Complete();
+        base.OnFinished();
     }
 }

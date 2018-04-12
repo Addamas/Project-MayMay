@@ -63,9 +63,8 @@ public class BuyX : ConverseNormal {
         }
         catch
         {
-            
+            base.WhenCompleted(other);
         }
-        base.WhenCompleted(other);
     }
 
     protected override Social.Conversation PickConversation(Memory.Other other)

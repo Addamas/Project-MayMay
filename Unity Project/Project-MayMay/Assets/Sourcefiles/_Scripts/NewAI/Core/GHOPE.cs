@@ -69,6 +69,17 @@ public abstract class GHOPE : MonoBehaviour {
         curAction = null;
         NewEvent();
     }
+    public virtual void ForceAction(Action action)
+    {
+        if(curAction != null)
+            curAction.Cancel();
+        curAction = action;
+
+        if (curAction.IsExecutable())
+            action.Execute();
+        else
+            NewEvent();
+    }
 
     public virtual void ForceNewEvent()
     {
@@ -92,7 +103,7 @@ public abstract class GHOPE : MonoBehaviour {
         pathfinding = true;
         changed = false;
 
-        GameManager.instance.EnqueuePathfinding(this);
+        GameManager.EnqueuePathfinding(this);
     }
 
     [NonSerialized]
@@ -218,6 +229,7 @@ public abstract class GHOPE : MonoBehaviour {
 
     public virtual void Cancel()
     {
+        GameManager.TryRemoveFromPathfindingQueue(this);
         if(curAction != null)
             curAction.Cancel();
     }

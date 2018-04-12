@@ -11,6 +11,7 @@ public class Consumable : Item, IComparable<Consumable>
     public virtual void Consume(TickStat stat)
     {
         stat.AddValue(value);
+        Destroy(gameObject);
     }
 
     public int CompareTo(Consumable other)

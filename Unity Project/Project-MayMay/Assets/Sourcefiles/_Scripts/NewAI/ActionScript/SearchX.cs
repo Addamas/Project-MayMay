@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SearchX", menuName = "Actions/SearchX", order = 1)]
-public class SearchX : Converse {
+public class SearchX : ConverseNormal {
 
     [NonSerialized]
     public Character target;
@@ -15,6 +15,11 @@ public class SearchX : Converse {
     private float areaSeachSize;
 
     private List<Character> spokenCharacters = new List<Character>();
+
+    public override List<Link> GetReturnValue()
+    {
+        return new List<Link>() {Link.HasPerson };
+    }
 
     public bool Searching
     {

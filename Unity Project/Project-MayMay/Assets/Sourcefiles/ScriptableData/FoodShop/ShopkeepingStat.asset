@@ -15,4 +15,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9339ce515746b11469f54701771673ed, type: 2}
   times:
   - start: 5
-    end: 200
+    end: 20000
+  questImportance: 10

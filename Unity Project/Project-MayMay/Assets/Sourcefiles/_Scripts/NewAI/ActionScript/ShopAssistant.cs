@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,9 +17,45 @@ public class ShopAssistant : RootActionMulFrameable
         }
     }
 
+    private Shop Shop
+    {
+        get
+        {
+            return Boss.Shop;
+        }
+    }
+
     public override List<Link> GetRemainingLinks()
     {
-        return new List<Link>();
+        List<Link> ret = new List<Link>();
+        if (GetInteractable() != null)
+            ret.Add(Link.Interacted);
+        return ret;
+    }
+
+    private StackInteractable GetInteractable()
+    {
+        StackInteractable interactable = Shop.GetRestockable();
+        if (interactable != null)
+            return GetShopItemFromInventory(interactable.type).Count > 0 ? 
+                interactable : GetStorageInteractable(interactable.type);
+        return null;
+    }
+
+    private List<Item> GetShopItemFromInventory(Type type)
+    {
+        return ai.GetFromInventory(type, Boss.ai);
+    }
+
+    private StackInteractable GetStorageInteractable(Type type)
+    {
+        Shop shop = Shop;
+        foreach (Shop.ItemStack stack in shop.storage)
+            if (stack.Type == type)
+                foreach (StackInteractable interactable in stack.stack)
+                    if (interactable.Filled)
+                        return interactable;
+        return null;
     }
 
     public override int GetReturnValue()
@@ -34,11 +71,19 @@ public class ShopAssistant : RootActionMulFrameable
 
     protected override bool ExecutableCheck()
     {
-        return Boss.Open;
+        return true;
     }
 
     public override Transform PosTrans()
     {
-        return Boss.ai.transform;
+        return Shop.transform;
+    }
+
+    public override void Prepare()
+    {
+        StackInteractable stack = GetInteractable();
+        ai.GetAction<Interact>().target = stack;
+            
+        base.Prepare();
     }
 }
