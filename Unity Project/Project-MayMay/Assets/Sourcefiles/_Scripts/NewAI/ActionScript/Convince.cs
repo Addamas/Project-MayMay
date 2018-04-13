@@ -38,8 +38,7 @@ public class Convince : RootActionMulFrameable
             otherCharacter.Cancel();
 
         BeforeNewEventOther(otherCharacter);
-        ProcessStat(GetWantedAction(otherCharacter).stat);
-        otherCharacter.NewEvent();
+        otherCharacter.ForceAction(otherCharacter.GetAction<PassiveAction>());
 
         while (otherCharacter.pathfinding)
             yield return null;
@@ -60,10 +59,9 @@ public class Convince : RootActionMulFrameable
 
     protected PassiveAction GetWantedAction(Character character)
     {
-        foreach (Stat stat in character.stats)
-            foreach (RootAction action in stat.rootActions)
-                if (action.GetType() == ActionType)
-                    return action as PassiveAction;
+        foreach(NormalAction action in character.actions)
+            if (action.GetType() == ActionType)
+                return action as PassiveAction;
         return null;
     }
 
@@ -156,8 +154,7 @@ public class ConvinceNormal : NormalActionMulFrameable
             otherCharacter.Cancel();
 
         BeforeNewEventOther(otherCharacter);
-        ProcessStat(GetWantedAction(otherCharacter).stat);
-        otherCharacter.NewEvent();
+        otherCharacter.ForceAction(otherCharacter.GetAction<PassiveAction>());
 
         while (otherCharacter.pathfinding)
             yield return null;
@@ -178,10 +175,9 @@ public class ConvinceNormal : NormalActionMulFrameable
 
     protected PassiveAction GetWantedAction(Character character)
     {
-        foreach (Stat stat in character.stats)
-            foreach (RootAction action in stat.rootActions)
-                if (action.GetType() == ActionType)
-                    return action as PassiveAction;
+        foreach(NormalAction action in character.actions)
+            if (action.GetType() == ActionType)
+                return action as PassiveAction;
         return null;
     }
 

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootActions:
   - {fileID: 11400000, guid: 0f23cc3f5cf972b42b6d705874340b33, type: 2}
-  leaderName: Jimbe
+  leaderName: Shopkeeper Sonja
   questName: ShopkeepingStat

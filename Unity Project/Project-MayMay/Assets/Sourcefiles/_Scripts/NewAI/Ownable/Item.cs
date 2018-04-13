@@ -14,16 +14,18 @@ public class Item : Ownable {
     {
         gameObject.SetActive(false);
         character.inventory.Add(this);
-        foreach (Character other  in owners)
+        foreach (Character other in owners)
             character.ownedItems.Remove(this);
     }
 
-    public void PutInWorld(Character character)
+    public void PutInWorld(Character character, Vector3 position)
     {
         gameObject.SetActive(true);
         character.inventory.Remove(this);
+
         foreach (Character other in owners)
-            character.ownedItems.Add(this);
+            other.ownedItems.Add(this);
+        transform.position = position;
     }
 
     public override void Init()
