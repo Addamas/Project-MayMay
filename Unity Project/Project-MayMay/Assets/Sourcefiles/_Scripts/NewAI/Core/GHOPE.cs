@@ -101,8 +101,6 @@ public abstract class GHOPE : MonoBehaviour {
             return;
 
         pathfinding = true;
-        changed = false;
-
         GameManager.EnqueuePathfinding(this);
     }
 
@@ -110,6 +108,8 @@ public abstract class GHOPE : MonoBehaviour {
     public bool pathfinding;
     public IEnumerator Pathfinding()
     {
+        changed = false;
+
         foreach (Stat stat in stats)
         {
             yield return StartCoroutine((PathPossible(stat)));

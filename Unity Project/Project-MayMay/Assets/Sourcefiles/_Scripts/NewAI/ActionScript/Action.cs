@@ -5,6 +5,9 @@ using UnityEngine;
 
 public abstract class Action : Extension
 {
+    [SerializeField]
+    private float extraCost;
+
     #region Core Functions
     public abstract void Execute();
 
@@ -94,8 +97,13 @@ public abstract class Action : Extension
     public virtual float GetEstimatedTimeRequired()
     {
         if(!InRange())
-            return Dis() / ai.movement.agent.speed;
-        return 0;
+            return Dis() / ai.movement.agent.speed + extraCost;
+        return GetDuration();
+    }
+
+    protected virtual float GetDuration()
+    {
+        return extraCost;
     }
     #endregion
 
@@ -168,7 +176,7 @@ public abstract class NormalBasicAction : NormalAction
     }
 }
 
-public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
+public abstract class RootActionMulFrameable : RootAction
 {
     protected Coroutine lifeTime;
     private bool executing;
@@ -204,7 +212,7 @@ public abstract class RootActionMulFrameable : RootAction, IMultipleFramable
     public abstract IEnumerator LifeTime();
 }
 
-public abstract class NormalActionMulFrameable : NormalAction, IMultipleFramable
+public abstract class NormalActionMulFrameable : NormalAction
 {
     protected Coroutine lifeTime;
     private bool executing;
@@ -235,17 +243,4 @@ public abstract class NormalActionMulFrameable : NormalAction, IMultipleFramable
     }
 
     public abstract IEnumerator LifeTime();
-}
-
-public interface IMultipleFramable
-{
-    IEnumerator LifeTime();
-}
-
-public interface IDuration
-{
-    float Duration
-    {
-        get;
-    }
 }

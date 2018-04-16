@@ -4,7 +4,7 @@ using UnityEngine;
 using Jext;
 
 [CreateAssetMenu(fileName = "GoPeepee", menuName = "Actions/GoPeepee", order = 1)]
-public class GoPeepee : RootActionMulFrameable, IDuration
+public class GoPeepee : RootActionMulFrameable
 {
     [SerializeField]
     private float maxDuration;
@@ -54,5 +54,10 @@ public class GoPeepee : RootActionMulFrameable, IDuration
     private WC GetWC()
     {
         return ai.GetFromInteractables<WC>()[0];
+    }
+
+    public override float GetEstimatedTimeRequired()
+    {
+        return base.GetEstimatedTimeRequired() + Duration;
     }
 }

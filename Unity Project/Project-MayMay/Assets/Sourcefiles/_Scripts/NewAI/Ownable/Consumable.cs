@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Consumable : Item, IComparable<Consumable>
-{
+public class Consumable : Item, IComparable<Consumable> {
+
     public int value;
     public float peePerValuePoint;
 

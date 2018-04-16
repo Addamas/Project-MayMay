@@ -16,6 +16,8 @@ public class Well : Interactable {
 
     public override void Interact(Character character)
     {
-        character.GetEmptyBucket().item = water;
+        Water spawnedWater = Instantiate(water, transform.position, Quaternion.identity);
+        water.gameObject.SetActive(false);
+        character.GetEmptyBucket().item = spawnedWater;
     }
 }

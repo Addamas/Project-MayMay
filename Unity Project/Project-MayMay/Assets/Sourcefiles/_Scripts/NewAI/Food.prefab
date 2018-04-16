@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPublic: 0
-  value: 100
-  peePerValuePoint: 0.2
+  value: 80
+  peePerValuePoint: 0.1

@@ -44,9 +44,7 @@ public class BuyX : ConverseNormal {
                 fit = true;
                 break;
             }
-        if (!fit)
-            return false;
-        return true;
+        return fit;
     }
 
     protected override bool ExecutableCheck()

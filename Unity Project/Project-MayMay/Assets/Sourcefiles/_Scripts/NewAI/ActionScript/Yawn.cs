@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Yawn", menuName = "Actions/Yawn", order = 1)]
-public class Yawn : RootActionMulFrameable, IDuration
+public class Yawn : RootActionMulFrameable
 {
     [SerializeField]
     private float duration;
@@ -32,7 +32,7 @@ public class Yawn : RootActionMulFrameable, IDuration
 
     public override float GetEstimatedTimeRequired()
     {
-        return TooLong;
+        return base.GetEstimatedTimeRequired() + Duration;
     }
 
     public override IEnumerator LifeTime()

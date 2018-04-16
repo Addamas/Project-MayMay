@@ -14,7 +14,7 @@ public class Consume : RootAction
         {
             try
             {
-                GetConsumable();
+                GetFood();
                 return true;
             }
             catch
@@ -24,9 +24,9 @@ public class Consume : RootAction
         }
     }
 
-    private Consumable GetConsumable()
+    private Food GetFood()
     {
-        List<Consumable> ret = ai.GetFromInventory<Consumable>();
+        List<Food> ret = ai.GetFromInventory<Food>();
         ret.Sort();
         return ret[0];
     }
@@ -35,7 +35,7 @@ public class Consume : RootAction
     {
         List<Link> ret = new List<Link>();
         if (!HasFood)
-            if (ai.GetAction<SearchItem>().CanFind(typeof(Consumable)))
+            if (ai.GetAction<SearchItem>().CanFind(typeof(Food)))
                 ret.Add(Link.HasItem);
             else
                 ret.Add(Link.HasFood);
@@ -46,7 +46,7 @@ public class Consume : RootAction
     {
         try
         {
-            return GetConsumable().value;
+            return GetFood().value;
         }
         catch
         {
@@ -66,11 +66,11 @@ public class Consume : RootAction
 
     public override void Execute()
     {
-        Consumable consumable = GetConsumable();
+        Food food = GetFood();
 
-        consumable.Consume(Stat<TickStat>());
-        ai.inventory.Remove(consumable);
-        ai.GetStat(peepeeStatName).AddValue(Mathf.RoundToInt(consumable.peePerValuePoint * consumable.value));
+        food.Consume(Stat<TickStat>());
+        ai.inventory.Remove(food);
+        ai.GetStat(peepeeStatName).AddValue(Mathf.RoundToInt(food.peePerValuePoint * food.value));
 
         Complete();
     }
@@ -82,7 +82,7 @@ public class Consume : RootAction
 
     public override void Prepare()
     {
-        ai.GetAction<SearchItem>().target = typeof(Consumable);
+        ai.GetAction<SearchItem>().target = typeof(Food);
         base.Prepare();
     }
 }

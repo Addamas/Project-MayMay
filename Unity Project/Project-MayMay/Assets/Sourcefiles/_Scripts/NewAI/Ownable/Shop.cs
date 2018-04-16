@@ -6,7 +6,9 @@ using Jext;
 
 public class Shop : House {
 
-    public List<ItemStack> items = new List<ItemStack>(), storage = new List<ItemStack>();
+    public List<ItemStack> items = new List<ItemStack>(), 
+        storage = new List<ItemStack>(), 
+        provisions = new List<ItemStack>();
 
     public override void Init()
     {
