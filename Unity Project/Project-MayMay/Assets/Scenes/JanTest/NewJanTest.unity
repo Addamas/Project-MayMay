@@ -688,6 +688,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a61ee057b21c3fc428f14b7699506b4a, type: 2}
   - {fileID: 11400000, guid: 6cf48e18a5d981441966a7256b7bb484, type: 2}
   - {fileID: 11400000, guid: f0f60fa60a599244292a23de689c79f1, type: 2}
+  - {fileID: 11400000, guid: 6eaa79ea1123acf4fb5952f4e5078b48, type: 2}
   stats:
   - {fileID: 11400000, guid: 0d4b058d4da14924a967c7594936868c, type: 2}
   - {fileID: 11400000, guid: 2072ca3e9f814774fa93adb49165a0d1, type: 2}
@@ -704,6 +705,7 @@ MonoBehaviour:
   interactables:
   - {fileID: 1396836552}
   - {fileID: 2038882175}
+  - {fileID: 1155168635}
 --- !u!114 &46207378
 MonoBehaviour:
   m_ObjectHideFlags: 0
