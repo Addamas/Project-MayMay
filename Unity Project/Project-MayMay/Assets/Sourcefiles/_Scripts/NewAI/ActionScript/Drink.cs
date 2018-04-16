@@ -83,7 +83,22 @@ public class Drink : RootAction {
 
     public override void Prepare()
     {
-        ai.GetAction<SearchItem>().target = typeof(Water);
+        try
+        {
+            ai.GetAction<SearchItem>().target = typeof(Water);
+        }
+        catch
+        {
+
+        }
+        try
+        {
+            ai.GetAction<GetFromStorage>().target = typeof(Water);
+        }
+        catch
+        {
+
+        }
         base.Prepare();
     }
 }

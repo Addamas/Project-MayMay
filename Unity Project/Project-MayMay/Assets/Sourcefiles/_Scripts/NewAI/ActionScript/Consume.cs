@@ -82,7 +82,22 @@ public class Consume : RootAction
 
     public override void Prepare()
     {
-        ai.GetAction<SearchItem>().target = typeof(Food);
+        try
+        {
+            ai.GetAction<SearchItem>().target = typeof(Food);
+        }
+        catch
+        {
+
+        }
+        try
+        {
+            ai.GetAction<GetFromStorage>().target = typeof(Food);
+        }
+        catch
+        {
+
+        }
         base.Prepare();
     }
 }

@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742e9f258a19cba46a8feefe3a1aef22, type: 3}
-  m_Name: ShopFood
+  m_Script: {fileID: 11500000, guid: 52318ecab5a2019488a32d8544a4a5a8, type: 3}
+  m_Name: GetFromStorage
   m_EditorClassIdentifier: 
-  extraCost: 100
-  special: 1
-  breakable: 1
+  extraCost: 0
+  special: 0
+  breakable: 0
   autoMovement: 0
