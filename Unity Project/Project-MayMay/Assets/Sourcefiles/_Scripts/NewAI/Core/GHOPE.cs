@@ -100,20 +100,22 @@ public abstract class GHOPE : MonoBehaviour {
     {
         if (pathfinding)
             return;
+
+        if (forcedAction != null)
+            if (forcedAction.IsExecutable())
+            {
+                curAction = forcedAction;
+                forcedAction = null;
+
+                StartPathfinding();
+                return;
+            }
+
         if (curAction as RootAction != null)
             if ((curAction as RootAction).GetReturnValue() <= settings.critVal)
                 return;
 
         stats.Sort();
-
-        if(forcedAction != null)
-            if(forcedAction.IsExecutable())
-            {
-                curAction = forcedAction;
-                forcedAction = null;
-                StartPathfinding();
-                return;
-            }
 
         if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;

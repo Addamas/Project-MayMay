@@ -36,6 +36,8 @@ public class ShopKeeping : RootActionMulFrameable
                 foreach(StackInteractable stack in itemStack.stack)
                     if(stack.Filled)
                     {
+                        if (stack.sold)
+                            continue;
                         ret.Add(stack.item);
                         break;
                     }

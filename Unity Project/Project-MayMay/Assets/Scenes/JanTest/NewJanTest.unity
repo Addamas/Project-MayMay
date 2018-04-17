@@ -712,6 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -732,7 +733,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f685a0832fb0fb43b7a1edddf7ef1f1, type: 2}
   - {fileID: 11400000, guid: 5d37a43733001af42b181d83f90ea352, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 1
   inventory:
   - {fileID: 679779450}
   - {fileID: 1965322958}
@@ -819,6 +819,11 @@ MonoBehaviour:
         - It's not on the house though.
       - parts:
         - That's allright, I guessed as much.
+    - tag: 0
+      parts:
+      - parts:
+        - Hey, youknow...
+        - I enjoy working here.
   defaultAffinity: 40
   memorySlots: 15
 --- !u!23 &46207382
@@ -4573,6 +4578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -4591,7 +4597,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   - {fileID: 11400000, guid: 5d37a43733001af42b181d83f90ea352, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 0
   inventory:
   - {fileID: 1693522675}
   ownedItems:
@@ -12993,6 +12998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -13013,7 +13019,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ce081679dd7ca94794f2f20f5cf02ea, type: 2}
   - {fileID: 11400000, guid: 5d37a43733001af42b181d83f90ea352, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 0
   inventory: []
   ownedItems:
   - {fileID: 1382649891}
@@ -13625,6 +13630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -13642,7 +13648,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95a3f227f939fd64ea6a26a933f4ff2d, type: 2}
   - {fileID: 11400000, guid: 5d37a43733001af42b181d83f90ea352, type: 2}
   settings: {fileID: 11400000, guid: 4e492c8bff4637a448e355f5792a1aa3, type: 2}
-  debug: 0
   inventory: []
   ownedItems:
   - {fileID: 2026718008}
