@@ -5,7 +5,7 @@ using UnityEngine;
 using Jext;
 
 [CreateAssetMenu(fileName = "GetFromStorage", menuName = "Actions/GetFromStorage", order = 1)]
-public class GetFromStorage : NormalActionMulFrameable
+public class GetFromStorage : NormalAction
 {
     [NonSerialized]
     public Type target;
@@ -28,19 +28,6 @@ public class GetFromStorage : NormalActionMulFrameable
         return null;
     }
 
-    public bool CanFind(Type type)
-    {
-        return Target != null;
-    }
-
-    public bool Searching
-    {
-        get
-        {
-            return target != null;
-        }
-    }
-
     public override List<Link> GetRemainingLinks()
     {
         return new List<Link>();
@@ -58,13 +45,6 @@ public class GetFromStorage : NormalActionMulFrameable
         return ret;
     }
 
-    public override IEnumerator LifeTime()
-    {
-        ai.inventory.Add(Target.GetFromInventory(target));
-        Complete();
-        yield break;
-    }
-
     protected override bool ExecutableCheck()
     {
         return true;
@@ -80,5 +60,11 @@ public class GetFromStorage : NormalActionMulFrameable
         {
             return base.PosTrans();
         }
+    }
+
+    public override void Execute()
+    {
+        ai.inventory.Add(Target.GetFromInventory(target));
+        Complete();
     }
 }

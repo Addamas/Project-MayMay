@@ -53,7 +53,7 @@ public class GoPeepee : RootActionMulFrameable
 
     private WC GetWC()
     {
-        return ai.GetFromInteractables<WC>()[0];
+        return ai.GetFromInteractables<WC>().SortByClosest(ai.Pos).First();
     }
 
     public override float GetEstimatedTimeRequired()
