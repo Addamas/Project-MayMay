@@ -11,10 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b57f3b041303043b70b9ebbb8c3c88, type: 3}
   m_Name: BuyFood
   m_EditorClassIdentifier: 
+  extraCost: 0
   special: 0
   breakable: 0
   autoMovement: 0
   wantedAction: {fileID: 11400000, guid: f0f60fa60a599244292a23de689c79f1, type: 2}
   rangeMatters: 1
   item: {fileID: 114610989578192632, guid: bec07f8e93efaec41946f9423d61c69d, type: 2}
+  amount: 1
   links: 03000000

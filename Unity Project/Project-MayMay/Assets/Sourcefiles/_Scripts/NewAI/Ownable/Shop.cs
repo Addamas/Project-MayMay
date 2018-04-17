@@ -57,7 +57,7 @@ public class Shop : House {
                             return stack;
 
         //It needs a return variable, even a wrong one
-        return items.First().stack.First();
+        return items[-1].stack.First();
     }
 
     public virtual void PlaceItemInShop(Item item)
@@ -79,6 +79,6 @@ public class Shop : House {
 
         Interact interact = buyer.GetAction<Interact>();
         interact.target = stack;
-        buyer.ForceAction(interact);
+        buyer.ForceNextAction(interact);
     }
 }

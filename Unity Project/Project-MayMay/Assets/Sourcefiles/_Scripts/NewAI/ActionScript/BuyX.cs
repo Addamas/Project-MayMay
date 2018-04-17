@@ -10,6 +10,8 @@ public class BuyX : ConverseNormal {
     [SerializeField]
     protected Item item;
     [SerializeField]
+    protected int amount = 1;
+    [SerializeField]
     protected List<Link> links;
 
     public override List<Link> GetReturnValue()
@@ -54,20 +56,31 @@ public class BuyX : ConverseNormal {
 
     protected override void WhenCompleted(Memory.Other other)
     {
-        try
-        {
-            ShopKeeping shopkeeper = other.character.GetAction<ShopKeeping>();
-            shopkeeper.Sell(item, ai);
-        }
-        catch
-        {
-            base.WhenCompleted(other);
-        }
+        ShopKeeping shopkeeper = other.character.GetAction<ShopKeeping>();
+
+        for (int i = 0; i < amount; i++)
+            try
+            {
+                shopkeeper.Sell(item, ai);
+            }
+            catch
+            {
+                break;
+            }
+
+        base.WhenCompleted(other);
     }
 
     protected override Social.Conversation PickConversation(Memory.Other other)
     {
-        return other.character.GetStat<Social>().GetConversation(Social.ConversationType.Buying);
+        try
+        {
+            return other.GetConversation(Social.ConversationType.Buying);
+        }
+        catch
+        {
+            return Social.GetConversation(Social.ConversationType.Buying);
+        }
     }
 
     protected override Memory.Other GetOther()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Jext;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,17 +29,19 @@ public class Consume : RootAction
     {
         List<Food> ret = ai.GetFromInventory<Food>();
         ret.Sort();
-        return ret[0];
+        return ret.First();
     }
 
     public override List<Link> GetRemainingLinks()
     {
         List<Link> ret = new List<Link>();
+
         if (!HasFood)
             if (ai.GetAction<SearchItem>().CanFind(typeof(Food)))
                 ret.Add(Link.HasItem);
             else
                 ret.Add(Link.HasFood);
+
         return ret;
     }
 

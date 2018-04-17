@@ -28,8 +28,6 @@ using System;
 
 public class Character : GHOPE {
 
-    public bool debug;
-
     #region Get Functions
 
     public T GetAction<T>() where T : Action

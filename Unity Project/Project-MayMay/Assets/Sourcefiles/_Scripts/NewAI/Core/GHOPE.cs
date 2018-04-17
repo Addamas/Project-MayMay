@@ -8,6 +8,8 @@ using Jext;
 [RequireComponent(typeof(Memory), typeof(Movement), typeof(Senses))]
 public abstract class GHOPE : MonoBehaviour {
 
+    public bool debug;
+
     [NonSerialized]
     public Movement movement;
     [NonSerialized]
@@ -81,12 +83,18 @@ public abstract class GHOPE : MonoBehaviour {
             NewEvent();
     }
 
+    public void ForceNextAction(Action action)
+    {
+        forcedAction = action;
+    }
+
     public virtual void ForceNewEvent()
     {
         Cancel();
         NewEvent();
     }
 
+    private Action forcedAction;
     private bool changed;
     public virtual void NewEvent()
     {
@@ -97,9 +105,24 @@ public abstract class GHOPE : MonoBehaviour {
                 return;
 
         stats.Sort();
+
+        if(forcedAction != null)
+            if(forcedAction.IsExecutable())
+            {
+                curAction = forcedAction;
+                forcedAction = null;
+                StartPathfinding();
+                return;
+            }
+
         if (curAction != null && stats.First().GetValue() > settings.critVal)
             return;
 
+        StartPathfinding();
+    }
+
+    private void StartPathfinding()
+    {
         pathfinding = true;
         GameManager.EnqueuePathfinding(this);
     }
@@ -221,7 +244,14 @@ public abstract class GHOPE : MonoBehaviour {
                 yield break;
 
         Cancel();
-        
+
+        if (debug)
+        {
+            string s = "PATH: " + name;
+            path.actions.ForEach(x => s += " " + x.name);
+            Debug.Log(s);
+        }
+
         changed = true;   
         curAction = path.Action;
         path.actions.ForEach(x => x.Prepare());

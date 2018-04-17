@@ -19,7 +19,7 @@ public class TickStat : NormalStat
         while (true)
         {
             yield return new WaitForSeconds(tickFrequency);
-            Value--;
+            AddValue(-1);
         }
     }
 }
