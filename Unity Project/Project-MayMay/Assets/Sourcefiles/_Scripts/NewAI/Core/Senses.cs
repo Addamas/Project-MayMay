@@ -16,7 +16,6 @@ public class Senses : CharacterExtension
         memory = character.memory;
         Methods.MakeCloneSOList(ref senses);
         senses.ForEach(x => x.Init(this));
-        StartCoroutine(CheckSurrounding());
     }
 
     public List<Memory.Other> GetSurrounding()
@@ -31,16 +30,12 @@ public class Senses : CharacterExtension
         return characters;
     }
 
-    //repeat intern call
-    private IEnumerator CheckSurrounding()
+    private List<Memory.Other> surrounding;
+    public void CheckSurrounding()
     {
-        while(true)
-        {
-            List<Memory.Other> surrounding = GetSurrounding();
-            surrounding.ForEach(x => memory.AddMemory(x, x.character.curAction));
-            senses.ForEach(x => x.TryExecute(surrounding));
-            yield return new WaitForSeconds(settings.frequency);
-        }
+        surrounding = GetSurrounding();
+        surrounding.ForEach(x => memory.AddMemory(x, x.character.curAction));
+        senses.ForEach(x => x.TryExecute(surrounding));
     }
 
     public bool TrySpot(Character character)

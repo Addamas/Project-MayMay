@@ -51,11 +51,13 @@ public class GameManager : MonoBehaviour {
             character.Init();
             yield return null;
         }
-
+        
         FindOwnables();
 
         TimeManager.instance.StartFlow();
         characters.ForEach(x => x.NewEvent());
+
+        StartCoroutine(SensesQueue());
     }
 
     private void FindCharacters()
@@ -73,7 +75,6 @@ public class GameManager : MonoBehaviour {
     }
 
     #region Pathfinding Queue
-
     private static List<GHOPE> pathfindingQueue = new List<GHOPE>();
 
     public static void EnqueuePathfinding(GHOPE ghope)
@@ -107,11 +108,9 @@ public class GameManager : MonoBehaviour {
                 return character;
         return null;
     }
-
     #endregion
 
     #region Movement Queue
-
     private static List<Character> movementQueue = new List<Character>();
 
     public static void EnqueueMovement(Character ghope)
@@ -155,6 +154,26 @@ public class GameManager : MonoBehaviour {
             else
                 ghope.Cancel();
             
+            yield return null;
+        }
+    }
+    #endregion
+
+    #region Queue
+
+    private IEnumerator SensesQueue()
+    {
+        int current = 0;
+        Character character;
+
+        while (true)
+        {
+            character = characters[current];
+            character.senses.CheckSurrounding();
+
+            current++;
+            if (current >= characters.Count)
+                current = 0;
             yield return null;
         }
     }

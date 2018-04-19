@@ -4,28 +4,6 @@ using UnityEngine;
 using Jext;
 using System;
 
-/*
-    TODAY:
-    Social
-    Memory
-
-    Quest
-
-    actions:
-    converse
-
-    bored actions, sit, converse, play, idk
-    gotobed
-    report
-    investigate
-
-    stats:
-
-    tiredness
-    morale
-    job - innkeeper, cook, servant, thief, police
-*/
-
 public class Character : GHOPE {
 
     #region Get Functions
