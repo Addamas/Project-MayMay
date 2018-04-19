@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
     private void Start () {
 
         StartCoroutine(PathfindingQueue());
+        StartCoroutine(MovementQueue());
         StartCoroutine(Init());
 	}
 
@@ -105,6 +106,57 @@ public class GameManager : MonoBehaviour {
             if (character.name == name)
                 return character;
         return null;
+    }
+
+    #endregion
+
+    #region Movement Queue
+
+    private static List<Character> movementQueue = new List<Character>();
+
+    public static void EnqueueMovement(Character ghope)
+    {
+        movementQueue.Add(ghope);
+    }
+
+    public static void TryRemoveFromMovementQueue(Character removable)
+    {
+        movementQueue.RemoveAll(x => x == removable);
+    }
+
+    private IEnumerator MovementQueue()
+    {
+        Character ghope;
+        Action curAction;
+
+        while (true)
+        {
+            while (movementQueue.Count == 0)
+                yield return null;
+            
+            ghope = movementQueue.First();
+            movementQueue.RemoveAt(0);
+
+            curAction = ghope.curAction;
+
+            if (curAction.IsExecutable())
+                if (!curAction.InRange())
+                {
+                    ghope.movement.MoveTo(curAction.Pos());
+                    //add it to the top again
+                    movementQueue.Add(ghope);
+                }
+                else
+                {
+                    if (!curAction.autoMovement)
+                        ghope.StopMovement();
+                    ghope.BaseExecute();
+                }
+            else
+                ghope.Cancel();
+            
+            yield return null;
+        }
     }
 
     #endregion

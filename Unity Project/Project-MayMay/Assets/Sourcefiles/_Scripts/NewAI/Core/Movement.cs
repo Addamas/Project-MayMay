@@ -16,38 +16,15 @@ public class Movement : CharacterExtension
         agent = GetComponent<NavMeshAgent>();
     }
     
-    public void Follow(Transform trans)
+    public void MoveTo(Vector3 vec)
     {
-        Resume();
-        follow = StartCoroutine(_Follow(trans));
-    }
-
-    private Coroutine follow;
-    private IEnumerator _Follow(Transform trans)
-    {
-        while (true)
-        {
-            agent.SetDestination(trans.position);
-            yield return null;
-        }
-    }
-
-    private void Resume()
-    {
-        Unfollow();
         agent.isStopped = false;
+        agent.SetDestination(vec);
     }
 
     public void Stop()
     {
-        Unfollow();
         agent.isStopped = true;
-    }
-
-    private void Unfollow()
-    {
-        if (follow != null)
-            StopCoroutine(follow);
     }
 
     public override void Init()

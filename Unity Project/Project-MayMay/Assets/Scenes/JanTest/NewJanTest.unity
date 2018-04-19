@@ -713,6 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -4579,6 +4580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -12999,6 +13001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}
@@ -13631,6 +13634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
   - {fileID: 11400000, guid: 4de7208accfad2c4f914afb6c12e7eb1, type: 2}

@@ -193,72 +193,30 @@ public class Character : GHOPE {
     #endregion
 
     #region Override Functions
-    protected override void Execute()
+    public override void Execute()
     {
-        execute = StartCoroutine(_Execute());
-    }
-    
-    private Coroutine execute;
-    private IEnumerator _Execute()
-    {
-        if(debug)
+        if (debug)
             Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
 
-        if (curAction.IsExecutable())
-        {
-            int frame = 0;
-            Transform target = curAction.PosTrans();
-
-            while (!curAction.InRange(target))
-            {
-                if (curAction.GetRemainingLinks().Count > 0)
-                {
-                    Stop();
-                    yield break;
-                }
-
-                frame++;
-                if (frame % settings.movementFramesUntilNewCheck == 0)
-                    if (curAction.IsExecutable())
-                        target = curAction.PosTrans();
-                    else
-                    {
-                        Stop();
-                        yield break;
-                    }
-
-                curAction.WhileMoving();
-                movement.Follow(target);
-                yield return null;
-            }
-            
-            if (curAction.IsExecutable())
-            {
-                if (!curAction.autoMovement)
-                    movement.Stop();
-                base.Execute();
-                yield break;
-            }
-        }
-
-        Stop();
+        GameManager.EnqueueMovement(this);
     }
 
-    private void Stop()
+    public void BaseExecute()
     {
-        if(debug)
-            Debug.Log("CANCELLED: " + name + " " + curAction.name + " " + TimeManager.time);
+        base.Execute();
+    }
+    
+    public void StopMovement()
+    {     
         movement.Stop();
-        base.Cancel();
-        NewEvent();
     }
     #endregion
 
     public override void Cancel()
     {
-        if (execute != null)
-            StopCoroutine(execute);
-
+        if (debug && curAction != null)
+            Debug.Log("CANCELLED: " + name + " " + curAction.name + " " + TimeManager.time);
+        GameManager.TryRemoveFromMovementQueue(this);
         movement.Stop();
         base.Cancel();
     }

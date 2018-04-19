@@ -11,7 +11,7 @@ public class NormalStat : Stat
     public override void Init(GHOPE ai)
     {
         base.Init(ai);
-        if(randomizable)
+        if(randomizable && ai.randomizeStats)
             SetValue(GameManager.random.Next((ai as Character).settings.critVal, Max));
     }
 

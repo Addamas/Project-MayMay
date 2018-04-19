@@ -8,7 +8,7 @@ using Jext;
 [RequireComponent(typeof(Memory), typeof(Movement), typeof(Senses))]
 public abstract class GHOPE : MonoBehaviour {
 
-    public bool debug;
+    public bool debug, randomizeStats;
 
     [NonSerialized]
     public Movement movement;
@@ -78,7 +78,7 @@ public abstract class GHOPE : MonoBehaviour {
         curAction = action;
 
         if (curAction.IsExecutable())
-            action.Execute();
+            Execute();
         else
             NewEvent();
     }
@@ -154,7 +154,7 @@ public abstract class GHOPE : MonoBehaviour {
         return stats.First();
     }
 
-    protected virtual void Execute()
+    public virtual void Execute()
     {
         curAction.Execute();
     }
