@@ -64,11 +64,16 @@ public class Social : TickStat {
     public IEnumerator Speak(ConPart conPart)
     {
         string sentence;
+        float duration;
         for (int i = 0; i < conPart.parts.Count; i++)
         {
             sentence = conPart.parts[i];
-            Debug.Log(ai.name + ": " + sentence);
-            yield return new WaitForSeconds(sentence.Length * timePerChar);
+            Debug.Log(ai.name);
+            
+            duration = sentence.Length * timePerChar;
+            DialogueManager.instance.ConvertTextVisually(ai, sentence, duration);
+
+            yield return new WaitForSeconds(duration);
         }
     }
 }

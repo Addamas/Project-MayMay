@@ -21,9 +21,10 @@ public class Senses : CharacterExtension
     public List<Memory.Other> GetSurrounding()
     {
         List<Memory.Other> characters = new List<Memory.Other>();
-        character.memory.relatives.ForEach(x => characters.Add(x));
 
-        characters.RemoveAll(x => !InRange(x.character.transform));
+        foreach (Memory.Other character in character.memory.relatives)
+            if (InRange(character.character.transform))
+                characters.Add(character);
 
         //normally check if hearable / seeable
 

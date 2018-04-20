@@ -21,6 +21,16 @@ public class GameManager : MonoBehaviour {
 
     public static System.Random random;
 
+    public static GameObject Player
+    {
+        get
+        {
+            return instance.player;
+        }
+    }
+    [SerializeField]
+    private GameObject player; //tijdelijk
+
     private void Awake()
     {
         instance = this;

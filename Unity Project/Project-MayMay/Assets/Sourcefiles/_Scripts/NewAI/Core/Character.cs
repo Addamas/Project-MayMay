@@ -185,7 +185,8 @@ public class Character : GHOPE {
     }
     
     public void StopMovement()
-    {     
+    {
+        GameManager.TryRemoveFromMovementQueue(this);
         movement.Stop();
     }
     #endregion
