@@ -68,10 +68,9 @@ public class Social : TickStat {
         for (int i = 0; i < conPart.parts.Count; i++)
         {
             sentence = conPart.parts[i];
-            Debug.Log(ai.name);
             
             duration = sentence.Length * timePerChar;
-            DialogueManager.instance.ConvertTextVisually(ai, sentence, duration);
+            DialogueManager.instance.ConvertTextVisually(ai.transform, sentence, duration);
 
             yield return new WaitForSeconds(duration);
         }

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 
     public static System.Random random;
 
-    public static GameObject Player
+    public static Player Player
     {
         get
         {
@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour {
         }
     }
     [SerializeField]
-    private GameObject player; //tijdelijk
+    private Player player;
+
+    public Camera mainCamera;
 
     private void Awake()
     {
@@ -148,6 +150,15 @@ public class GameManager : MonoBehaviour {
 
             curAction = ghope.curAction;
 
+            if (curAction == null)
+            {
+                if (ghope.debug)
+                    Debug.Log("Cancel " + ghope.name);
+                ghope.Cancel();
+                ghope.NewEvent();
+                continue;
+            }
+
             if (curAction.IsExecutable())
                 if (!curAction.InRange())
                 {
@@ -159,10 +170,17 @@ public class GameManager : MonoBehaviour {
                 {
                     if (!curAction.autoMovement)
                         ghope.StopMovement();
+                    if(ghope.debug)
+                        Debug.Log("Execute " + ghope.name);
                     ghope.BaseExecute();
                 }
             else
+            {
+                if (ghope.debug)
+                    Debug.Log("Cancel " + ghope.name);
                 ghope.Cancel();
+                ghope.NewEvent();
+            }
             
             yield return null;
         }

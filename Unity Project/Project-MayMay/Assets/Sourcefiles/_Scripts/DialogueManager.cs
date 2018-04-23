@@ -5,18 +5,22 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour {
 
     public static DialogueManager instance;
+    [SerializeField]
+    private GameObject textBalloon;
 
     [SerializeField]
     private int difficultyDis, maxDis;
+    [SerializeField]
+    private float heightOffset;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void ConvertTextVisually(Character character, string text, float duration)
+    public void ConvertTextVisually(Transform trans, string text, float duration)
     {
-        float dis = Vector3.Distance(character.Pos, GameManager.Player.transform.position);
+        float dis = Vector3.Distance(trans.position, GameManager.Player.transform.position);
 
         if (dis > maxDis)
             return;
@@ -30,8 +34,23 @@ public class DialogueManager : MonoBehaviour {
         else
             newText = text;
 
-        Debug.Log(newText);
+        StartCoroutine(VisualizeText(trans, newText, duration));
+    }
 
-        //use character and text and destroy / fade after duration
+    private List<Transform> activeVisualizers = new List<Transform>();
+
+    private IEnumerator VisualizeText(Transform trans, string text, float duration)
+    {
+        while (activeVisualizers.Contains(trans))
+            yield return null;
+
+        activeVisualizers.Add(trans);
+        GameObject balloon = Instantiate(textBalloon, trans.position + Vector3.up * heightOffset, Quaternion.identity);
+        balloon.GetComponent<TextBalloon>().text.text = text;
+
+        yield return new WaitForSeconds(duration);
+        
+        activeVisualizers.Remove(trans);
+        Destroy(balloon);
     }
 }

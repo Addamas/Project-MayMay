@@ -45,8 +45,7 @@ public class SenseDoors : Sense
         if (unwantedOpenDoors.Count == 0)
             return;
 
-        if (character.curAction.GetType() != typeof(CloseDoor))
-            character.ForceNewEvent();
+        character.ForceNextAction(character.GetAction<CloseDoor>());
     }
 
     public override bool ShouldExecute(List<Memory.Other> surrounding)

@@ -193,9 +193,8 @@ public class Character : GHOPE {
 
     public override void Cancel()
     {
-        if (debug && curAction != null)
-            Debug.Log("CANCELLED: " + name + " " + curAction.name + " " + TimeManager.time);
         GameManager.TryRemoveFromMovementQueue(this);
+
         movement.Stop();
         base.Cancel();
     }

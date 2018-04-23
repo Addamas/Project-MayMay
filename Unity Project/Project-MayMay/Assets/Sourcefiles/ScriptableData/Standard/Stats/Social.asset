@@ -41,5 +41,5 @@ MonoBehaviour:
       - Have you seen my buddy sir?
     - parts:
       - Hmm. I'll try to remember.
-  timePerChar: 0.05
+  timePerChar: 0.2
   minValue: 25
