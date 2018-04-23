@@ -25,12 +25,13 @@ public class DialogueManager : MonoBehaviour {
         if (dis > maxDis)
             return;
 
-        dis = Mathf.InverseLerp(difficultyDis, maxDis, dis);
+        float lerp = Mathf.InverseLerp(difficultyDis, maxDis, dis);
+
         string newText = "";
 
         if (dis > difficultyDis)
             for (int i = 0; i < text.Length; i++)
-                newText += Random.Range(0, 1f) < dis ? "." : text[i].ToString();
+                newText += Random.Range(0, 1f) < lerp ? "." : text[i].ToString();
         else
             newText = text;
 

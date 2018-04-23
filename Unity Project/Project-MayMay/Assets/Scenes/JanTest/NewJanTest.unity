@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
@@ -4675,7 +4675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
@@ -13157,7 +13157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
@@ -13446,8 +13446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBalloon: {fileID: 1314818068189228, guid: e5449b474f6eb194fa8630776449bd3f,
     type: 2}
-  difficultyDis: 5
-  maxDis: 50
+  difficultyDis: 6
+  maxDis: 20
   heightOffset: 1.5
 --- !u!1 &1764829811
 GameObject:
@@ -13809,7 +13809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3699da974bc143ae37bd4feed0757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   randomizeStats: 1
   actions:
   - {fileID: 11400000, guid: e1f2d152bb8fd654690c1402d15b3d23, type: 2}
