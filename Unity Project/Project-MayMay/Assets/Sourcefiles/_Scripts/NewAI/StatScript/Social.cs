@@ -14,6 +14,8 @@ public class Social : TickStat {
     [Range(0, 100)]
     public int minValue;
 
+    public ConPart pApology;
+
     public enum ConversationType {Normal, Buying, Searching }
 
     [Serializable]

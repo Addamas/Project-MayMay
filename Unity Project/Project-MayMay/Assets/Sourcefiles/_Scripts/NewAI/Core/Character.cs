@@ -194,8 +194,22 @@ public class Character : GHOPE {
     public override void Cancel()
     {
         GameManager.TryRemoveFromMovementQueue(this);
-
         movement.Stop();
         base.Cancel();
+    }
+
+    public bool PlayerInteract()
+    {
+        foreach (Stat stat in stats)
+            if (stat.GetValue() <= settings.critVal)
+            {
+                Social social = GetStat<Social>();
+                Social.ConPart apology = social.pApology;
+                social.Speak(apology);
+                return false;
+            }
+        Cancel();
+        ForceAction(GetAction<InteractWithPlayer>());
+        return true;
     }
 }
