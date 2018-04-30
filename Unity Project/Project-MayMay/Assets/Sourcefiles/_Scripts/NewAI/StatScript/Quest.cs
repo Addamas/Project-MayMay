@@ -33,7 +33,7 @@ public class Quest : Stat {
         
     }
 
-    protected bool IsTime()
+    public bool IsTime()
     {
         int time = TimeManager.time;
         foreach (QuestTime questTime in times)

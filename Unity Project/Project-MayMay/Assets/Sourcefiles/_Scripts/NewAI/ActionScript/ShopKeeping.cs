@@ -16,6 +16,14 @@ public class ShopKeeping : RootActionMulFrameable
         }
     }
 
+    public bool ShouldBeOpen
+    {
+        get
+        {
+            return Stat<Quest>().IsTime();
+        }
+    }
+
     private Shop shop;
     public Shop Shop
     {

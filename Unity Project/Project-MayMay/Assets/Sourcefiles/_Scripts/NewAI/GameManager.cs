@@ -163,7 +163,6 @@ public class GameManager : MonoBehaviour {
                 if (!curAction.InRange())
                 {
                     ghope.movement.MoveTo(curAction.Pos());
-                    //add it to the top again
                     movementQueue.Add(ghope);
                 }
                 else
@@ -178,8 +177,7 @@ public class GameManager : MonoBehaviour {
             {
                 if (ghope.debug)
                     Debug.Log("Cancel " + ghope.name);
-                ghope.Cancel();
-                ghope.NewEvent();
+                ghope.ForceNewEvent();
             }
             
             yield return null;

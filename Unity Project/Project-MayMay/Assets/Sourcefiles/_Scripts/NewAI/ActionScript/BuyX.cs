@@ -26,7 +26,7 @@ public class BuyX : ConverseNormal {
         if (shopkeeping == null)
             return false;
 
-        if (!shopkeeping.Open)
+        if (!(ai.curAction == this ? shopkeeping.ShouldBeOpen : shopkeeping.Open))
             return false;
 
         if (!ContainsItem(shopkeeping, item))
@@ -52,6 +52,16 @@ public class BuyX : ConverseNormal {
     protected override bool ExecutableCheck()
     {
         return ContainsItem(GetOther().character.GetAction<ShopKeeping>(), item);
+    }
+
+    public override void Execute()
+    {
+        if(!GetOther().character.GetAction<ShopKeeping>().Open)
+        {
+            ai.ForceNewEvent();
+            return;
+        }
+        base.Execute();
     }
 
     protected override void WhenCompleted(Memory.Other other)
@@ -92,5 +102,17 @@ public class BuyX : ConverseNormal {
                 shopKeepers.Add(other);
 
         return Shortcuts.GetClosest(ref shopKeepers, ai.Pos);
+    }
+
+    public override Transform PosTrans()
+    {
+        try
+        {
+            return base.PosTrans().GetComponent<Character>().GetFromInteractables<Shop>().First().transform;
+        }
+        catch
+        {
+            return base.PosTrans();
+        }
     }
 }
