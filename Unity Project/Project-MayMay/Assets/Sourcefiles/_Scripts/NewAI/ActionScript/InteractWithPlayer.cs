@@ -25,4 +25,10 @@ public class InteractWithPlayer : NormalActionMulFrameable
     {
         return true;
     }
+
+    public override void Complete()
+    {
+        ai.StopPlayerInteract();
+        base.Complete();
+    }
 }

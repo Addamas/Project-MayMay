@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour {
         pathfindingQueue.RemoveAll(x => x == removable);
     }
 
-    private IEnumerator PathfindingQueue()
+    private IEnumerator PathfindingQueue() //super heavy op de GC
     {
         GHOPE ghope;
         while (true)
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour {
             while (pathfindingQueue.Count == 0)
                 yield return null;
 
-            ghope = pathfindingQueue.First();
+            ghope = pathfindingQueue[0];
             pathfindingQueue.RemoveAt(0);
             yield return StartCoroutine(ghope.Pathfinding());
         }

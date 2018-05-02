@@ -212,4 +212,10 @@ public class Character : GHOPE {
         ForceAction(GetAction<InteractWithPlayer>());
         return true;
     }
+
+    public void StopPlayerInteract()
+    {
+        if (GameManager.Player.IsInteractingCharacter(this))
+            GameManager.Player.StopInteractingWithCharacter();
+    }
 }

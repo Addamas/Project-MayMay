@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    #region AI Interacting
+
     private Character interactingCharacter;    
     private bool Interacting
     {
@@ -32,6 +34,8 @@ public class Player : MonoBehaviour {
     {
         interactingCharacter = null;
     }
+
+    #endregion
 
     #endregion
 }
