@@ -175,7 +175,7 @@ public class Character : GHOPE {
             Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
 
         StopMovement();
-        GameManager.EnqueueMovement(this);
+        process = Process.Moving;
     }
 
     public void BaseExecute()
@@ -185,14 +185,16 @@ public class Character : GHOPE {
     
     public void StopMovement()
     {
-        GameManager.TryRemoveFromMovementQueue(this);
+        if (process == Process.Moving)
+            process = Process.None;
         movement.Stop();
     }
     #endregion
 
     public override void Cancel()
     {
-        GameManager.TryRemoveFromMovementQueue(this);
+        if (process == Process.Moving)
+            process = Process.None;
         movement.Stop();
         base.Cancel();
     }

@@ -111,17 +111,6 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region Movement Queue
-    private static List<Character> movementQueue = new List<Character>();
-
-    public static void EnqueueMovement(Character ghope)
-    {
-        movementQueue.Add(ghope);
-    }
-
-    public static void TryRemoveFromMovementQueue(Character removable)
-    {
-        movementQueue.RemoveAll(x => x == removable);
-    }
 
     private IEnumerator MovementQueue()
     {
@@ -130,44 +119,39 @@ public class GameManager : MonoBehaviour {
 
         while (true)
         {
-            while (movementQueue.Count == 0)
-                yield return null;
-            
-            ghope = movementQueue.First();
-            movementQueue.RemoveAt(0);
-
-            curAction = ghope.curAction;
-
-            if (curAction == null)
-            {
-                if (ghope.debug)
-                    Debug.Log("Cancel " + ghope.name);
-                ghope.Cancel();
-                ghope.NewEvent();
-                continue;
-            }
-
-            if (curAction.IsExecutable())
-                if (!curAction.InRange())
+            for (int i = 0; i < characters.Count; i++)
+                if (characters[i].IsMoving)
                 {
-                    ghope.movement.MoveTo(curAction.Pos());
-                    movementQueue.Add(ghope);
+                    ghope = characters[i];
+                    curAction = ghope.curAction;
+
+                    if (curAction == null)
+                    {
+                        if (ghope.debug)
+                            Debug.Log("Cancel " + ghope.name);
+                        ghope.ForceNewEvent();
+                        continue;
+                    }
+
+                    if (curAction.IsExecutable())
+                        if (!curAction.InRange())
+                            ghope.movement.MoveTo(curAction.Pos());
+                        else
+                        {
+                            if (!curAction.autoMovement)
+                                ghope.StopMovement();
+                            if (ghope.debug)
+                                Debug.Log("Execute " + ghope.name);
+                            ghope.BaseExecute();
+                        }
+                    else
+                    {
+                        if (ghope.debug)
+                            Debug.Log("Cancel " + ghope.name);
+                        ghope.ForceNewEvent();
+                    }
+                    yield return null;
                 }
-                else
-                {
-                    if (!curAction.autoMovement)
-                        ghope.StopMovement();
-                    if(ghope.debug)
-                        Debug.Log("Execute " + ghope.name);
-                    ghope.BaseExecute();
-                }
-            else
-            {
-                if (ghope.debug)
-                    Debug.Log("Cancel " + ghope.name);
-                ghope.ForceNewEvent();
-            }
-            
             yield return null;
         }
     }
