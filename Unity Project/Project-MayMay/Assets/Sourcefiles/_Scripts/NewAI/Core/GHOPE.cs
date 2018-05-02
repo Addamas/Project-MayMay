@@ -10,6 +10,24 @@ public abstract class GHOPE : MonoBehaviour {
 
     public bool debug, randomizeStats;
 
+    public enum Process {None, Pathfinding, Moving }
+    [NonSerialized]
+    public Process process;
+    public bool IsPathfinding
+    {
+        get
+        {
+            return process == Process.Pathfinding;
+        }
+    }
+    public bool IsMoving
+    {
+        get
+        {
+            return process == Process.Moving;
+        }
+    }
+
     [NonSerialized]
     public Movement movement;
     [NonSerialized]
@@ -98,7 +116,7 @@ public abstract class GHOPE : MonoBehaviour {
     private bool changed;
     public virtual void NewEvent()
     {
-        if (pathfinding)
+        if (IsPathfinding)
             return;
 
         if (forcedAction != null)
@@ -125,12 +143,9 @@ public abstract class GHOPE : MonoBehaviour {
 
     private void StartPathfinding()
     {
-        pathfinding = true;
-        GameManager.EnqueuePathfinding(this);
+        process = Process.Pathfinding;
     }
 
-    [NonSerialized]
-    public bool pathfinding;
     public IEnumerator Pathfinding()
     {
         changed = false;
@@ -142,7 +157,7 @@ public abstract class GHOPE : MonoBehaviour {
                 break;
         }
 
-        pathfinding = false;
+        process = Process.None;
 
         if (changed)
             Execute();
@@ -261,7 +276,6 @@ public abstract class GHOPE : MonoBehaviour {
 
     public virtual void Cancel()
     {
-        GameManager.TryRemoveFromPathfindingQueue(this);
         if(curAction != null)
             curAction.Cancel();
     }

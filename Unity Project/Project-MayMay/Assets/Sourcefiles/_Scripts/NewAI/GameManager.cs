@@ -87,29 +87,17 @@ public class GameManager : MonoBehaviour {
     }
 
     #region Pathfinding Queue
-    private static List<GHOPE> pathfindingQueue = new List<GHOPE>();
-
-    public static void EnqueuePathfinding(GHOPE ghope)
+    private IEnumerator PathfindingQueue()
     {
-        pathfindingQueue.Add(ghope);
-    }
-
-    public static void TryRemoveFromPathfindingQueue(GHOPE removable)
-    {
-        pathfindingQueue.RemoveAll(x => x == removable);
-    }
-
-    private IEnumerator PathfindingQueue() //super heavy op de GC
-    {
-        GHOPE ghope;
         while (true)
         {
-            while (pathfindingQueue.Count == 0)
-                yield return null;
-
-            ghope = pathfindingQueue[0];
-            pathfindingQueue.RemoveAt(0);
-            yield return StartCoroutine(ghope.Pathfinding());
+            for (int i = 0; i < characters.Count; i++)
+                if(characters[i].IsPathfinding)
+                {
+                    yield return StartCoroutine(characters[i].Pathfinding());
+                    yield return null;
+                }
+            yield return null;
         }
     }
 

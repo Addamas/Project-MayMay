@@ -31,7 +31,7 @@ public class Convince : RootActionMulFrameable
         Memory.Other other = GetOther();
         Character otherCharacter = other.character;
 
-        while (otherCharacter.pathfinding)
+        while (otherCharacter.IsPathfinding)
             yield return null;
 
         if (otherCharacter.curAction != null)
@@ -40,7 +40,7 @@ public class Convince : RootActionMulFrameable
         BeforeNewEventOther(otherCharacter);
         otherCharacter.ForceAction(otherCharacter.GetAction<PassiveAction>());
 
-        while (otherCharacter.pathfinding)
+        while (otherCharacter.IsPathfinding)
             yield return null;
 
         lifeTime = ai.StartCoroutine(SecondLifeTime(other));
@@ -147,7 +147,7 @@ public class ConvinceNormal : NormalActionMulFrameable
         Memory.Other other = GetOther();
         Character otherCharacter = other.character;
 
-        while (otherCharacter.pathfinding)
+        while (otherCharacter.IsPathfinding)
             yield return null;
 
         if (otherCharacter.curAction != null)
@@ -156,7 +156,7 @@ public class ConvinceNormal : NormalActionMulFrameable
         BeforeNewEventOther(otherCharacter);
         otherCharacter.ForceAction(otherCharacter.GetAction<PassiveAction>());
 
-        while (otherCharacter.pathfinding)
+        while (otherCharacter.IsPathfinding)
             yield return null;
 
         lifeTime = ai.StartCoroutine(SecondLifeTime(other));

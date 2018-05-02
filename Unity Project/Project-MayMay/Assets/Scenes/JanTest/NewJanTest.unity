@@ -857,6 +857,7 @@ MonoBehaviour:
   senses:
   - {fileID: 11400000, guid: 14cc5e2fdacd70842995ffd97f2390e6, type: 2}
   - {fileID: 11400000, guid: f8b4487e2f7441a41ab1c147dae9976b, type: 2}
+  surroundingCap: 0
 --- !u!114 &46207379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4718,6 +4719,7 @@ MonoBehaviour:
   senses:
   - {fileID: 11400000, guid: 14cc5e2fdacd70842995ffd97f2390e6, type: 2}
   - {fileID: 11400000, guid: f8b4487e2f7441a41ab1c147dae9976b, type: 2}
+  surroundingCap: 0
 --- !u!114 &603879509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13203,6 +13205,7 @@ MonoBehaviour:
   senses:
   - {fileID: 11400000, guid: 14cc5e2fdacd70842995ffd97f2390e6, type: 2}
   - {fileID: 11400000, guid: f8b4487e2f7441a41ab1c147dae9976b, type: 2}
+  surroundingCap: 0
 --- !u!114 &1740490216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13849,6 +13852,7 @@ MonoBehaviour:
   senses:
   - {fileID: 11400000, guid: 14cc5e2fdacd70842995ffd97f2390e6, type: 2}
   - {fileID: 11400000, guid: f8b4487e2f7441a41ab1c147dae9976b, type: 2}
+  surroundingCap: 0
 --- !u!114 &1785984728
 MonoBehaviour:
   m_ObjectHideFlags: 0

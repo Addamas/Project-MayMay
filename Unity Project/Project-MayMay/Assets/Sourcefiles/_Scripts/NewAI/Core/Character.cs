@@ -60,10 +60,8 @@ public class Character : GHOPE {
     public Area GetArea()
     {
         List<Area> districts = new List<Area>();
-        GameManager.districts.ForEach(x => districts.Add(x));
-
-        districts = districts.SortByClosest(Pos);
-        return districts.First().GetClosestInDistrict(Pos);
+        districts = GameManager.districts.SortByClosest(Pos);
+        return districts[0].GetClosestInDistrict(Pos);
     }
 
     #endregion
@@ -176,6 +174,7 @@ public class Character : GHOPE {
         if (debug)
             Debug.Log("STARTED: " + name + " " + curAction.name + " " + TimeManager.time);
 
+        StopMovement();
         GameManager.EnqueueMovement(this);
     }
 

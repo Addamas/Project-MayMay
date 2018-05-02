@@ -10,6 +10,8 @@ public class Senses : CharacterExtension
     [SerializeField]
     private List<Sense> senses = new List<Sense>();
     private Memory memory;
+    [SerializeField]
+    private int surroundingCap;
 
     public override void Init()
     {
@@ -24,7 +26,11 @@ public class Senses : CharacterExtension
 
         foreach (Memory.Other character in character.memory.relatives)
             if (InRange(character.character.transform))
+            {
                 characters.Add(character);
+                if (characters.Count >= surroundingCap)
+                    break;
+            }
 
         //normally check if hearable / seeable
 
